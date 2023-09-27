@@ -1,0 +1,12 @@
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.leter-btn {
+width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 8px;
+        background: #9CDFDF;
+}

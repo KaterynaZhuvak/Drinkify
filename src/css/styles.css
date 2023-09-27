@@ -7,6 +7,7 @@
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./hero.css');
+@import url('./keyboard.css');
 @import url('./footer.css');
 
 :root {
@@ -58,9 +59,9 @@ main {
   }
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   .container {
-    width: 767;
+    width: 768;
     padding-right: 32px;
       padding-left: 32px;
   }
