@@ -9,6 +9,7 @@
 @import url('./hero.css');
 @import url('./keyboard.css');
 @import url('./footer.css');
+@import url('./cocktails.css');
 
 :root {
   --main-color: #7e8fdd;
