@@ -1,0 +1,13 @@
+.alphabet-menu {
+    display: block;
+}
+
+.alphabet-list {
+    position: relative;
+}
+
+.letter-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
