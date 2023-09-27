@@ -3,10 +3,11 @@ import axios from 'axios';
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 
-async function fetchRandomCocktails(cardsAmount) {
-  const resp = await axios.get(`${BASE_URL}cocktails/?r=${cardsAmount}`);
+async function fetchCocktails(link, param, paramValue) {
+  const resp = await axios.get(`${BASE_URL}${link}?${param}=${paramValue}`);
 
+  console.log(resp);
   return resp.data;
 }
 
-export { fetchRandomCocktails };
+export { fetchCocktails };
