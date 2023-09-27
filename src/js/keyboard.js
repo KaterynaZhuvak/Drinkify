@@ -13,7 +13,8 @@ keyboard.addEventListener('click', e => {
     return;
     }
     
-    const currentLetter = e.target.textContent;
+    const currentLetter = e.target.textContent; 
+    // виводить букву, додай функцію запиту замість return
     return currentLetter
 })
 
