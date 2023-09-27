@@ -1,0 +1,22 @@
+.btn {
+  display: inline-flex;
+  padding: 22px 44px;
+  align-items: flex-start;
+  gap: 10px;
+  border: none;
+  border-radius: 12px;
+  background: #7e8fdd;
+  text-decoration: none;
+  color: #fdfdff;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.36px;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background: #6e7fcf;
+}
