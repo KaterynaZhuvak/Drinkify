@@ -48,7 +48,8 @@ inputForm.addEventListener('submit', e => {
 function searchCoctails(input) {
   fetchCocktails(SEARCH_LINK, SEARCH_PARAM, input)
     .then(resp => {
-      console.log(input);
+      console.log(resp.length);
+
       const searchedCards = resp
         .map(item => {
           return createMarkup(item);
