@@ -1,6 +1,6 @@
 import { searchCoctailsByLetter, cardsGallery } from './search';
 
-const menu = document.querySelector('.alphabet-list');
+const openBtn = document.querySelector('.open-alphabet-btn')
 const lettersMenu = document.querySelector('.alphabet-list');
 const alphabet = [
   'A',
@@ -50,16 +50,19 @@ function menuMarkup(arr) {
     .join('');
 }
 
-menu.addEventListener('click', () => {
-  lettersMenu.insertAdjacentHTML('afterbegin', menuMarkup(alphabet));
+openBtn.addEventListener('click', () => {
+  if (lettersMenu.classList.contains('display') === true) {
+    lettersMenu.classList.remove('display');
+lettersMenu.insertAdjacentHTML('afterbegin', menuMarkup(alphabet));
+  } else {
+    lettersMenu.classList.add('display');
+  }
 });
 
 lettersMenu.addEventListener('click', e => {
   e.preventDefault();
-
-  // if (e.target.nodeName !== 'BUTTON') {
-  //   return;
-  // }
+  const currentLetter = e.target.textContent;
+  openBtn.textContent = currentLetter
 
   cardsGallery.innerHTML = '';
 
