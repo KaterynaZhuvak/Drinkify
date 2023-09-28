@@ -1,9 +1,22 @@
 /* ===================== Phone style =================== */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .name {
+    display: none;
+  }
+}
 
-@media screen and (min-width: 375px) and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 374px) {
   .container-popup {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .container-popup {
+    width: 335px;
+    padding: 40px 20px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: var(--background-color);
     border-radius: 20px;
     border: 1px solid black;
@@ -59,7 +72,7 @@
     font-size: 14px;
     line-height: 1.43;
     letter-spacing: 0.02em;
-    width: 295px;
+    width: 100%;
     padding-top: 14px;
     padding-bottom: 14px;
     border-radius: 12px;
@@ -117,8 +130,12 @@
   /* =================== / Theme dark ==================== */
 }
 
-/* ============ Tablet style ============== */
+/* ============ Tablet-Desctop style ============== */
 @media screen and (min-width: 768px) {
+  .container-popup {
+    width: 600px;
+    padding: 40px;
+  }
   .box {
     display: flex;
   }
@@ -139,7 +156,6 @@
     display: inline-block;
     font-size: 18px;
     line-height: 1.33;
-    width: 295px;
     padding-top: 16px;
     padding-bottom: 16px;
   }
@@ -149,5 +165,6 @@
   }
   .back-theme-light {
     width: 172px;
+    margin-top: 40px;
   }
 }
