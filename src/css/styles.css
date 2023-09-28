@@ -26,8 +26,8 @@ body {
   font-family: Poppins;
   color: var(--text-color);
   background-image: url(../img/background.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media (min-device-pixel-ratio: 2),
