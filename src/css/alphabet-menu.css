@@ -20,7 +20,7 @@
   border: none;
   border-radius: 8px;
   background: var(--turquoise, #9cdfdf);
-  color: #fdfdff;
+  color: var(--cards-color);
   text-align: center;
   font-family: Poppins;
   font-size: 14px;
@@ -37,6 +37,9 @@
   width: 18px;
   height: 18px;
 }
+/* .svg-icon-down > use {
+  fill: var(--cards-color);
+} */
 
 .svg-icon-up {
   position: absolute;
@@ -45,6 +48,7 @@
     display: inline-block;
     width: 18px;
     height: 18px;
+    fill: var(--cards-color);
 }
 
 .display {
@@ -107,5 +111,5 @@
 }
 
 .letter-active {
-  background-color: #9cdfdf;
+  background-color: var(--accent-color);
 }
