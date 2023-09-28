@@ -61,10 +61,8 @@ lettersMenu.insertAdjacentHTML('afterbegin', menuMarkup(alphabet));
 
 lettersMenu.addEventListener('click', e => {
   e.preventDefault();
-
-  // if (e.target.nodeName !== 'BUTTON') {
-  //   return;
-  // }
+  const currentLetter = e.target.textContent;
+  openBtn.textContent = currentLetter
 
   cardsGallery.innerHTML = '';
 
