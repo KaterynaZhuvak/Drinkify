@@ -1,5 +1,11 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
+<symbol id="burger-menu" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 13.334h-24"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 8h-24"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 18.666h-24"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 24h-24"></path>
+</symbol>
 <symbol id="big-star-mobale-menu" viewBox="0 0 32 32">
 <path fill="#fdfdff" style="fill: var(--color1, #fdfdff)" opacity="0.2" d="M10.093 28.737c6.78-2.096 14.196 0.172 18.645 5.7-2.096-6.78 0.171-14.196 5.7-18.645-6.78 2.096-14.196-0.172-18.645-5.7 2.096 6.78-0.171 14.196-5.7 18.645zM7.589 29.73c7.616-4.407 10.533-13.949 6.684-21.861l0.528-0.281c4.407 7.616 13.949 10.533 21.861 6.684l0.281 0.528c-7.616 4.407-10.533 13.949-6.683 21.861l-0.528 0.281c-4.407-7.616-13.949-10.533-21.861-6.684l-0.281-0.528z"></path>
 <path fill="#fdfdff" style="fill: var(--color1, #fdfdff)" opacity="0.2" d="M29.389 31.518c0.407 1.446 0.618 2.634 0.63 3.495 0.006 0.431-0.038 0.748-0.111 0.962-0.071 0.211-0.152 0.276-0.194 0.298s-0.141 0.053-0.355-0.006c-0.218-0.060-0.505-0.2-0.86-0.446-0.707-0.492-1.575-1.33-2.546-2.477-1.936-2.285-4.199-5.693-6.319-9.681s-3.68-7.77-4.492-10.652c-0.407-1.446-0.618-2.634-0.63-3.495-0.006-0.431 0.038-0.748 0.111-0.962 0.071-0.211 0.152-0.276 0.194-0.298s0.141-0.053 0.356 0.006c0.218 0.060 0.505 0.199 0.86 0.446 0.707 0.492 1.575 1.33 2.546 2.477 1.936 2.285 4.199 5.693 6.319 9.681s3.68 7.77 4.492 10.652zM29.994 36.801c1.745-0.928-0.3-8.188-4.569-16.216s-9.144-13.784-10.889-12.856c-1.745 0.928 0.3 8.188 4.569 16.216s9.144 13.784 10.889 12.856z"></path>
