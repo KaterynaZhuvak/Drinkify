@@ -72,10 +72,10 @@ lettersMenu.addEventListener('click', e => {
   const currentLetter = e.target.textContent;
   openBtn.innerHTML = `<p class="btn-letter">${currentLetter}</p>
   <svg class="svg-icon-down">
-      <use href="../img/sprite.svg#chevron-down"></use>
+      <use href="./img/sprite.svg#chevron-down"></use>
     </svg>
     <svg class="svg-icon-up display">
-      <use href="../img/sprite.svg#chevron-up"></use>
+      <use href="./img/sprite.svg#chevron-up"></use>
     </svg>`;
   alphabetContainer.classList.add('display');
   lettersMenu.innerHTML = '';
