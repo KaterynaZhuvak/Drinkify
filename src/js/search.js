@@ -105,10 +105,15 @@ function SetupPagination(items, wrapper, rows_per_page) {
 
   let page_count = Math.ceil(items.length / rows_per_page);
 
+  let btn = '';
   for (let i = 1; i < page_count + 1; i++) {
-    let btn = PaginationButton(i);
-    wrapper.appendChild(btn);
+    if (i === 1) {
+      btn += `<button class="pagination-number-btn active">${i}</button>`;
+      continue;
+    }
+    btn += `<button class="pagination-number-btn">${i}</button>`;
   }
+  wrapper.insertAdjacentHTML('afterbegin', btn);
 
   pagination_element.addEventListener('click', e => {
     if (e.target.nodeName !== 'BUTTON') {
@@ -134,14 +139,14 @@ function SetupPagination(items, wrapper, rows_per_page) {
   // );
 }
 
-function PaginationButton(i) {
-  let button = document.createElement('button');
-  button.innerText = i;
-  button.classList.add('pagination-number-btn');
+// function PaginationButton(i) {
+//   let button = document.createElement('button');
+//   button.innerText = i;
+//   button.classList.add('pagination-number-btn');
 
-  if (i === 1) button.classList.add('active');
+//   // if (i === 1) button.classList.add('active');
 
-  return button;
-}
+//   return `<button class="pagination-number-btn">${i}</button>`;
+// }
 
 export { searchCocktails, SEARCH_LINK, LETTER_PARAM, resetSearch };
