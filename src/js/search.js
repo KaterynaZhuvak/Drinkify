@@ -49,24 +49,46 @@ inputForm.addEventListener('submit', e => {
   searchCoctails(searchQuery.value);
 });
 
-function searchCoctails(input) {
-  fetchCocktails(SEARCH_LINK, SEARCH_PARAM, input)
-    .then(resp => {
-      console.log(resp.length);
+async function searchCoctails(input) {
+  try {
+    const cards = await fetchCocktails(SEARCH_LINK, SEARCH_PARAM, input);
 
-      const searchedCards = resp
-        .map(item => {
-          return createMarkup(item);
-        })
-        .join('');
+    let currentPage = 1;
+    let cardsPerPage = 8;
+    if (screen.width >= 1280) {
+      cardsPerPage = 9;
+    }
 
-      cardsGallery.innerHTML = searchedCards;
-      inputForm.reset();
-    })
-    .catch(error => {
-      Notiflix.Notify.failure('No results found, please try another name');
-      console.log(error);
-    });
+    const searchedCards = cards
+      .map(item => {
+        return createMarkup(item);
+      })
+      .join('');
+
+    cardsGallery.innerHTML = searchedCards;
+    inputForm.reset();
+  } catch (error) {
+    Notiflix.Notify.failure('No results found, please try another name');
+    console.log(error);
+  }
+
+  // fetchCocktails(SEARCH_LINK, SEARCH_PARAM, input)
+  //   .then(resp => {
+  //     console.log(resp.length);
+
+  //     const searchedCards = resp
+  //       .map(item => {
+  //         return createMarkup(item);
+  //       })
+  //       .join('');
+
+  //     cardsGallery.innerHTML = searchedCards;
+  //     inputForm.reset();
+  //   })
+  //   .catch(error => {
+  //     Notiflix.Notify.failure('No results found, please try another name');
+  //     console.log(error);
+  //   });
 }
 
 function searchCoctailsByLetter(letter) {
