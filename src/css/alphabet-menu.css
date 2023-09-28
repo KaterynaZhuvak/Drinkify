@@ -1,13 +1,13 @@
 .alphabet-menu {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    padding-top: 33px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  padding-top: 33px;
 }
 
 .open-alphabet-btn {
-  
+  position: relative;
   flex-direction: column;
   display: inline-flex;
   height: 34px;
@@ -20,6 +20,27 @@
   border: none;
   border-radius: 8px;
   background: var(--turquoise, #9cdfdf);
+  color: #fdfdff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.btn-letter::after {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #fdfdff;
+  border-left: 2px solid #fdfdff;
+  content: '';
+  transform: rotate(45deg);
+  
 }
 
 .display {
@@ -39,14 +60,13 @@
 
 .alphabet-list::-webkit-scrollbar {
   width: 3px;
-    
 }
 
 .alphabet-list::-webkit-scrollbar-thumb {
-height: 34px;
+  height: 34px;
   flex-shrink: 0;
   border-radius: 4px;
-  background: rgba(156, 223, 223, 0.80);
+  background: rgba(156, 223, 223, 0.8);
   padding-right: 4px;
 }
 
@@ -61,6 +81,13 @@ height: 34px;
 }
 
 .letter-link {
+  color: var(--text-color);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
 }
 
 .icon-scroll {
