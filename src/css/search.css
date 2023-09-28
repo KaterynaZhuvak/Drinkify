@@ -27,22 +27,28 @@
 
 .pagination {
   display: flex;
-  justify-content: center;
-}
-
-.pagination__list {
-  display: flex;
   flex-wrap: wrap;
-  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
 }
 
-.pagination__item {
-  padding: 8px;
-  margin: 8px;
-  cursor: pointer;
+.pagination-number-btn {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 4px;
+  border: 1px solid #7e8fdd;
+  background-color: transparent;
+
+  transition: 0.4s;
+
+  color: #7e8fdd;
+  font-size: 16px;
 }
 
-.pagination__item--active {
-  font-weight: 800;
-  color: gold;
+.pagination-number-btn:hover,
+.pagination-number-btn.active {
+  color: #fdfdff;
+  background-color: #9cdfdf;
 }

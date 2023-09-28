@@ -8,8 +8,9 @@ const LETTER_PARAM = 'f';
 
 const RANDOM_LINK = 'cocktails/';
 const SEARCH_LINK = 'cocktails/search/';
+
 const cardsGallery = document.querySelector('.cardlist');
-const paginationContainer = document.querySelector('.pagination-main');
+const pagination_element = document.querySelector('.pagination');
 const inputForm = document.querySelector('#search-form');
 
 createRandomCards();
@@ -39,6 +40,7 @@ function createRandomCards() {
 inputForm.addEventListener('submit', e => {
   e.preventDefault();
   cardsGallery.innerHTML = '';
+  pagination_element.innerHTML = '';
 
   const { searchQuery } = e.currentTarget.elements;
 
@@ -50,68 +52,43 @@ inputForm.addEventListener('submit', e => {
   searchCoctails(searchQuery.value);
 });
 
-async function searchCoctails(input) {
-  try {
-    const cards = await fetchCocktails(SEARCH_LINK, SEARCH_PARAM, input);
-
-    let currentPage = 1;
-    let cardsPerPage = 8;
-    if (screen.width >= 1280) {
-      cardsPerPage = 9;
-    }
-
-    function displayList(arrData, rowPerPage, page) {
-      page--;
-
-      const start = rowPerPage * page;
-      const end = start + rowPerPage;
-      const paginatedData = arrData.slice(start, end);
-
-      const searchedCards = paginatedData
+function searchCoctailsByLetter(letter) {
+  fetchCocktails(SEARCH_LINK, LETTER_PARAM, letter)
+    .then(resp => {
+      const searchedCards = resp
         .map(item => {
           return createMarkup(item);
         })
         .join('');
 
       cardsGallery.innerHTML = searchedCards;
+    })
+    .catch(error => {
+      Notiflix.Notify.failure('No results found, please try another letter');
+      console.log(error);
+    });
+}
+
+let currentPage = 1;
+let cardsPerPage = 8;
+if (screen.width >= 1280) {
+  cardsPerPage = 9;
+}
+
+async function searchCoctails(input) {
+  try {
+    const cards = await fetchCocktails(SEARCH_LINK, SEARCH_PARAM, input);
+
+    if (cards.length <= cardsPerPage) {
+      cardsGallery.innerHTML = cards
+        .map(item => {
+          return createMarkup(item);
+        })
+        .join('');
+    } else {
+      DisplayList(cards, cardsGallery, cardsPerPage, currentPage);
+      SetupPagination(cards, pagination_element, cardsPerPage);
     }
-
-    function displayPagination(arrData, rowPerPage) {
-      const pagesCount = Math.ceil(arrData.length / rowPerPage);
-      const ulEl = document.createElement('ul');
-      ulEl.classList.add('pagination__list');
-
-      for (let i = 0; i < pagesCount; i++) {
-        const liEl = displayPaginationBtn(i + 1);
-        ulEl.appendChild(liEl);
-      }
-      paginationContainer.appendChild(ulEl);
-    }
-
-    function displayPaginationBtn(page) {
-      const liEl = document.createElement('li');
-      liEl.classList.add('pagination__item');
-      liEl.innerText = page;
-
-      if (currentPage == page) liEl.classList.add('pagination__item--active');
-
-      liEl.addEventListener('click', () => {
-        currentPage = page;
-        displayList(cards, cardsPerPage, currentPage);
-
-        let currentItemLi = document.querySelector(
-          'li.pagination__item--active'
-        );
-        currentItemLi.classList.remove('pagination__item--active');
-
-        liEl.classList.add('pagination__item--active');
-      });
-
-      return liEl;
-    }
-
-    displayList(cards, cardsPerPage, currentPage);
-    displayPagination(cards, cardsPerPage);
 
     inputForm.reset();
   } catch (error) {
@@ -138,21 +115,59 @@ async function searchCoctails(input) {
   //   });
 }
 
-function searchCoctailsByLetter(letter) {
-  fetchCocktails(SEARCH_LINK, LETTER_PARAM, letter)
-    .then(resp => {
-      const searchedCards = resp
-        .map(item => {
-          return createMarkup(item);
-        })
-        .join('');
+function DisplayList(items, wrapper, rows_per_page, page) {
+  wrapper.innerHTML = '';
+  page--;
 
-      cardsGallery.innerHTML = searchedCards;
+  let start = rows_per_page * page;
+  let end = start + rows_per_page;
+  let paginatedItems = items.slice(start, end);
+
+  wrapper.innerHTML = paginatedItems
+    .map(item => {
+      return createMarkup(item);
     })
-    .catch(error => {
-      Notiflix.Notify.failure('No results found, please try another letter');
-      console.log(error);
-    });
+    .join('');
+}
+
+function SetupPagination(items, wrapper, rows_per_page) {
+  wrapper.innerHTML = '';
+
+  let page_count = Math.ceil(items.length / rows_per_page);
+
+  for (let i = 1; i < page_count + 1; i++) {
+    let btn = PaginationButton(i, items);
+    wrapper.appendChild(btn);
+  }
+
+  // wrapper.insertAdjacentHTML(
+  //   'afterbegin',
+  //   '<button class="previous">&#60;</button>'
+  // );
+  // wrapper.insertAdjacentHTML(
+  //   'beforeend',
+  //   '<button class="next">&#62;</button>'
+  // );
+}
+
+function PaginationButton(page, items) {
+  let button = document.createElement('button');
+  button.innerText = page;
+  button.classList.add('pagination-number-btn');
+
+  if (currentPage == page) button.classList.add('active');
+
+  button.addEventListener('click', function () {
+    currentPage = page;
+    DisplayList(items, cardsGallery, cardsPerPage, currentPage);
+
+    let current_btn = document.querySelector('.pagination-number-btn.active');
+    current_btn.classList.remove('active');
+
+    button.classList.add('active');
+  });
+
+  return button;
 }
 
 export { searchCoctailsByLetter, cardsGallery };
