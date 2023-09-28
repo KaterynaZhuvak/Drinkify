@@ -11,6 +11,7 @@
 @import url('./search.css');
 @import url('./cocktails.css');
 @import url('./alphabet-menu.css');
+@import url('./favorite-ingredients.css');
 @import url('./footer.css');
 
 :root {
@@ -24,7 +25,6 @@
 body {
   font-family: Poppins;
   color: var(--text-color);
-  background-color: var(--background-color);
   background-image: url(../img/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,6 +37,34 @@ body {
     background-image: url(../img/background2x.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url(../img/background-tablet.jpg);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  body {
+    background-image: url(../img/background-tablet@2x.jpg);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  body {
+    background-image: url(../img/background-desktop.jpg);
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  body {
+    background-image: url(../img/background-desktop@2x.jpg);
   }
 }
 
