@@ -82,6 +82,7 @@ async function searchCoctails(input) {
       ulEl.classList.add('pagination__list');
 
       for (let i = 0; i < pagesCount; i++) {
+        const liEl = displayPaginationBtn(i + 1);
         ulEl.appendChild(liEl);
       }
       paginationContainer.appendChild(ulEl);
