@@ -1,13 +1,44 @@
 .alphabet-menu {
-    display: block;
+  position: relative;
+  flex-direction: column;
+  display: inline-flex;
+  height: 34px;
+  width: 90px;
+  padding: 8px 14px 8px 15px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 34px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--turquoise, #9cdfdf);
 }
 
 .alphabet-list {
-    position: relative;
+  position: absolute;
+  height: 84px;
+  width: 90px;
+  background: var(--cards-color);
+  overflow: scroll;
+  border-radius: 8px;
+  left: 0px;
+  top: 40px;
 }
 
 .letter-item {
-    position: absolute;
-    left: 0;
-    top: 0;
+  display: flex;
+  width: 90px;
+  height: 28px;
+  padding: 4px 10px;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.letter-link {
+}
+
+.icon-scroll {
+    width: 18px;
+        height: 18px;
+        fill: var(--cards-color);
 }
