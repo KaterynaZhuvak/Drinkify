@@ -20,7 +20,7 @@
   border: none;
   border-radius: 8px;
   background: var(--turquoise, #9cdfdf);
-  color: #fdfdff;
+  color: var(--cards-color);
   text-align: center;
   font-family: Poppins;
   font-size: 14px;
@@ -29,33 +29,47 @@
   line-height: 18px;
 }
 
-.btn-letter::after {
+.svg-icon-down {
   position: absolute;
-  top: 14px;
+  top: 8px;
   right: 14px;
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-top: 2px solid #fdfdff;
-  border-left: 2px solid #fdfdff;
-  content: '';
-  transform: rotate(45deg);
-  
+  width: 18px;
+  height: 18px;
+}
+/* .svg-icon-down > use {
+  fill: var(--cards-color);
+} */
+
+.svg-icon-up {
+  position: absolute;
+    top: 8px;
+    right: 14px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    fill: var(--cards-color);
 }
 
 .display {
   display: none;
 }
 
-.alphabet-list {
+.list-container {
   position: absolute;
   z-index: 3;
   height: 84px;
   width: 90px;
   background: var(--cards-color);
-  overflow: auto;
   border-radius: 8px;
+  border: 1px solid var(--accent-color);
   top: 70px;
+}
+
+.alphabet-list {
+  height: 82px;
+  width: 86px;
+  overflow: auto;
 }
 
 .alphabet-list::-webkit-scrollbar {
@@ -82,12 +96,12 @@
 
 .letter-link {
   color: var(--text-color);
-    text-align: center;
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 18px;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
 }
 
 .icon-scroll {
@@ -97,5 +111,5 @@
 }
 
 .letter-active {
-  background-color: #9cdfdf;
+  background-color: var(--accent-color);
 }
