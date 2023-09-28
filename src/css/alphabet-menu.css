@@ -38,7 +38,11 @@
 }
 
 .icon-scroll {
-    width: 18px;
-        height: 18px;
-        fill: var(--cards-color);
+  width: 18px;
+  height: 18px;
+  fill: var(--cards-color);
+}
+
+.letter-active {
+  background-color: #9cdfdf;
 }
