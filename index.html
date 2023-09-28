@@ -20,9 +20,9 @@
     />
     
     <link rel="stylesheet" href="dist/basicLightbox.min.css" />
-    <script type="module" crossorigin src="/Drinkify/assets/index-ea49c20b.js"></script>
-    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-7f66c1e6.js">
-    <link rel="stylesheet" href="/Drinkify/assets/styles-efb25fa0.css">
+    <script type="module" crossorigin src="/Drinkify/assets/index-d95a9d08.js"></script>
+    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-e49c61ad.js">
+    <link rel="stylesheet" href="/Drinkify/assets/styles-b7f6f433.css">
   </head>
   <body>
     <a href="./favorite-cocktails.html">favorite cocktails</a>
@@ -38,48 +38,56 @@
     <main>
       <section class="hero">
   <div class="hero-content">
-    <h1>A party without<br>
-      <span class="coctails-color">cocktails</span><br> is not like a party
+    <h1>
+      A party without<br />
+      <span class="coctails-color">cocktails</span><br />
+      is not like a party
     </h1>
-    <p class="exotic">From classic sips to exotic mixes, we're your key<br> to becoming a cocktail wizard!</p>
+    <p class="exotic">
+      From classic sips to exotic mixes, we're your key<br />
+      to becoming a cocktail wizard!
+    </p>
   </div>
   <div>
     <a href="#">
-      <button type="button" class="btn">
-        View Cocktails
-      </button>
+      <button type="button" class="btn">View Cocktails</button>
     </a>
   </div>
   <div class="overlay"></div>
   <div class="image-container">
-    <img src="/Drinkify/assets/Rectangle-c212dcee.png" alt="Cocktail Image 1">
-    <img src="/Drinkify/assets/stars-5b4c18cd.png" alt="Cocktail Image 2">
-    <img src="/Drinkify/assets/Girl-693b78d7.png" alt="Cocktail Image 3">
+    <img src="/Drinkify/assets/Rectangle-c212dcee.png" alt="Cocktail Image 1" />
+    <img src="/Drinkify/assets/stars-5b4c18cd.png" alt="Cocktail Image 2" />
+    <img src="/Drinkify/assets/Girl-693b78d7.png" alt="Cocktail Image 3" />
   </div>
   <p class="search-text">Search your favorite cocktail by ABC</p>
-</section>
 
-
-<section>
-  <!-- place it in the end of hero
+  <!-- place it in the end of hero section
     search should be in the hero section due to Tech requirements -->
+  <div class="keyboard"></div>
+<div class="alphabet-menu">
+  <svg class="icon-scroll">
+    <use href="../img/sprite.svg#chevron-down"></use>
+  </svg>
+  <ul class="alphabet-list"></ul>
+</div>
+
   <form class="search-form" id="search-form">
   <input
+    class="search-form-input"
     type="text"
     name="searchQuery"
     autocomplete="off"
-    placeholder="Search images..."
+    placeholder="Search"
   />
-  <button type="submit">Search</button>
+  <button class="search-form-submit-btn" type="submit">
+    <svg class="search-form-submit-icon" width="16" height="16">
+      <use href="/Drinkify/assets/sprite-6eb5fe0f.svg#search"></use>
+    </svg>
+  </button>
 </form>
 
 </section>
-      <div class="keyboard"></div>
-      <div class="alphabet-menu">
-        <svg class="icon-scroll">
-          <use href="../img/sprite.svg#chevron-down"></use>
-        </svg>
-        <ul class='alphabet-list'></ul></div>
+
       <section>
     <div class="container">
     <h2 class="cardlist-header">Cocktails</h2>
