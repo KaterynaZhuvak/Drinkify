@@ -1,4 +1,9 @@
-import { searchCoctailsByLetter, cardsGallery } from './search';
+import {
+  searchCocktails,
+  SEARCH_LINK,
+  LETTER_PARAM,
+  resetSearch,
+} from './search';
 
 const openBtn = document.querySelector('.open-alphabet-btn');
 const lettersMenu = document.querySelector('.alphabet-list');
@@ -80,6 +85,6 @@ lettersMenu.addEventListener('click', e => {
   alphabetContainer.classList.add('display');
   lettersMenu.innerHTML = '';
 
-  cardsGallery.innerHTML = '';
-  searchCoctailsByLetter(e.target.textContent);
+  resetSearch();
+  searchCocktails(e.target.textContent, SEARCH_LINK, LETTER_PARAM);
 });

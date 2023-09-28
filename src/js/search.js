@@ -13,6 +13,12 @@ const cardsGallery = document.querySelector('.cardlist');
 const pagination_element = document.querySelector('.pagination');
 const inputForm = document.querySelector('#search-form');
 
+let currentPage = 1;
+let cardsPerPage = 8;
+if (screen.width >= 1280) {
+  cardsPerPage = 9;
+}
+
 createRandomCards();
 
 function createRandomCards() {
@@ -39,8 +45,7 @@ function createRandomCards() {
 
 inputForm.addEventListener('submit', e => {
   e.preventDefault();
-  cardsGallery.innerHTML = '';
-  pagination_element.innerHTML = '';
+  resetSearch();
 
   const { searchQuery } = e.currentTarget.elements;
 
@@ -49,35 +54,18 @@ inputForm.addEventListener('submit', e => {
     return;
   }
 
-  searchCoctails(searchQuery.value);
+  searchCocktails(searchQuery.value, SEARCH_LINK, SEARCH_PARAM);
 });
 
-function searchCoctailsByLetter(letter) {
-  fetchCocktails(SEARCH_LINK, LETTER_PARAM, letter)
-    .then(resp => {
-      const searchedCards = resp
-        .map(item => {
-          return createMarkup(item);
-        })
-        .join('');
-
-      cardsGallery.innerHTML = searchedCards;
-    })
-    .catch(error => {
-      Notiflix.Notify.failure('No results found, please try another letter');
-      console.log(error);
-    });
+function resetSearch() {
+  currentPage = 1;
+  cardsGallery.innerHTML = '';
+  pagination_element.innerHTML = '';
 }
 
-let currentPage = 1;
-let cardsPerPage = 8;
-if (screen.width >= 1280) {
-  cardsPerPage = 9;
-}
-
-async function searchCoctails(input) {
+async function searchCocktails(input, link, param) {
   try {
-    const cards = await fetchCocktails(SEARCH_LINK, SEARCH_PARAM, input);
+    const cards = await fetchCocktails(link, param, input);
 
     if (cards.length <= cardsPerPage) {
       cardsGallery.innerHTML = cards
@@ -95,24 +83,6 @@ async function searchCoctails(input) {
     Notiflix.Notify.failure('No results found, please try another name');
     console.log(error);
   }
-
-  // fetchCocktails(SEARCH_LINK, SEARCH_PARAM, input)
-  //   .then(resp => {
-  //     console.log(resp.length);
-
-  //     const searchedCards = resp
-  //       .map(item => {
-  //         return createMarkup(item);
-  //       })
-  //       .join('');
-
-  //     cardsGallery.innerHTML = searchedCards;
-  //     inputForm.reset();
-  //   })
-  //   .catch(error => {
-  //     Notiflix.Notify.failure('No results found, please try another name');
-  //     console.log(error);
-  //   });
 }
 
 function DisplayList(items, wrapper, rows_per_page, page) {
@@ -136,9 +106,23 @@ function SetupPagination(items, wrapper, rows_per_page) {
   let page_count = Math.ceil(items.length / rows_per_page);
 
   for (let i = 1; i < page_count + 1; i++) {
-    let btn = PaginationButton(i, items);
+    let btn = PaginationButton(i);
     wrapper.appendChild(btn);
   }
+
+  pagination_element.addEventListener('click', e => {
+    if (e.target.nodeName !== 'BUTTON') {
+      return;
+    }
+
+    currentPage = e.target.textContent;
+    DisplayList(items, cardsGallery, cardsPerPage, currentPage);
+
+    let current_btn = document.querySelector('.pagination-number-btn.active');
+    current_btn.classList.remove('active');
+
+    e.target.classList.add('active');
+  });
 
   // wrapper.insertAdjacentHTML(
   //   'afterbegin',
@@ -150,24 +134,14 @@ function SetupPagination(items, wrapper, rows_per_page) {
   // );
 }
 
-function PaginationButton(page, items) {
+function PaginationButton(i) {
   let button = document.createElement('button');
-  button.innerText = page;
+  button.innerText = i;
   button.classList.add('pagination-number-btn');
 
-  if (currentPage == page) button.classList.add('active');
-
-  button.addEventListener('click', function () {
-    currentPage = page;
-    DisplayList(items, cardsGallery, cardsPerPage, currentPage);
-
-    let current_btn = document.querySelector('.pagination-number-btn.active');
-    current_btn.classList.remove('active');
-
-    button.classList.add('active');
-  });
+  if (i === 1) button.classList.add('active');
 
   return button;
 }
 
-export { searchCoctailsByLetter, cardsGallery };
+export { searchCocktails, SEARCH_LINK, LETTER_PARAM, resetSearch };

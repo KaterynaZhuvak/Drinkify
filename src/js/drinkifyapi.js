@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import Notiflix from 'notiflix';
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 
