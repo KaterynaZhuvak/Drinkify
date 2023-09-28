@@ -5,13 +5,7 @@
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 374px) {
-  .container-popup {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 320px) {
   .container-popup {
     width: 335px;
     padding: 40px 20px;
@@ -128,6 +122,12 @@
     background-color: rgb(253, 253, 255, 0.2);
   }
   /* =================== / Theme dark ==================== */
+
+  @media screen and (min-width: 320px) and (max-width: 374px) {
+    .container-popup {
+      width: 100%;
+    }
+  }
 }
 
 /* ============ Tablet-Desctop style ============== */
