@@ -8,8 +8,16 @@ const LETTER_PARAM = 'f';
 
 const RANDOM_LINK = 'cocktails/';
 const SEARCH_LINK = 'cocktails/search/';
+
 const cardsGallery = document.querySelector('.cardlist');
+const pagination_element = document.querySelector('.pagination');
 const inputForm = document.querySelector('#search-form');
+
+let currentPage = 1;
+let cardsPerPage = 8;
+if (screen.width >= 1280) {
+  cardsPerPage = 9;
+}
 
 createRandomCards();
 
@@ -37,7 +45,7 @@ function createRandomCards() {
 
 inputForm.addEventListener('submit', e => {
   e.preventDefault();
-  cardsGallery.innerHTML = '';
+  resetSearch();
 
   const { searchQuery } = e.currentTarget.elements;
 
@@ -46,44 +54,99 @@ inputForm.addEventListener('submit', e => {
     return;
   }
 
-  searchCoctails(searchQuery.value);
+  searchCocktails(searchQuery.value, SEARCH_LINK, SEARCH_PARAM);
 });
 
-function searchCoctails(input) {
-  fetchCocktails(SEARCH_LINK, SEARCH_PARAM, input)
-    .then(resp => {
-      console.log(resp.length);
+function resetSearch() {
+  currentPage = 1;
+  cardsGallery.innerHTML = '';
+  pagination_element.innerHTML = '';
+}
 
-      const searchedCards = resp
+async function searchCocktails(input, link, param) {
+  try {
+    const cards = await fetchCocktails(link, param, input);
+
+    if (cards.length <= cardsPerPage) {
+      cardsGallery.innerHTML = cards
         .map(item => {
           return createMarkup(item);
         })
         .join('');
+    } else {
+      DisplayList(cards, cardsGallery, cardsPerPage, currentPage);
+      SetupPagination(cards, pagination_element, cardsPerPage);
+    }
 
-      cardsGallery.innerHTML = searchedCards;
-      inputForm.reset();
-    })
-    .catch(error => {
-      Notiflix.Notify.failure('No results found, please try another name');
-      console.log(error);
-    });
+    inputForm.reset();
+  } catch (error) {
+    Notiflix.Notify.failure('No results found, please try another name');
+    console.log(error);
+  }
 }
 
-function searchCoctailsByLetter(letter) {
-  fetchCocktails(SEARCH_LINK, LETTER_PARAM, letter)
-    .then(resp => {
-      const searchedCards = resp
-        .map(item => {
-          return createMarkup(item);
-        })
-        .join('');
+function DisplayList(items, wrapper, rows_per_page, page) {
+  wrapper.innerHTML = '';
+  page--;
 
-      cardsGallery.innerHTML = searchedCards;
+  let start = rows_per_page * page;
+  let end = start + rows_per_page;
+  let paginatedItems = items.slice(start, end);
+
+  wrapper.innerHTML = paginatedItems
+    .map(item => {
+      return createMarkup(item);
     })
-    .catch(error => {
-      Notiflix.Notify.failure('No results found, please try another letter');
-      console.log(error);
-    });
+    .join('');
 }
 
-export { searchCoctailsByLetter, cardsGallery };
+function SetupPagination(items, wrapper, rows_per_page) {
+  wrapper.innerHTML = '';
+
+  let page_count = Math.ceil(items.length / rows_per_page);
+
+  let btn = '';
+  for (let i = 1; i < page_count + 1; i++) {
+    if (i === 1) {
+      btn += `<button class="pagination-number-btn active">${i}</button>`;
+      continue;
+    }
+    btn += `<button class="pagination-number-btn">${i}</button>`;
+  }
+  wrapper.insertAdjacentHTML('afterbegin', btn);
+
+  pagination_element.addEventListener('click', e => {
+    if (e.target.nodeName !== 'BUTTON') {
+      return;
+    }
+
+    currentPage = e.target.textContent;
+    DisplayList(items, cardsGallery, cardsPerPage, currentPage);
+
+    let current_btn = document.querySelector('.pagination-number-btn.active');
+    current_btn.classList.remove('active');
+
+    e.target.classList.add('active');
+  });
+
+  // wrapper.insertAdjacentHTML(
+  //   'afterbegin',
+  //   '<button class="previous">&#60;</button>'
+  // );
+  // wrapper.insertAdjacentHTML(
+  //   'beforeend',
+  //   '<button class="next">&#62;</button>'
+  // );
+}
+
+// function PaginationButton(i) {
+//   let button = document.createElement('button');
+//   button.innerText = i;
+//   button.classList.add('pagination-number-btn');
+
+//   // if (i === 1) button.classList.add('active');
+
+//   return `<button class="pagination-number-btn">${i}</button>`;
+// }
+
+export { searchCocktails, SEARCH_LINK, LETTER_PARAM, resetSearch };
