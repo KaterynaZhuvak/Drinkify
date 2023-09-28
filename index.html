@@ -19,10 +19,10 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/Drinkify/assets/index-eb825327.js"></script>
-    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-82bf25c7.js">
+    <script type="module" crossorigin src="/Drinkify/assets/index-8d819ab9.js"></script>
+    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-06a0d192.js">
     <link rel="modulepreload" crossorigin href="/Drinkify/assets/favorite-ingredients-6fb7f766.js">
-    <link rel="stylesheet" href="/Drinkify/assets/styles-987a2818.css">
+    <link rel="stylesheet" href="/Drinkify/assets/styles-31a3a4c0.css">
   </head>
   <body>
     <a href="./favorite-cocktails.html">favorite cocktails</a>
@@ -67,8 +67,15 @@
 <div class="alphabet-menu">
   <button type="button" class="open-alphabet-btn">
     <p class="btn-letter">A</p>
+    <svg class="svg-icon-down">
+      <use href="../img/sprite.svg#chevron-down"></use>
+    </svg>
+    <svg class="svg-icon-up display">
+      <use href="../img/sprite.svg#chevron-up"></use>
+    </svg>
   </button>
-  <ul class="alphabet-list display"></ul>
+  <div class="list-container display"><ul class="alphabet-list " ></ul></div>
+  
 </div>
 
   <form class="search-form" id="search-form">
@@ -81,7 +88,7 @@
   />
   <button class="search-form-submit-btn" type="submit">
     <svg class="search-form-submit-icon" width="16" height="16">
-      <use href="/Drinkify/assets/sprite-8c031bfb.svg#search"></use>
+      <use href="/Drinkify/assets/sprite-0fb6a2c1.svg#search"></use>
     </svg>
   </button>
 </form>
