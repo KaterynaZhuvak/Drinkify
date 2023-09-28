@@ -10,8 +10,8 @@
 @import url('./keyboard.css');
 @import url('./alphabet-menu.css');
 @import url('./footer.css');
-
-:root {
+@import url('./popupcocktails.css');
+:root  {
   --main-color: #7e8fdd;
   --accent-color: #9cdfdf;
   --text-color: #242424;

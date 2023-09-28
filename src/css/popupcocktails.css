@@ -1,0 +1,153 @@
+/* ===================== Phone style =================== */
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .container-popup {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    border: 1px solid black;
+  }
+  .picture {
+    width: 295px;
+    height: 277px;
+  }
+
+  .caption-card {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.13;
+    letter-spacing: 0;
+    margin-top: 40px;
+  }
+
+  .text {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 1.29;
+    color: rgba(36, 36, 36, 0.5);
+  }
+
+  .text-card {
+    margin-top: 8px;
+  }
+
+  .list-card {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    list-style: initial;
+    list-style-position: inside;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 8px;
+  }
+
+  .item-card {
+    color: rgba(36, 36, 36, 0.8);
+  }
+
+  .desc-card {
+    line-height: 1.43;
+    margin-top: 14px;
+  }
+
+  .button-card {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: 0.02em;
+    width: 295px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .favorite-theme-light {
+    color: var(--cards-color);
+    background-color: var(--main-color);
+    margin-top: 40px;
+  }
+
+  .favorite-theme-light:hover {
+    background-color: #6e7fcf;
+  }
+
+  .back-theme-light {
+    background-color: rgba(36, 36, 36, 0.1);
+    margin-top: 14px;
+  }
+
+  .back-theme-light:hover {
+    background-color: rgba(36, 36, 36, 0.2);
+  }
+
+  /* ================= Theme dark ================= */
+  .container-popup-theme-dark {
+    background-color: #232330;
+  }
+
+  .caption-card-theme-dark {
+    color: var(--cards-color);
+  }
+
+  .text-theme-dark {
+    color: rgba(253, 253, 255, 0.5);
+  }
+
+  .item-card-theme-dark {
+    color: rgba(253, 253, 255, 0.8);
+  }
+
+  /* .favorite-theme-light has the same color as in the dark theme */
+
+  .back-theme-dark {
+    color: var(--cards-color);
+    background-color: rgb(253, 253, 255, 0.1);
+  }
+
+  .back-theme-dark:hover {
+    background-color: rgb(253, 253, 255, 0.2);
+  }
+  /* =================== / Theme dark ==================== */
+}
+
+/* ============ Tablet style ============== */
+@media screen and (min-width: 768px) {
+  .box {
+    display: flex;
+  }
+  .picture {
+    width: 288px;
+    margin-right: 20px;
+  }
+  .name {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+  .caption-card {
+    margin-top: 20px;
+  }
+  .button-card {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1.33;
+    width: 295px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .favorite-theme-light {
+    width: 291px;
+    margin-right: 18px;
+  }
+  .back-theme-light {
+    width: 172px;
+  }
+}
