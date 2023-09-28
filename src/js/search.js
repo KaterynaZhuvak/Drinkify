@@ -61,6 +61,7 @@ function searchCoctails(input) {
         .join('');
 
       cardsGallery.innerHTML = searchedCards;
+      inputForm.reset();
     })
     .catch(error => {
       Notiflix.Notify.failure('No results found, please try another name');
@@ -80,7 +81,7 @@ function searchCoctailsByLetter(letter) {
       cardsGallery.innerHTML = searchedCards;
     })
     .catch(error => {
-      Notiflix.Notify.failure('No results found, please try letter');
+      Notiflix.Notify.failure('No results found, please try another letter');
       console.log(error);
     });
 }
