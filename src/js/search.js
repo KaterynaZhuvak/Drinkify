@@ -12,12 +12,14 @@ const SEARCH_LINK = 'cocktails/search/';
 const cardsGallery = document.querySelector('.cardlist');
 const pagination_element = document.querySelector('.pagination');
 const inputForm = document.querySelector('#search-form');
+const cocktailsTitle = document.querySelector('.cardlist-header');
 
 let currentPage = 1;
 let cardsPerPage = 8;
 if (screen.width >= 1280) {
   cardsPerPage = 9;
 }
+cocktailsTitle.textContent = 'Loading Data...';
 
 createRandomCards();
 
@@ -36,6 +38,7 @@ function createRandomCards() {
         .join('');
 
       cardsGallery.innerHTML = randomCards;
+      cocktailsTitle.textContent = 'Cocktails';
     })
     .catch(error => {
       Notiflix.Notify.failure('Server error');
@@ -64,6 +67,7 @@ function resetSearch() {
 }
 
 async function searchCocktails(input, link, param) {
+  cocktailsTitle.textContent = 'Loading Data...';
   try {
     const cards = await fetchCocktails(link, param, input);
 
@@ -78,19 +82,21 @@ async function searchCocktails(input, link, param) {
       SetupPagination(cards, pagination_element, cardsPerPage);
     }
 
+    cocktailsTitle.textContent = 'Searching results';
     inputForm.reset();
   } catch (error) {
+    cocktailsTitle.textContent = '';
     Notiflix.Notify.failure('No results found, please try another name');
     console.log(error);
   }
 }
 
-function DisplayList(items, wrapper, rows_per_page, page) {
+function DisplayList(items, wrapper, per_page, page) {
   wrapper.innerHTML = '';
   page--;
 
-  let start = rows_per_page * page;
-  let end = start + rows_per_page;
+  let start = per_page * page;
+  let end = start + per_page;
   let paginatedItems = items.slice(start, end);
 
   wrapper.innerHTML = paginatedItems
@@ -100,10 +106,10 @@ function DisplayList(items, wrapper, rows_per_page, page) {
     .join('');
 }
 
-function SetupPagination(items, wrapper, rows_per_page) {
+function SetupPagination(items, wrapper, per_page) {
   wrapper.innerHTML = '';
 
-  let page_count = Math.ceil(items.length / rows_per_page);
+  let page_count = Math.ceil(items.length / per_page);
 
   let btn = '';
   for (let i = 1; i < page_count + 1; i++) {
@@ -138,15 +144,5 @@ function SetupPagination(items, wrapper, rows_per_page) {
   //   '<button class="next">&#62;</button>'
   // );
 }
-
-// function PaginationButton(i) {
-//   let button = document.createElement('button');
-//   button.innerText = i;
-//   button.classList.add('pagination-number-btn');
-
-//   // if (i === 1) button.classList.add('active');
-
-//   return `<button class="pagination-number-btn">${i}</button>`;
-// }
 
 export { searchCocktails, SEARCH_LINK, LETTER_PARAM, resetSearch };
