@@ -1,7 +1,4 @@
-.hero {
-  padding-left: 100px;
-}
-.hero-content {
+/* .hero-content {
   color: #242424;
   font-size: 64px;
   font-style: normal;
@@ -13,37 +10,201 @@
   align-items: flex-start;
   gap: 56px;
   gap: 56px;
+} */
+
+.hero-content {
+  color: var(--text-color);
 }
-.coctails-color {
-  color: #7e8fdd;
+
+.cocktails-color {
+  color: var(--main-color);
   font-style: italic;
 }
 .exotic {
+  color: var(--text-color);
+}
+
+.search-text {
+  color: var(--text-color);
+}
+/* .exotic {
   color: #242424;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 26px;
-}
+} */
+
 .btn {
-  display: inline-flex;
-  padding: 22px 44px;
-  align-items: flex-start;
-  gap: 10px;
   border: none;
   border-radius: 12px;
-  background: #7e8fdd;
+  background: var(--main-color);
   text-decoration: none;
-  color: #fdfdff;
-  font-family: Poppins;
-  font-size: 18px;
+  color: var(--cards-color);
+  gap: 10px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: 0.36px;
   text-transform: uppercase;
 }
 
 .btn:hover {
   background: #6e7fcf;
+}
+/* .image-container {
+  background-image: url(../img/hero/Rectangle.png);
+} */
+
+@media screen and (max-width: 767px) {
+  br {
+    display: none;
+  }
+  .main-text {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 38px; /* 118.75% */
+    display: flex;
+    width: 335px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 18px;
+  }
+  .cocktails-color {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38px;
+  }
+  .exotic {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    width: 335px;
+  }
+  .btn {
+    display: inline-flex;
+    display: flex;
+    padding: 14px 28px;
+    align-items: flex-start;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.28px;
+    text-transform: uppercase;
+  }
+  .search-text {
+    width: 173px;
+    color: var(--text-color);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.28px;
+    text-transform: uppercase;
+  }
+  .section-hero {
+    display: flex;
+    width: 335px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 36px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  br {
+    display: none;
+  }
+  .main-text {
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px; /* 109.091% */
+    display: flex;
+    width: 384px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 24px;
+  }
+  .cocktails-color {
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 48px;
+  }
+  .exotic {
+    width: 338px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+  }
+  .btn {
+    display: inline-flex;
+    padding: 22px 44px;
+    align-items: flex-start;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.36px;
+  }
+  .search-text {
+    width: 198px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.32px;
+  }
+  .section-hero {
+    display: flex;
+    width: 371px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .main-text {
+    width: 555px;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 70px; /* 109.375% */
+    padding-bottom: 28px;
+  }
+  .cocktails-color {
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 70px;
+  }
+  .exotic {
+    width: 478px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; /* 130% */
+  }
+  .btn {
+    display: inline-flex;
+    padding: 22px 44px;
+    align-items: flex-start;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.36px;
+  }
+  .search-text {
+    width: 219px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: 0.36px;
+    text-transform: uppercase;
+  }
+  .section-hero {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 56px;
+  }
 }
