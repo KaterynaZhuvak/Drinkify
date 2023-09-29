@@ -9,6 +9,7 @@ const LETTER_PARAM = 'f';
 const RANDOM_LINK = 'cocktails/';
 const SEARCH_LINK = 'cocktails/search/';
 
+const cocktWrapper = document.querySelector('.no-cocktails-wrapper');
 const cardsGallery = document.querySelector('.cardlist');
 const pagination_element = document.querySelector('.pagination');
 const inputForm = document.querySelector('#search-form');
@@ -61,6 +62,7 @@ inputForm.addEventListener('submit', e => {
 });
 
 function resetSearch() {
+  cocktWrapper.classList.add('visually-hidden');
   currentPage = 1;
   cardsGallery.innerHTML = '';
   pagination_element.innerHTML = '';
@@ -88,6 +90,7 @@ async function searchCocktails(input, link, param) {
     cocktailsTitle.textContent = '';
     Notiflix.Notify.failure('No results found, please try another name');
     console.log(error);
+    cocktWrapper.classList.remove('visually-hidden');
   }
 }
 

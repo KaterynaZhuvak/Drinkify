@@ -13,6 +13,11 @@
   height: 44px;
 }
 
+body.dark .search-form-input,
+body.dark .no-cocktails-text {
+  color: #fdfdff;
+}
+
 .search-form-submit-btn {
   position: absolute;
   left: 14px;
@@ -23,6 +28,10 @@
   margin: 0;
   border: none;
   background-color: transparent;
+}
+
+body.dark .search-form-submit-icon {
+  fill: #fdfdff;
 }
 
 .pagination {
@@ -51,4 +60,67 @@
 .pagination-number-btn.active {
   color: #fdfdff;
   background-color: #9cdfdf;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.no-cocktails-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.no-cocktails-svg {
+  width: 140px;
+  height: 120px;
+}
+
+.no-cocktails-text {
+  width: 244px;
+  color: #242424;
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.33;
+}
+
+.no-cocktails-text-part {
+  color: #9cdfdf;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.33;
+}
+
+@media screen and (min-width: 768px) {
+  .no-cocktails-wrapper {
+    gap: 50px;
+  }
+
+  .no-cocktails-svg {
+    width: 234px;
+    height: 201px;
+  }
+
+  .no-cocktails-text {
+    width: 244px;
+    font-size: 24px;
+    line-height: 1.17;
+  }
+
+  .no-cocktails-text-part {
+    font-size: 24px;
+    line-height: 1.17;
+  }
 }
