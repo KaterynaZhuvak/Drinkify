@@ -8,8 +8,7 @@ import {
 const openBtn = document.querySelector('.open-alphabet-btn');
 const lettersMenu = document.querySelector('.alphabet-list');
 const alphabetContainer = document.querySelector('.list-container');
-const svgDown = document.querySelector('.svg-icon-down');
-const svgUp = document.querySelector('.svg-icon-up');
+
 const alphabet = [
   'A',
   'B',
@@ -58,7 +57,9 @@ function menuMarkup(arr) {
     .join('');
 }
 
-openBtn.addEventListener('click', () => {
+function onOpeen() {
+  const svgDown = document.querySelector('.svg-icon-down');
+  const svgUp = document.querySelector('.svg-icon-up');
   if (alphabetContainer.classList.contains('display') === true) {
     alphabetContainer.classList.remove('display');
     svgDown.classList.add('display');
@@ -70,6 +71,10 @@ openBtn.addEventListener('click', () => {
     svgUp.classList.add('display');
     lettersMenu.innerHTML = '';
   }
+}
+
+openBtn.addEventListener('click', () => {
+  onOpeen();
 });
 
 lettersMenu.addEventListener('click', e => {

@@ -69,7 +69,7 @@ body {
 }
 
 /* Breakpoints:
-320px
+375px
 768px
 1280px */
 
@@ -81,15 +81,15 @@ body {
   margin-left: auto;
 }
 
-@media screen and (max-width: 319px) {
+@media screen and (max-width: 374px) {
   .keyboard {
     display: none;
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 375px) and (max-width: 767px) {
   .container {
-    width: 320px;
+    width: 375px;
   }
 
   .keyboard {
