@@ -21,7 +21,7 @@
 .footer-logo-text {
   font-size: 16px;
   font-weight: 600;
-  line-height: 18px; /* 112.5% */
+  line-height: 1.12; /* 112.5% */
   letter-spacing: -0.16px;
   text-transform: uppercase;
 }
@@ -31,7 +31,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 18px; /* 128.571% */
+  line-height: 1.28; /* 128.571% */
   text-transform: uppercase;
 }
 
@@ -78,7 +78,7 @@
 @media screen and (min-width: 768px) {
   .footer-logo-text {
     font-size: 22px;
-    line-height: 24px; /* 109.091% */
+    line-height: 1.09; /* 109.091% */
     letter-spacing: -0.22px;
   }
 
@@ -86,7 +86,7 @@
     gap: 8px;
   }
   .social-descr {
-    line-height: 110%; /* 15.4px */
+    line-height: 1.10; /* 15.4px */
   }
 
   .social-list-icon {
@@ -97,5 +97,11 @@
   .footer-logo-icon {
     width: 29px;
     height: 25px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer-container {
+    max-width: 1080px;
   }
 }
