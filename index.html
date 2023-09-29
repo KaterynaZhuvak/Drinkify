@@ -20,10 +20,10 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/Drinkify/assets/index-939aadda.js"></script>
-    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-7f0f9c78.js">
+    <script type="module" crossorigin src="/Drinkify/assets/index-52e914bd.js"></script>
+    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-b18201b1.js">
     <link rel="modulepreload" crossorigin href="/Drinkify/assets/favorite-ingredients-6fb7f766.js">
-    <link rel="stylesheet" href="/Drinkify/assets/styles-14167e39.css">
+    <link rel="stylesheet" href="/Drinkify/assets/styles-97619dcd.css">
   </head>
   <body>
     <a href="./favorite-cocktails.html">favorite cocktails</a>
@@ -37,28 +37,31 @@
 </header>
 
     <main>
-      <section class="hero">
-  <div class="hero-content">
-    <h1>
-      A party without<br />
-      <span class="coctails-color">cocktails</span><br />
-      is not like a party
-    </h1>
-    <p class="exotic">
-      From classic sips to exotic mixes, we're your key<br />
-      to becoming a cocktail wizard!
-    </p>
-  </div>
-  <div>
-    <a href="#">
-      <button type="button" class="btn">View Cocktails</button>
-    </a>
-  </div>
-  <div class="overlay"></div>
-  <div class="image-container">
-    <img src="/Drinkify/assets/Rectangle-c212dcee.png" alt="Cocktail Image 1" />
-    <img src="/Drinkify/assets/stars-5b4c18cd.png" alt="Cocktail Image 2" />
-    <img src="/Drinkify/assets/Girl-693b78d7.png" alt="Cocktail Image 3" />
+      <section class="container">
+  <div class="section-hero">
+    <div class="hero-content">
+      <h1 class="main-text">
+        A party without
+        <span class="cocktails-color">cocktails</span><br>
+        is not like a party
+      </h1>
+
+      <p class="exotic">
+        From classic sips to exotic mixes, we're your key
+        to becoming a cocktail wizard!
+      </p>
+    </div>
+    <div>
+      <a href="#cocktails-section">
+        <button type="button" class="btn">View Cocktails</button>
+      </a>
+    </div>
+
+    <div class="image-container">
+      <img src="/Drinkify/assets/Rectangle-c212dcee.png" alt="Cocktail Image 1" />
+      <img src="/Drinkify/assets/stars-5b4c18cd.png" alt="Cocktail Image 2" />
+      <img src="/Drinkify/assets/Girl-693b78d7.png" alt="Cocktail Image 3" />
+    </div>
   </div>
   <p class="search-text">Search your favorite cocktail by ABC</p>
 
@@ -95,15 +98,13 @@
 </form>
 
 </section>
-
-      <section>
+      <section id="cocktails-section">
   <div class="container">
     <h2 class="cardlist-header">Cocktails</h2>
     <ul class="cardlist"></ul>
     <div class="pagination" id="pagination"></div>
   </div>
 </section>
-
     </main>
     <footer class="footer">
     <div class="container footer-container">
