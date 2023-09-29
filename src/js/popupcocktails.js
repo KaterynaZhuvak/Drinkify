@@ -51,6 +51,16 @@ function showModalWindow() {
 
 
 
+
+
+
+
+
+
+
+
+
+
 // Код з 7 ДЗ по хтмл
 
 // function openClosePopup() {
