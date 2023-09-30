@@ -14,20 +14,21 @@
 @import url('./favorite-ingredients.css');
 @import url('./footer.css');
 @import url('./popupcocktails.css');
-:root  {
+:root {
   --main-color: #7e8fdd;
   --accent-color: #9cdfdf;
   --text-color: #242424;
   --background-color: #f8f9ff;
   --cards-color: #fdfdff;
+  --dark-cards-color: #232330;
 }
 
 body {
   font-family: Poppins;
   color: var(--text-color);
   background-image: url(../img/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @media (min-device-pixel-ratio: 2),
