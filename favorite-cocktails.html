@@ -18,11 +18,12 @@
     
     
     
-    <script type="module" crossorigin src="/Drinkify/assets/styles-1f5898e5.js"></script>
+    <script type="module" crossorigin src="/Drinkify/assets/favorite-cocktails-56b834dc.js"></script>
+    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-1f5898e5.js">
     <link rel="stylesheet" href="/Drinkify/assets/styles-008e7493.css">
-    <link rel="stylesheet" href="/Drinkify/assets/favorite-cocktails-55e99687.css">
+    <link rel="stylesheet" href="/Drinkify/assets/favorite-cocktails-0d7f30df.css">
   </head>
-  <body>
+  <body class="dark">
     <header>
     <div>
         <svg>
@@ -35,15 +36,19 @@
       <section class="container">
         <div class="container-section">
           <h2 class="section-tittle">Favorite coctails</h2>
-          <svg class="icon-rafiki">
-            <use href="/Drinkify/assets/sprite-90c3d1d3.svg#icon-rafiki"></use>
-          </svg>
-          <div class="inscription">
-            <p class="message">
-              You haven't added any
-              <span class="color-message">favorite coctails</span> yet
-            </p>
+          <div class="plug">
+            <svg class="icon-cocktails">
+              <use href="/Drinkify/assets/sprite-90c3d1d3.svg#cocktails"></use>
+            </svg>
+            <div class="inscription">
+              <p class="message">
+                You haven't added any
+                <span class="color-message">favorite coctails</span> yet
+              </p>
+            </div>
           </div>
+          <ul class="cardlist"></ul>
+          <div class="pagination" id="pagination"></div>
         </div>
       </section>
     </main>
@@ -65,6 +70,7 @@
     </div>
     </div>
 </footer>
+    
     
   </body>
 </html>
