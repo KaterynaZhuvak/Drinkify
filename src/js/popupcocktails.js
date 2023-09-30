@@ -1,7 +1,6 @@
 import { fetchCocktails } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
 import { onIngrListClickHandler } from './popupingredients';
-// import 'basiclightbox/dist/basiclightbox.min.css';
 
 const cardsGallery = document.querySelector('.cardlist');
 const SEARCH_BY_ID_LINK = 'cocktails/lookup/';

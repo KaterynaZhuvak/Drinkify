@@ -14,7 +14,6 @@
 @import url('./favorite-ingredients.css');
 @import url('./footer.css');
 @import url('./popupcocktails.css');
-@import url('./basiclightbox.css');
 @import url('./pop-up-ingredients.css');
 
 :root {
@@ -23,6 +22,7 @@
   --text-color: #242424;
   --background-color: #f8f9ff;
   --cards-color: #fdfdff;
+  --dark-cards-color: #232330;
 }
 
 body {
