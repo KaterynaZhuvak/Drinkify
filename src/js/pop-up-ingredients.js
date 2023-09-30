@@ -1,5 +1,3 @@
-// import * as basicLightbox from 'basiclightbox';
-// import 'basiclightbox/dist/basiclightbox.min.css';
 
 const backdropIn = document.querySelector('.backdrop-in');
 const modalIn = document.querySelector('.modal-in');
