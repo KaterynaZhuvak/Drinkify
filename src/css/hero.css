@@ -1,14 +1,30 @@
+body.dark h1,
+body.dark .hero-text,
+body.dark .hero-text.img-text {
+  color: var(--cards-color);
+}
+
 @media screen and (max-width: 767px) {
+  br {
+    display: none;
+  }
   .hero-title-img {
     padding-top: 68px;
     margin-bottom: 40px;
+  }
+  .hero-btn {
+    display: flex;
+    width: 335px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 36px;
   }
   .hero-title-btn {
     display: flex;
     width: 335px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 36px;
+    gap: 18px;
   }
   .title-hero {
     display: flex;
@@ -101,11 +117,17 @@
     align-items: center;
     padding-top: 70px;
   }
+  .hero-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+  }
   .hero-title-btn {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 56px;
+    gap: 24px;
   }
   .title-hero {
     width: 384px;
@@ -115,6 +137,7 @@
     line-height: 48px; /* 109.091% */
   }
   .title-hero-span {
+    white-space: nowrap;
     color: var(--main-color);
     font-size: 44px;
     font-style: italic;
@@ -194,8 +217,12 @@
   .hero-title-img {
     padding-top: 34px;
   }
+  .hero-btn {
+    gap: 56px;
+  }
   .hero-title-btn {
     margin-right: 115px;
+    gap: 28px;
   }
   .title-hero {
     width: 555px;
