@@ -1,7 +1,11 @@
-<section class="ingredients-pop-up">
-  <div class="backdrop-in is-hidden active" data-modal>
+<section class="ingredients-pop-up" data-modal>
+  <div class="backdrop-in is-hidden active">
     <div id="modal-ingredients" class="container modal-in active">
-      <button type="button" class="modal-in-close-button">
+      <button
+        type="button"
+        data-close-modal
+        class="modal-in-close-button btn-close"
+      >
         <svg class="icon-in-close" width="11" height="11">
           <use href="../img/sprite.svg#cross"></use>
         </svg>
@@ -30,7 +34,12 @@
                 REMOVE FROM FAVORITE
               </button> -->
 
-          <button type="button" id="btn-back" class="btn-in btn-back">
+          <button
+            type="button"
+            data-close-modal
+            id="btn-back"
+            class="btn-in btn-back btn-close"
+          >
             BACK
           </button>
         </div>
@@ -38,3 +47,5 @@
     </div>
   </div>
 </section>
+
+<script src="./js/pop-up-ingredients.js"></script>
