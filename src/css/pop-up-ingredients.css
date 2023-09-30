@@ -1,47 +1,12 @@
-.backdrop-in {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-
-  opacity: 0;
-  background: rgba(21, 21, 21, 0.6);
-  visibility: hidden;
-  pointer-events: auto;
-}
-
 .modal-in {
+  position: relative;
   width: 335px;
-  height: 616px;
-  background: #f8f9ff;
-  padding-left: 20px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-
+  padding: 40px 20px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: var(--background-color);
   border-radius: 20px;
-
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -60%) scale(1);
-
-  visibility: hidden;
-  opacity: 0;
-}
-
-.backdrop-in.active {
-  visibility: visible;
-  opacity: 1;
-  overflow-y: auto;
-}
-
-.modal-in.active {
-  visibility: visible;
-  opacity: 1;
+  border: 1px solid black;
 }
 
 .icon-in-close {
@@ -163,7 +128,7 @@
   margin-right: 0px;
 }
 
-.ingredients-list {
+.ingredients-spec {
   margin-bottom: 40px;
   text-align: left;
   padding-left: 20px;
@@ -213,7 +178,7 @@
     width: 520px;
   }
 
-  .ingredients-list {
+  .ingredients-spec {
     padding-left: 40px;
   }
 

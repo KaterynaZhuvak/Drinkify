@@ -1,36 +1,24 @@
-<!-- <div class="backdrop is-hidden js-close-popup" data-modal></div> -->
-<!-- <button type="button" class="modal-window">відкрити модальне вікно</button> -->
-
-<!-- <div class="container-popup js-popup-container">
-  <button class="popup-close-btn js-close-popup" data-modal-close>
+<!-- <div class="container-popup">
+  <button class="popup-close-btn close-cocktail-modal-x">
     <svg class="popup-close-btn-icon">
       <use href="img/sprite.svg#popup-close-btn"></use>
     </svg>
   </button>
   <div class="box">
-    <div class="picture"><img src="" alt="" /></div>
+    <div class="picture"><img src="${drinkThumb}" alt="${drink}" onerror="this.onerror=null;this.src='../img/rafiki.jpg';"/></div>
     <div>
-      <h2 class="name">Acid</h2>
+      <h2 class="name">${drink}</h2>
       <p class="caption-card">Ingredients:</p>
       <p class="text text-card">Per cocktail</p>
-      <ul class="list-card">
-        <li class="text item-card"><a href="">Ice</a></li>
-        <li class="text item-card"><a href="">1 ounce gin</a></li>
-        <li class="text item-card"><a href="">1 ounce Campari</a></li>
-        <li class="text item-card"><a href="">1 ounce sweet vermouth</a></li>
-        <li class="text item-card"><a href="">Garnish: orange peel</a></li>
-      </ul>
+      <ul class="list-card ingredients-list">${ingredientsRaw}</ul>
     </div>
   </div>
   <p class="caption-card">Instructions:</p>
   <p class="text desc-card">
-    Add the gin, Campari and sweet vermouth to a mixing glass filled with ice,
-    and stir until well-chilled. Strain into a rocks glass filled with large ice
-    cubes. Garnish with an orange peel.
+   ${instructions}
   </p>
   <button type="button" class="button-card favorite-theme-light">
     add to favorite
   </button>
-   remove from favorite 
-   <button type="button" class="button-card back-theme-light">Back</button>
+   <button type="button" class="button-card back-theme-light close-cocktail-modal-back">Back</button>
 </div> -->
