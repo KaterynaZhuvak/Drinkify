@@ -43,6 +43,7 @@
 
 import { fetchCocktails } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basiclightbox.min.css';
 
 const cardsGallery = document.querySelector('.cardlist');
 const SEARCH_BY_ID_LINK = 'cocktails/lookup/';

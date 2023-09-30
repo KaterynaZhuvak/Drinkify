@@ -1,5 +1,3 @@
-
-import 'basiclightbox/dist/basiclightbox.min.css';
 import './js/header';
 import './js/hero';
 import './js/drinkifyapi';
