@@ -8,4 +8,10 @@ async function fetchCocktails(link, param, paramValue) {
   return resp.data;
 }
 
-export { fetchCocktails };
+async function fetchIngredients(link, paramValue) {
+  const resp = await axios.get(`${BASE_URL}${link}${paramValue}`);
+
+  return resp.data;
+}
+
+export { fetchCocktails, fetchIngredients };
