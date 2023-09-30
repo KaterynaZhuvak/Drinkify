@@ -19,6 +19,9 @@
     font-weight: 400;
     line-height: 38px; /* 118.75% */
   }
+  /* .title-hero.dark {
+    color: var(--cards-color);
+  } */
   .title-hero-span {
     color: var(--main-color);
     font-family: Poppins;
