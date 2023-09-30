@@ -27,10 +27,10 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/Drinkify/assets/index-7456d09b.js"></script>
-    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-1dfad7fa.js">
+    <script type="module" crossorigin src="/Drinkify/assets/index-d772ba80.js"></script>
+    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-2a405701.js">
     <link rel="modulepreload" crossorigin href="/Drinkify/assets/favorite-ingredients-6fb7f766.js">
-    <link rel="stylesheet" href="/Drinkify/assets/styles-a924ca3b.css">
+    <link rel="stylesheet" href="/Drinkify/assets/styles-f221e675.css">
   </head>
   <body>
     <a href="./favorite-cocktails.html">favorite cocktails</a>
@@ -45,34 +45,45 @@
 </header>
 
     <main>
-      <section class="container">
-  <div class="section-hero">
-    <div class="hero-content">
-      <h1 class="main-text">
-        A party without
-        <span class="cocktails-color">cocktails</span><br>
-        is not like a party
-      </h1>
-
-      <p class="exotic">
-        From classic sips to exotic mixes, we're your key
-        to becoming a cocktail wizard!
-      </p>
-    </div>
-    <div>
-      <a href="#cocktails-section">
-        <button type="button" class="btn">View Cocktails</button>
-      </a>
-    </div>
-
-    <div class="image-container">
-      <img src="/Drinkify/assets/Rectangle-c212dcee.png" alt="Cocktail Image 1" />
-      <img src="/Drinkify/assets/stars-5b4c18cd.png" alt="Cocktail Image 2" />
-      <img src="/Drinkify/assets/Girl-693b78d7.png" alt="Cocktail Image 3" />
-    </div>
+      <section class="container hero-title-img">
+  <div class="hero-title-btn">
+    <h1 class="title-hero">
+      A party without <span class="title-hero-span">cocktails</span> is not like
+      a party
+    </h1>
+    <p class="hero-text">
+      From classic sips to exotic mixes, we're your key to becoming a cocktail
+      wizard!
+    </p>
+    <a href="#cocktails-section">
+      <button type="button" class="btn-hero-scroll">View Cocktails</button>
+    </a>
   </div>
-  <p class="search-text">Search your favorite cocktail by ABC</p>
+  <div class="hero-img">
+    <div class="title-img">
+      <div class="container-img">
+        <div class="rectangle"></div>
+        <picture class="girl-img-hero">
+          <source srcset="/Drinkify/assets/girl-desktop-f9188775.png 1x, /Drinkify/assets/girl-desktop@2x-28f35ab1.png 2x" media="(min-width:1280px)" />
+          <source srcset="/Drinkify/assets/girl-tablet-32891cfb.png 1x, /Drinkify/assets/girl-tablet@2x-7dc44d6a.png 2x" media="(min-width:768px)" />
+          <source srcset="/Drinkify/assets/girl-mobile-45bae265.png 1x, /Drinkify/assets/girl-mobile@2x-dd84a491.png 2x" media="(max-width:767px)" />
 
+          <img src="/Drinkify/assets/girl-mobile-45bae265.png" alt="girl with cocktail" />
+        </picture>
+        <picture class="elements-img-hero">
+          <source srcset="/Drinkify/assets/elements-desktop-226dfa8a.png 1x, /Drinkify/assets/elements-desktop@2x-cc2c837f.png 2x" media="(min-width:1280px)" />
+          <source srcset="/Drinkify/assets/elements-tablet-d38072d4.png 1x, /Drinkify/assets/elements-tablet@2x-af1924ff.png 2x" media="(min-width:768px)" />
+          <source srcset="/Drinkify/assets/elements-mobile-c16980e9.png 1x, /Drinkify/assets/elements-mobile@2x-4a06e506.png 2x" media="(max-width:767px)" />
+
+          <img src="/Drinkify/assets/elements-mobile-c16980e9.png" alt="girl with cocktail" />
+        </picture>
+      </div>
+    </div>
+    <p class="hero-text img-text">Search your favorite cocktail by ABC</p>
+  </div>
+
+</section>
+<section>
   <!-- place it in the end of hero section
     search should be in the hero section due to Tech requirements -->
   <div class="keyboard"></div>
@@ -104,6 +115,7 @@
     </svg>
   </button>
 </form>
+
 
 </section>
       <section id="cocktails-section">
