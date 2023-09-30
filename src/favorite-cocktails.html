@@ -19,25 +19,30 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/favorite_coctails.css" />
   </head>
-  <body>
+  <body class="dark">
     <load src="partials/header.html" />
     <main>
       <section class="container">
         <div class="container-section">
           <h2 class="section-tittle">Favorite coctails</h2>
-          <svg class="icon-rafiki">
-            <use href="../src/img/sprite.svg#icon-rafiki"></use>
-          </svg>
-          <div class="inscription">
-            <p class="message">
-              You haven't added any
-              <span class="color-message">favorite coctails</span> yet
-            </p>
+          <div class="plug">
+            <svg class="icon-cocktails">
+              <use href="./img/sprite.svg#cocktails"></use>
+            </svg>
+            <div class="inscription">
+              <p class="message">
+                You haven't added any
+                <span class="color-message">favorite coctails</span> yet
+              </p>
+            </div>
           </div>
+          <ul class="cardlist"></ul>
+          <div class="pagination" id="pagination"></div>
         </div>
       </section>
     </main>
     <load src="partials/footer.html" />
+    <script type="module" src="./js/markup.js"></script>
     <script type="module" src="./js/favorite_coctails.js"></script>
   </body>
 </html>
