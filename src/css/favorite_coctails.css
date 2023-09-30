@@ -5,7 +5,7 @@
   margin-bottom: 100px;
 }
 
-.icon-rafiki {
+.icon-cocktails {
   display: block;
   width: 142px;
   height: 122px;
@@ -43,7 +43,7 @@
     font-size: 40px;
   }
 
-  .icon-rafiki {
+  .icon-cocktails {
     width: 234px;
     height: 201px;
   }
@@ -54,3 +54,46 @@
     width: 372px;
   }
 }
+
+/* =================== / Theme dark ==================== */
+
+/* body.dark {
+  color: var(--cards-color);
+  background-image: url(../img/background-dark.jpg);
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  body.dark {
+    background-image: url(../img/background-dark2x.jpg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body.dark {
+    background-image: url(../img/background-tablet-dark.jpg);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  body.dark {
+    background-image: url(../img/background-tablet-dark@2x.jpg);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  body.dark {
+    background-image: url(../img/background-desktop-dark.jpg);
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  body.dark {
+    background-image: url(../img/background-desktop-dark@2x.jpg);
+  }
+} */
