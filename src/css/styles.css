@@ -14,8 +14,7 @@
 @import url('./favorite-ingredients.css');
 @import url('./footer.css');
 @import url('./popupcocktails.css');
-@import url('./pop-up-ingredients.css');
-
+@import url('./scroll-up.css');
 :root {
   --main-color: #7e8fdd;
   --accent-color: #9cdfdf;

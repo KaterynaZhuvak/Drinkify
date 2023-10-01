@@ -7,4 +7,4 @@ import './js/pagination';
 import './js/search';
 import './js/favorite-ingredients';
 import './js/popupcocktails';
-import './js/popupingredients';
+import './js/scroll-up'

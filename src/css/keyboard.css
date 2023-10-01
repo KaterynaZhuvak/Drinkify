@@ -29,9 +29,12 @@
   border-radius: 8px;
   background: rgba(126, 143, 221, 0.4);
 
+  transition: all 250ms cubic-bezier(.5, -.75, .7, 2);
 }
+
 
 .leter-btn:hover,
 .leter-btn:focus {
 background: #9CDFDF;
+transform: scale(1.2);
 }
