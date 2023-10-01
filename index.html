@@ -29,10 +29,10 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/Drinkify/assets/index-3856cb9e.js"></script>
-    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-69dae345.js">
+    <script type="module" crossorigin src="/Drinkify/assets/index-4d67e924.js"></script>
+    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-e1b1e3fc.js">
     <link rel="modulepreload" crossorigin href="/Drinkify/assets/favorite-ingredients-ca1f493a.js">
-    <link rel="stylesheet" href="/Drinkify/assets/styles-1ed19c8a.css">
+    <link rel="stylesheet" href="/Drinkify/assets/styles-3deddb9d.css">
   </head>
   <body>
     <a href="./favorite-cocktails.html">favorite cocktails</a>
@@ -48,18 +48,23 @@
 
     <main>
       <section class="container hero-title-img">
-  <div class="hero-title-btn">
-    <h1 class="title-hero">
-      A party without <span class="title-hero-span">cocktails</span> is not like
-      a party
-    </h1>
-    <p class="hero-text">
-      From classic sips to exotic mixes, we're your key to becoming a cocktail
-      wizard!
-    </p>
+  <div class="hero-btn">
+    <div class="hero-title-btn">
+      <h1 class="title-hero">
+        A party without <span class="title-hero-span">cocktails</span><br> is not like
+        a party
+      </h1>
+      <p class="hero-text">
+        From classic sips to exotic mixes, we're your key to becoming a cocktail
+        wizard!
+      </p>
+    </div>
+
     <a href="#cocktails-section">
       <button type="button" class="btn-hero-scroll">View Cocktails</button>
     </a>
+  </div>
+
   </div>
   <div class="hero-img">
     <div class="title-img">
@@ -72,6 +77,7 @@
 
           <img src="/Drinkify/assets/girl-mobile-45bae265.png" alt="girl with cocktail" />
         </picture>
+
         <picture class="elements-img-hero">
           <source srcset="/Drinkify/assets/elements-desktop-226dfa8a.png 1x, /Drinkify/assets/elements-desktop@2x-cc2c837f.png 2x" media="(min-width:1280px)" />
           <source srcset="/Drinkify/assets/elements-tablet-d38072d4.png 1x, /Drinkify/assets/elements-tablet@2x-af1924ff.png 2x" media="(min-width:768px)" />
@@ -79,16 +85,26 @@
 
           <img src="/Drinkify/assets/elements-mobile-c16980e9.png" alt="girl with cocktail" />
         </picture>
+
+        <!-- Dark -->
+        <div class="element-dark">
+          <picture class="elements-img-hero-dark">
+            <source srcset="/Drinkify/assets/elements-desktop-dark-38326a13.png 1x, /Drinkify/assets/elements-desktop-dark@2x-cd9b7de5.png 2x" media="(min-width:1280px)" />
+            <source srcset="/Drinkify/assets/elements-tablet-dark-bf0caa8f.png 1x, /Drinkify/assets/elements-tablet-dark@2x-a38fd0d6.png 2x" media="(min-width:768px)" />
+            <source srcset="/Drinkify/assets/elements-mobile-dark-2105fc32.png 1x, /Drinkify/assets/elements-mobile-dark@2x-aa39132f.png 2x" media="(max-width:767px)" />
+            <img src="/Drinkify/assets/elements-mobile-dark-2105fc32.png" alt="girl with cocktail" />
+          </picture>
+        </div>
       </div>
     </div>
     <p class="hero-text img-text">Search your favorite cocktail by ABC</p>
   </div>
 
 </section>
-<section class="container">
-  <!-- place it in the end of hero section
+
+<!-- place it in the end of hero section
     search should be in the hero section due to Tech requirements -->
-  <div class="keyboard"></div>
+<div class="keyboard"></div>
   <div class="alphabet-menu">
     <button type="button" class="open-alphabet-btn">
       <p class="btn-letter">A</p>
@@ -106,7 +122,7 @@
 
 
 
-  <form class="search-form" id="search-form">
+<form class="search-form" id="search-form">
   <input
     class="search-form-input"
     type="text"
@@ -121,8 +137,6 @@
   </button>
 </form>
 
-
-</section>
       <section id="cocktails-section">
   <div class="container">
     <h2 class="cardlist-header">Loading Data...</h2>
