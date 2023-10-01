@@ -13,17 +13,67 @@
         integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-  <script type="module" crossorigin src="/Drinkify/assets/styles-e1b1e3fc.js"></script>
+  <script type="module" crossorigin src="/Drinkify/assets/styles-06502620.js"></script>
   <script type="module" crossorigin src="/Drinkify/assets/favorite-ingredients-ca1f493a.js"></script>
-  <link rel="stylesheet" href="/Drinkify/assets/styles-3deddb9d.css">
+  <link rel="stylesheet" href="/Drinkify/assets/styles-64816832.css">
 </head>
 <body>
-    <header>
-    <div>
-        <svg>
-            <use href="../img/sprite.svg#glass"></use>
+    <header class="header">
+  <div class="header-container container">
+    <nav class="header-nav">
+      <ul class="header-list">
+        <li class="header-item">
+          <a class="header-link" href="index.html">Home</a>
+        </li>
+        <li class="header-item">
+          <a class="header-link js-header-link">
+            Favorite
+            <svg
+              class="header-link-icon js-header-link-icon"
+              width="24"
+              height="24"
+            >
+              <use href="/Drinkify/assets/sprite-0a4e9082.svg#nav-arrow"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <a href="index.html" class="header-logo"
+        >Drinkify
+        <svg class="header-logo-icon">
+          <use href="/Drinkify/assets/sprite-0a4e9082.svg#glass"></use>
         </svg>
+      </a>
+      <ul class="favorite-list js-favorite-list">
+        <li class="favorite-item">
+          <a href="./favorite-cocktails.html" class="favorite-link">
+            Favorite cocktails
+          </a>
+        </li>
+        <li class="favorite-item">
+          <a href="./favorite-ingredients.html" class="favorite-link">
+            Favorite ingredients
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-btn-wrapper">
+      <button type="button" class="themetoggle themetoggle1">
+        <span class="themetoggleswitch"></span>
+      </button>
+      <button type="button" class="themetoggle_reset themetoggle_reset1">
+        X
+      </button>
     </div>
+    <button type="button" class="header-menu-burger js-header-menu-burger">
+      <svg class="header-burger-mobile" width="32" height="32">
+        <use href="../img/sprite.svg#burger-mobile"></use>
+      </svg>
+      <svg class="header-burger-tablet" width="40" height="40">
+        <use href="../img/sprite.svg#burger-tablet"></use>
+      </svg>
+    </button>
+  </div>
 </header>
 
     <main>
@@ -33,7 +83,7 @@
                 <ul class="favorite-ingredients-list"></ul>
                 <div class="sorry-ingredients">
                     <svg class="cocktails-icon">
-                        <use href="/Drinkify/assets/sprite-ecce89bb.svg#cocktails"></use>
+                        <use href="/Drinkify/assets/sprite-0a4e9082.svg#cocktails"></use>
                     </svg>
                     <p class="sorry">
                         You haven't added any <span class="sorry-accent">favorite ingredients</span> yet
@@ -44,17 +94,17 @@
     </main>
     <footer class="footer">
     <div class="container footer-container">
-        <a class="footer-logo" href="index.html"><p class="footer-logo-text">Drinkify</p><svg class="footer-logo-icon"><use href="/Drinkify/assets/sprite-ecce89bb.svg#glass"></svg></a>
+        <a class="footer-logo" href="index.html"><p class="footer-logo-text">Drinkify</p><svg class="footer-logo-icon"><use href="/Drinkify/assets/sprite-0a4e9082.svg#glass"></svg></a>
         <div><p class="social-descr">We in social</p>
         <ul class="social-media-list">
             <li clas="social-media-item">
-                <a href="https://www.facebook.com/goITclub/" class="social-list-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook icon"><svg class="social-list-icon"><use href="/Drinkify/assets/sprite-ecce89bb.svg#facebook"></svg></a>
+                <a href="https://www.facebook.com/goITclub/" class="social-list-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook icon"><svg class="social-list-icon"><use href="/Drinkify/assets/sprite-0a4e9082.svg#facebook"></svg></a>
             </li>
             <li clas="social-media-item">
-                <a href="https://www.instagram.com/goitclub/" class="social-list-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram icon"><svg class="social-list-icon"><use href="/Drinkify/assets/sprite-ecce89bb.svg#instagram"></svg></a>
+                <a href="https://www.instagram.com/goitclub/" class="social-list-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram icon"><svg class="social-list-icon"><use href="/Drinkify/assets/sprite-0a4e9082.svg#instagram"></svg></a>
             </li>
             <li clas="social-media-item">
-                <a href="https://www.youtube.com/c/GoIT" class="social-list-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube icon"><svg class="social-list-icon"><use href="/Drinkify/assets/sprite-ecce89bb.svg#you-tube"></svg></a>
+                <a href="https://www.youtube.com/c/GoIT" class="social-list-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube icon"><svg class="social-list-icon"><use href="/Drinkify/assets/sprite-0a4e9082.svg#you-tube"></svg></a>
             </li>
         </ul>
     </div>

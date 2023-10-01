@@ -29,22 +29,129 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/Drinkify/assets/index-4d67e924.js"></script>
-    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-e1b1e3fc.js">
+    <script type="module" crossorigin src="/Drinkify/assets/index-6bc0a70d.js"></script>
+    <link rel="modulepreload" crossorigin href="/Drinkify/assets/styles-06502620.js">
     <link rel="modulepreload" crossorigin href="/Drinkify/assets/favorite-ingredients-ca1f493a.js">
-    <link rel="stylesheet" href="/Drinkify/assets/styles-3deddb9d.css">
+    <link rel="stylesheet" href="/Drinkify/assets/styles-64816832.css">
   </head>
   <body>
-    <a href="./favorite-cocktails.html">favorite cocktails</a>
-    <a href="./favorite-ingredients.html">favorite ingredients</a>
-
-    <header>
-    <div>
-        <svg>
-            <use href="../img/sprite.svg#glass"></use>
+    <header class="header">
+  <div class="header-container container">
+    <nav class="header-nav">
+      <ul class="header-list">
+        <li class="header-item">
+          <a class="header-link" href="index.html">Home</a>
+        </li>
+        <li class="header-item">
+          <a class="header-link js-header-link">
+            Favorite
+            <svg
+              class="header-link-icon js-header-link-icon"
+              width="24"
+              height="24"
+            >
+              <use href="/Drinkify/assets/sprite-0a4e9082.svg#nav-arrow"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <a href="index.html" class="header-logo"
+        >Drinkify
+        <svg class="header-logo-icon">
+          <use href="/Drinkify/assets/sprite-0a4e9082.svg#glass"></use>
         </svg>
+      </a>
+      <ul class="favorite-list js-favorite-list">
+        <li class="favorite-item">
+          <a href="./favorite-cocktails.html" class="favorite-link">
+            Favorite cocktails
+          </a>
+        </li>
+        <li class="favorite-item">
+          <a href="./favorite-ingredients.html" class="favorite-link">
+            Favorite ingredients
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-btn-wrapper">
+      <button type="button" class="themetoggle themetoggle1">
+        <span class="themetoggleswitch"></span>
+      </button>
+      <button type="button" class="themetoggle_reset themetoggle_reset1">
+        X
+      </button>
     </div>
+    <button type="button" class="header-menu-burger js-header-menu-burger">
+      <svg class="header-burger-mobile" width="32" height="32">
+        <use href="../img/sprite.svg#burger-mobile"></use>
+      </svg>
+      <svg class="header-burger-tablet" width="40" height="40">
+        <use href="../img/sprite.svg#burger-tablet"></use>
+      </svg>
+    </button>
+  </div>
 </header>
+
+    <div class="header-backdrop">
+  <svg class="header-menu-star">
+    <use href="../img/sprite.svg#icon-modal-star"></use>
+  </svg>
+  <div class="header-menu-container container">
+    <a href="index.html" class="header-menu-logo"
+      >Drinkify
+      <svg class="header-menu-logo-icon">
+        <use href="/Drinkify/assets/sprite-0a4e9082.svg#glass"></use>
+      </svg>
+    </a>
+    <div class="header-menu-buttons-wrapper">
+      <div class="header-menu-btn-wrapper">
+        <button type="button" class="page-themetoggle themetoggle2">
+          <span class="themetoggle-switch"></span>
+        </button>
+        <button type="button" class="page-themetoggle_reset themetoggle_reset2">
+          X
+        </button>
+      </div>
+      <button type="button" class="header-menu-close">
+        <svg class="header-menu-close-icon">
+          <use href="../img/sprite.svg#icon-close"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="header-menu-nav-container">
+      <ul class="header-menu-list">
+        <li class="header-menu-item">
+          <a class="header-menu-link" href="index.html">Home</a>
+        </li>
+        <li class="header-menu-item">
+          <a class="header-menu-link js-header-menu-link">
+            Favorite
+            <svg
+              class="header-menu-link-icon js-header-menu-link-icon"
+              width="24"
+              height="24"
+            >
+              <use href="/Drinkify/assets/sprite-0a4e9082.svg#nav-arrow"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <ul class="favorite-menu-list js-favorite-menu-list">
+        <li class="favorite-menu-item">
+          <a href="./favorite-cocktails.html" class="favorite-menu-link">
+            Favorite cocktails
+          </a>
+        </li>
+        <li class="favorite-menu-item">
+          <a href="./favorite-ingredients.html" class="favorite-menu-link">
+            Favorite ingredients
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
     <main>
       <section class="container hero-title-img">
@@ -109,10 +216,10 @@
     <button type="button" class="open-alphabet-btn">
       <p class="btn-letter">A</p>
       <svg class="svg-icon-down">
-        <use href="/Drinkify/assets/sprite-ecce89bb.svg#chevron-down"></use>
+        <use href="/Drinkify/assets/sprite-0a4e9082.svg#chevron-down"></use>
       </svg>
       <svg class="svg-icon-up display">
-        <use href="/Drinkify/assets/sprite-ecce89bb.svg#chevron-up"></use>
+        <use href="/Drinkify/assets/sprite-0a4e9082.svg#chevron-up"></use>
       </svg>
     </button>
     <div class="list-container display">
@@ -132,7 +239,7 @@
   />
   <button class="search-form-submit-btn" type="submit">
     <svg class="search-form-submit-icon" width="16" height="16">
-      <use href="/Drinkify/assets/sprite-ecce89bb.svg#search"></use>
+      <use href="/Drinkify/assets/sprite-0a4e9082.svg#search"></use>
     </svg>
   </button>
 </form>
@@ -142,7 +249,7 @@
     <h2 class="cardlist-header">Loading Data...</h2>
     <div class="no-cocktails-wrapper visually-hidden">
       <svg class="no-cocktails-svg">
-        <use href="/Drinkify/assets/sprite-ecce89bb.svg#cocktails"></use>
+        <use href="/Drinkify/assets/sprite-0a4e9082.svg#cocktails"></use>
       </svg>
       <p class="no-cocktails-text">
         Sorry, we <span class="no-cocktails-text-part">didn’t find</span> any
@@ -182,7 +289,7 @@
     
   <button class="go-top-btn" id="scrollUpButton">
     <svg class="icon-go-top" width="30" height="30">
-      <use href="/Drinkify/assets/sprite-ecce89bb.svg#arrow-go-top"></use>
+      <use href="/Drinkify/assets/sprite-0a4e9082.svg#arrow-go-top"></use>
     </svg>
   </button>
 
