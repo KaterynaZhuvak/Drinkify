@@ -36,7 +36,7 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
     `<div class="container-popup">
   <button class="popup-close-btn close-cocktail-modal-x">
     <svg class="popup-close-btn-icon">
-      <use href="img/sprite.svg#popup-close-btn"></use>
+      <use href="./src/img/sprite.svg#popup-close-btn"></use>
     </svg>
   </button>
   <div class="box">
