@@ -5,9 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const btnMenuBurger = document.querySelector(".js-header-menu-burger");
   const modalBurger = document.querySelector(".js-header-backdrop");
   const closeModalBurger = document.querySelector(".js-header-menu-close");
-  console.log(btnMenuBurger)
-  console.log(modalBurger)
-  console.log(closeModalBurger)
 
   function onClickBurger() {
     modalBurger.style.transform = "translateX(0)";
