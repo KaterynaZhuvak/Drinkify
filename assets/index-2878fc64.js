@@ -1,4 +1,4 @@
-import"./styles-69928f42.js";import{b as Qe}from"./basicLightbox.min-d8571883.js";function ge({drinkThumb:t,drink:i,description:n,id:o}){return`<li class="cardlist-item" data-id=${o}>
+import"./styles-69928f42.js";import{b as Qe}from"./basicLightbox.min-d8571883.js";function ge({drinkThumb:t,drink:i,description:n,_id:o}){return`<li class="cardlist-item" data-id=${o}>
         <img src="${t}" class="cardlist-img" alt="${i}" onerror="this.onerror=null;this.src='./src/img/rafiki.jpg';" width=300>
         <h3 class="cardlist-drink">${i}</h3>
         <p class="cardlist-descr">${n}</p>
