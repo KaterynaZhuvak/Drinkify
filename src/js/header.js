@@ -19,24 +19,6 @@ if (displayStyle === "none" || displayStyle === "") {
   favoriteList.style.display = displayStyle;
 }
 
-/// open/close modal burger
-const btnMenuBurger = document.querySelector(".js-header-menu-burger");
-const modalBurger = document.querySelector(".header-backdrop");
-const closeModalBurger = document.querySelector(".header-menu-close");
-
-btnMenuBurger.addEventListener("click", onClickBurger);
-
-function onClickBurger() {
-  modalBurger.style.transform = "translateX(0)";
-  closeModalBurger.addEventListener("click", onClickCloseModalBurger);
-  btnMenuBurger.removeEventListener("click", onClickBurger);
-}
-
-function onClickCloseModalBurger() {
-  modalBurger.style.transform = "translateX(100%)";
-  btnMenuBurger.addEventListener("click", onClickBurger);
-}
-
 /// toggle theme
 window.addEventListener("load", windowLoad);
 
@@ -62,7 +44,6 @@ function windowLoad() {
   if (resetButton) {
     resetButton.addEventListener("click", function (e) {
       resetButton.classList.remove('active');
-      console.dir(resetButton)
       localStorage.setItem('user-theme', '');
     });
   }
