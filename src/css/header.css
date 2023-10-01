@@ -30,7 +30,8 @@
   border: none;
 }
 
-.header-menu-burger {
+.header-menu-burger,
+.header-item {
   &:hover,
   &:focus {
     color: var(--main-color);
