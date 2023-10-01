@@ -17,6 +17,7 @@
 @import url('./popupcocktails.css');
 @import url('./scroll-up.css');
 @import url('./pop-up-ingredients.css');
+@import url('./pagination.css');
 
 :root {
   --main-color: #7e8fdd;
