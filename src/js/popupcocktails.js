@@ -2,6 +2,17 @@ import { fetchCocktails } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
 import { onIngrListClickHandler } from './popupingredients';
 
+// const scrollController = {
+//   disabledScroll() {
+//     document.body.style.cssText = `
+//     overflow: hidden;
+//     `;
+//   },
+//   enabledScroll() {
+//     document.body.style.cssText = '';
+//   }
+// }
+
 const cardsGallery = document.querySelector('.cardlist');
 const SEARCH_BY_ID_LINK = 'cocktails/lookup/';
 const SEARCH_BY_ID_PARAM = 'id';
@@ -52,10 +63,10 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
   <p class="text desc-card">
    ${instructions}
   </p>
-  <button type="button" class="button-card favorite-theme-light">
+  <button type="button" class="button-card favorite">
     add to favorite
   </button>
-   <button type="button" class="button-card back-theme-light close-cocktail-modal-back">Back</button>
+   <button type="button" class="button-card back close-cocktail-modal-back">Back</button>
 </div>`,
     {
       onShow: instance => {
@@ -63,18 +74,26 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
           instance.close;
         instance.element().querySelector('.close-cocktail-modal-x').onclick =
           instance.close;
+        // scrollController.enabledScroll(); 
       },
     }
   );
   instance.show();
-  document
+  // scrollController.disabledScroll();
+   document
     .querySelector('.ingredients-list')
     .addEventListener('click', onIngrListClickHandler);
 }
 
+
+ 
 export {
+  // scrollController,
   onLearnMoreClickHandler,
   showModalWindow,
   SEARCH_BY_ID_LINK,
   SEARCH_BY_ID_PARAM,
 };
+  
+  
+  

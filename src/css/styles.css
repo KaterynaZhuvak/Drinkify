@@ -48,9 +48,9 @@ body.dark {
     background-size: cover;
   }
 
-    body.dark {
-      background-image: url(../img/background-dark@2x.jpg);
-    }
+  body.dark {
+    background-image: url(../img/background-dark@2x.jpg);
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -58,9 +58,9 @@ body.dark {
     background-image: url(../img/background-tablet.jpg);
   }
 
-    body.dark {
-      background-image: url(../img/background-tablet-dark.jpg);
-    }
+  body.dark {
+    background-image: url(../img/background-tablet-dark.jpg);
+  }
 }
 
 @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
@@ -70,9 +70,9 @@ body.dark {
     background-image: url(../img/background-tablet@2x.jpg);
   }
 
-    body.dark {
-      background-image: url(../img/background-tablet-dark@2x.jpg);
-    }
+  body.dark {
+    background-image: url(../img/background-tablet-dark@2x.jpg);
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -80,9 +80,9 @@ body.dark {
     background-image: url(../img/background-desktop.jpg);
   }
 
-    body.dark {
-      background-image: url(../img/background-desktop-dark.jpg);
-    }
+  body.dark {
+    background-image: url(../img/background-desktop-dark.jpg);
+  }
 }
 
 @media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2),
@@ -92,9 +92,9 @@ body.dark {
     background-image: url(../img/background-desktop@2x.jpg);
   }
 
-    body.dark {
-      background-image: url(../img/background-desktop-dark@2x.jpg);
-    }
+  body.dark {
+    background-image: url(../img/background-desktop-dark@2x.jpg);
+  }
 }
 
 /* Breakpoints:
