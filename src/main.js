@@ -9,4 +9,6 @@ import './js/search';
 import './js/favorite-ingredients';
 import './js/popupcocktails';
 import './js/scroll-up';
+import './js/footer';
 import './js/scroll-dawn';
+
