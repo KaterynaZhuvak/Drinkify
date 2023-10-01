@@ -1,4 +1,4 @@
-import"./styles-5f1d216f.js";import"./favorite-ingredients-ca1f493a.js";function ee({drinkThumb:t,drink:e,description:n,_id:i}){return`<li class="cardlist-item" data-id=${i}>
+import"./styles-69dae345.js";import"./favorite-ingredients-ca1f493a.js";function ee({drinkThumb:t,drink:e,description:n,_id:i}){return`<li class="cardlist-item" data-id=${i}>
         <img src="${t}" class="cardlist-img" alt="${e}" onerror="this.onerror=null;this.src='./img/rafiki.jpg';" width=300>
         <h3 class="cardlist-drink">${e}</h3>
         <p class="cardlist-descr">${n}</p>
