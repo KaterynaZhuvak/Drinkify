@@ -1,4 +1,4 @@
-import"./styles-1c69b823.js";import{b as Ue}from"./favorite-ingredients-43653302.js";function ne({drinkThumb:t,drink:n,description:i,_id:o}){return`<li class="cardlist-item" data-id=${o}>
+import"./styles-1c69b823.js";import{b as Ue}from"./basicLightbox.min-d8571883.js";function ne({drinkThumb:t,drink:n,description:i,_id:o}){return`<li class="cardlist-item" data-id=${o}>
         <img src="${t}" class="cardlist-img" alt="${n}" onerror="this.onerror=null;this.src='./src/img/rafiki.jpg';" width=300>
         <h3 class="cardlist-drink">${n}</h3>
         <p class="cardlist-descr">${i}</p>
