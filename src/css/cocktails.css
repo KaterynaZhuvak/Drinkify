@@ -1,6 +1,5 @@
 
 .cardlist-header{
-    padding-top: 40px;
     color: var(--text-color);
     font-size: 40px;
     font-weight: 500;
@@ -8,12 +7,15 @@
     margin-bottom: 40px;
 }
 
+#cocktails-section{
+    padding: 80px 0 40px 0;
+}
 
 .cardlist{
     display: flex;
     flex-direction: column;
     gap: 14px;
-    padding-bottom: 80px;
+    
 }
 
 .cardlist-item{
@@ -99,8 +101,8 @@
 }
 
 @media screen and (min-width: 767px){
-    .cardlist-header{
-        padding-top: 50px;
+    #cocktails-section {
+        padding: 50px 0 100px;
     }
     .cardlist{
         flex-direction: row;
