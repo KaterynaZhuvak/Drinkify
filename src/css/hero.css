@@ -144,6 +144,8 @@ body .element-dark {
   .hero-title-img {
     display: flex;
     align-items: center;
+  }
+  .hero-img {
     padding-top: 70px;
   }
   .hero-btn {
@@ -199,9 +201,7 @@ body .element-dark {
     border-radius: 12px;
     background: #6e7fcf;
   }
-  .hero-img {
-    margin-bottom: 100px;
-  }
+
   .container-img {
     position: relative;
     margin-bottom: 51px;
@@ -252,6 +252,9 @@ body .element-dark {
   }
   /* normal */
   .hero-title-img {
+    padding-top: 0;
+  }
+  .hero-img {
     padding-top: 34px;
   }
   .hero-btn {
