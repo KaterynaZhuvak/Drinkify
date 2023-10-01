@@ -8,7 +8,7 @@ import"./styles-1c69b823.js";import{b as d}from"./basicLightbox.min-d8571883.js"
 </li>`).join("");t.innerHTML=n}function u(i){if(i.target.classList.contains("btn-learn-more")){const t=a(i.target);d.create(`<div id="modal-ingredients" class="modal-in">
       <button type="button" class="modal-in-close-button close-cocktail-modal-x">
         <svg class="icon-in-close" width="11" height="11">
-          <use href="../img/sprite.svg#cross"></use>
+          <use href="./img/sprite.svg#cross"></use>
         </svg>
       </button>
     <div class="descripe-ingredients" data-id="${t._id}"><div class="header-in">
