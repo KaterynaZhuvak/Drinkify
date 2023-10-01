@@ -40,7 +40,7 @@ function onClick(e) {
             `<div id="modal-ingredients" class="modal-in">
       <button type="button" class="modal-in-close-button close-cocktail-modal-x">
         <svg class="icon-in-close" width="11" height="11">
-          <use href="../img/sprite.svg#cross"></use>
+          <use href="./img/sprite.svg#cross"></use>
         </svg>
       </button>
     <div class="descripe-ingredients" data-id="${ingredient._id}"><div class="header-in">

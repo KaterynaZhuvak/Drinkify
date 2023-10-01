@@ -36,6 +36,10 @@ body {
   background-size: cover;
 }
 
+body.dark {
+  background-image: url(../img/background-dark.jpg);
+}
+
 @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
@@ -44,12 +48,20 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+    body.dark {
+      background-image: url(../img/background-dark@2x.jpg);
+    }
 }
 
 @media screen and (min-width: 768px) {
   body {
     background-image: url(../img/background-tablet.jpg);
   }
+
+    body.dark {
+      background-image: url(../img/background-tablet-dark.jpg);
+    }
 }
 
 @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
@@ -58,12 +70,20 @@ body {
   body {
     background-image: url(../img/background-tablet@2x.jpg);
   }
+
+    body.dark {
+      background-image: url(../img/background-tablet-dark@2x.jpg);
+    }
 }
 
 @media screen and (min-width: 1280px) {
   body {
     background-image: url(../img/background-desktop.jpg);
   }
+
+    body.dark {
+      background-image: url(../img/background-desktop-dark.jpg);
+    }
 }
 
 @media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2),
@@ -72,6 +92,10 @@ body {
   body {
     background-image: url(../img/background-desktop@2x.jpg);
   }
+
+    body.dark {
+      background-image: url(../img/background-desktop-dark@2x.jpg);
+    }
 }
 
 /* Breakpoints:
