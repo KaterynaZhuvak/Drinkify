@@ -2,15 +2,15 @@
 import * as basicLightbox from 'basiclightbox';
 
 const list = document.querySelector(".favorite-ingredients-list");
-const sorryImg = document.querySelector(".sorry-ingredients");
+const sorryImage = document.querySelector(".sorry-ingredients");
 const favorite = JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS")) ?? [];
 
 
-sorryImg.classList.add("hidden");
+sorryImage.classList.add('hidden');
 renderMarkup(favorite, list);
 
 if (!favorite.length) {
-    sorryImg.classList.remove("hidden");
+    sorryImage.classList.remove("hidden");
 }
 
 list.addEventListener("click", onClick);
@@ -78,7 +78,7 @@ function onClick(e) {
     if (e.target.closest('.btn-remove')||e.target.closest('.btn-in')) {
         removeIngredient(e);
         if (!favorite.length) {
-            sorryImg.classList.remove("hidden");
+            sorryImage.classList.remove("hidden");
         }
     }
 };
