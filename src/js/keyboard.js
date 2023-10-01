@@ -1,4 +1,9 @@
-import { searchCoctailsByLetter, cardsGallery } from './search';
+import {
+  searchCocktails,
+  SEARCH_LINK,
+  LETTER_PARAM,
+  resetSearch,
+} from './search';
 
 const keyboard = document.querySelector('.keyboard');
 
@@ -54,7 +59,6 @@ keyboard.addEventListener('click', e => {
     return;
   }
 
-  cardsGallery.innerHTML = '';
-
-  searchCoctailsByLetter(e.target.textContent);
+  resetSearch();
+  searchCocktails(e.target.textContent, SEARCH_LINK, LETTER_PARAM);
 });

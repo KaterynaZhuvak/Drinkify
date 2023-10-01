@@ -12,23 +12,22 @@
 @import url('./search.css');
 @import url('./cocktails.css');
 @import url('./alphabet-menu.css');
+@import url('./favorite-ingredients.css');
 @import url('./footer.css');
-
+@import url('./popupcocktails.css');
+@import url('./scroll-up.css');
 :root {
   --main-color: #7e8fdd;
   --accent-color: #9cdfdf;
   --text-color: #242424;
   --background-color: #f8f9ff;
   --cards-color: #fdfdff;
+  --dark-cards-color: #232330;
 }
 
 body {
   font-family: Poppins;
   color: var(--text-color);
-  background-color: var(--background-color);
-}
-
-main {
   background-image: url(../img/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -37,15 +36,43 @@ main {
 @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-  main {
+  body {
     background-image: url(../img/background2x.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
 }
 
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url(../img/background-tablet.jpg);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  body {
+    background-image: url(../img/background-tablet@2x.jpg);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  body {
+    background-image: url(../img/background-desktop.jpg);
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  body {
+    background-image: url(../img/background-desktop@2x.jpg);
+  }
+}
+
 /* Breakpoints:
-320px
+375px
 768px
 1280px */
 
@@ -57,15 +84,36 @@ main {
   margin-left: auto;
 }
 
-@media screen and (max-width: 319px) {
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 34px;
+  border-radius: 4px;
+  background: var(--main-color);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+
+  transition: background 250ms cubic-bezier(.5, -.75, .7, 2);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--cards-color);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+@media screen and (max-width: 374px) {
   .keyboard {
     display: none;
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 375px) and (max-width: 767px) {
   .container {
-    width: 320px;
+    width: 375px;
   }
 
   .keyboard {
