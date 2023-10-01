@@ -14,7 +14,6 @@
     margin-left: auto;
     background-color: var(--background-color);
     border-radius: 20px;
-    overflow-y: auto;
   }
   .popup-close-btn {
     position: absolute;
@@ -93,19 +92,19 @@
     text-align: center;
     text-transform: uppercase;
   }
-  .favorite-theme-light {
+  .favorite {
     color: var(--cards-color);
     background-color: var(--main-color);
     margin-top: 40px;
   }
-  .favorite-theme-light:hover {
+  .favorite:hover {
     background-color: #6e7fcf;
   }
-  .back-theme-light {
+  .back {
     background-color: rgba(36, 36, 36, 0.1);
     margin-top: 14px;
   }
-  .back-theme-light:hover {
+  .back:hover {
     background-color: rgba(36, 36, 36, 0.2);
   }
   .is-hidden {
@@ -115,24 +114,24 @@
   }
 
   /* ================= Theme dark ================= */
-  .container-popup-theme-dark {
+  .container-popup.dark {
     background-color: #232330;
   }
-  .caption-card-theme-dark {
+  .caption-card.dark {
     color: var(--cards-color);
   }
-  .text-theme-dark {
+  .text.dark {
     color: rgba(253, 253, 255, 0.5);
   }
-  .item-card-theme-dark {
+  .item-card.dark {
     color: rgba(253, 253, 255, 0.8);
   }
   /* .favorite-theme-light has the same color as in the dark theme */
-  .back-theme-dark {
+  .back.dark {
     color: var(--cards-color);
     background-color: rgb(253, 253, 255, 0.1);
   }
-  .back-theme-dark:hover {
+  .back.dark:hover {
     background-color: rgb(253, 253, 255, 0.2);
   }
   /* =================== / Theme dark ==================== */
@@ -200,4 +199,7 @@
 }
 .ingredient-btn:hover {
   color: var(--main-color);
+}
+.name.dark {
+  color: var(--cards-color);
 }
