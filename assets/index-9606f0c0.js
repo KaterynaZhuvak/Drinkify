@@ -1,4 +1,4 @@
-import"./styles-43afd7fc.js";import{b as Ue}from"./basicLightbox.min-d8571883.js";function ne({drinkThumb:t,drink:n,description:i,_id:o}){return`<li class="cardlist-item" data-id=${o}>
+import"./styles-243c822a.js";import{b as Ue}from"./basicLightbox.min-d8571883.js";function ne({drinkThumb:t,drink:n,description:i,_id:o}){return`<li class="cardlist-item" data-id=${o}>
         <img src="${t}" class="cardlist-img" alt="${n}" onerror="this.onerror=null;this.src='./src/img/rafiki.jpg';" width=300>
         <h3 class="cardlist-drink">${n}</h3>
         <p class="cardlist-descr">${i}</p>
@@ -62,8 +62,8 @@ Notiflix needs to be appended to the "<`+l+'>" element, but you called it before
   <p class="text desc-card">
    ${i}
   </p>
-  <button type="button" class="button-card favorite-theme-light">
+  <button type="button" class="button-card favorite">
     add to favorite
   </button>
-   <button type="button" class="button-card back-theme-light close-cocktail-modal-back">Back</button>
+   <button type="button" class="button-card back close-cocktail-modal-back">Back</button>
 </div>`,{onShow:r=>{r.element().querySelector(".close-cocktail-modal-back").onclick=r.close,r.element().querySelector(".close-cocktail-modal-x").onclick=r.close}}).show(),document.querySelector(".ingredients-list").addEventListener("click",Ro)}function Wo(){window.scrollTo({top:0,behavior:"smooth"})}window.addEventListener("scroll",function(){const t=document.getElementById("scrollUpButton");document.body.scrollTop>20||document.documentElement.scrollTop>20?t.style.display="block":t.style.display="none"});document.getElementById("scrollUpButton").addEventListener("click",Wo);const O=document.querySelector(".carousel-cr-by"),Do=document.querySelectorAll(".cr-by-arrow"),ee=O.querySelector(".cr-by-card").offSetWidth,kn=[...O.children];let ge=!1,vn,Nn,Cn=Math.round(O.offSetWidth/ee);kn.slice(-Cn).reverse().forEach(t=>{O.insertAdjacentHTML("beforeend",t.outerHTML)});kn.slice(0,Cn).forEach(t=>{O.insertAdjacentHTML("afterbegin",t.outerHTML)});Do.forEach(t=>{t.addEventListener("click",()=>{O.scrollLeft+=t.id==="leftslider"?-ee:ee})});const Fo=()=>{ge=!0,O.classList.add("dragging"),vn=e.pageX,Nn=O.scrollLeft},Po=t=>{ge&&(O.scrollLeft=Nn-(t.pageX-vn))},Ho=()=>{ge=!1,O.classList.remove("dragging")},jo=()=>{O.scrollLeft===0?(O.classList.add("no-transition-cr-by"),O.scrollLeft=O.scrollWidth-2*O.offSetWidth,O.classList.remove("no-transition-cr-by")):Math.ceil(O.scrollLeft)===O.scrollWidth-O.offSetWidth&&(O.classList.add("no-transition-cr-by"),O.scrollLeft=O.offSetWidth,O.classList.remove("no-transition-cr-by"))};O.addEventListener("mousedown",Fo);O.addEventListener("mousemove",Po);document.addEventListener("mouseup",Ho);O.addEventListener("scroll",jo);const Xo=document.querySelector(".btn-hero-scroll");Xo.addEventListener("click",function(t){t.preventDefault();const i=document.querySelector("#cocktails-section").offsetTop;window.scrollTo({top:i,behavior:"smooth"})});
