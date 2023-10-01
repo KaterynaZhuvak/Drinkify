@@ -51,7 +51,7 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
     </svg>
   </button>
   <div class="box">
-    <div class="picture"><img src="${drinkThumb}" alt="${drink}" onerror="this.onerror=null;this.src='../img/rafiki.jpg';"/></div>
+    <div class="picture"><img src="${drinkThumb}" alt="${drink}" onerror="this.onerror=null;this.src='img/rafiki.jpg';"/></div>
     <div>
       <h2 class="name">${drink}</h2>
       <p class="caption-card">Ingredients:</p>
@@ -74,19 +74,17 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
           instance.close;
         instance.element().querySelector('.close-cocktail-modal-x').onclick =
           instance.close;
-        // scrollController.enabledScroll(); 
+        // scrollController.enabledScroll();
       },
     }
   );
   instance.show();
   // scrollController.disabledScroll();
-   document
+  document
     .querySelector('.ingredients-list')
     .addEventListener('click', onIngrListClickHandler);
 }
 
-
- 
 export {
   // scrollController,
   onLearnMoreClickHandler,
@@ -94,6 +92,3 @@ export {
   SEARCH_BY_ID_LINK,
   SEARCH_BY_ID_PARAM,
 };
-  
-  
-  
