@@ -1,7 +1,7 @@
 /// open\close favorite-list
-const favoriteSwitch = document.querySelector(".js-header-link");
-const favoriteIcon = document.querySelector(".js-header-link-icon");
-const favoriteList = document.querySelector(".js-favorite-list");
+const favoriteSwitch = document.querySelector(".js-header-menu-link");
+const favoriteIcon = document.querySelector(".js-header-menu-link-icon");
+const favoriteList = document.querySelector(".js-favorite-menu-list");
 let currentRotation = 0;
 
 favoriteSwitch.addEventListener("click", onClickFavorite);
@@ -19,24 +19,6 @@ if (displayStyle === "none" || displayStyle === "") {
   favoriteList.style.display = displayStyle;
 }
 
-/// open/close modal burger
-const btnMenuBurger = document.querySelector(".js-header-menu-burger");
-const modalBurger = document.querySelector(".header-backdrop");
-const closeModalBurger = document.querySelector(".header-menu-close");
-
-btnMenuBurger.addEventListener("click", onClickBurger);
-
-function onClickBurger() {
-  modalBurger.style.transform = "translateX(0)";
-  closeModalBurger.addEventListener("click", onClickCloseModalBurger);
-  btnMenuBurger.removeEventListener("click", onClickBurger);
-}
-
-function onClickCloseModalBurger() {
-  modalBurger.style.transform = "translateX(100%)";
-  btnMenuBurger.addEventListener("click", onClickBurger);
-}
-
 /// toggle theme
 window.addEventListener("load", windowLoad);
 
@@ -51,8 +33,8 @@ function windowLoad() {
     !saveUserTheme ? changeTheme() : null;
   });
 
-  const themeButton = document.querySelector('.themetoggle');
-  const resetButton = document.querySelector('.themetoggle_reset');
+  const themeButton = document.querySelector('.themetoggle2');
+  const resetButton = document.querySelector('.themetoggle_reset2');
   if (themeButton) {
     themeButton.addEventListener("click", function (e) {
       resetButton.classList.add('active');

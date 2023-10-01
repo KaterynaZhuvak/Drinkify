@@ -6,6 +6,7 @@
 */
 @import url('./reset.css');
 @import url('./header.css');
+@import url('./header_backdrop.css');
 @import url('./hero.css');
 @import url('./keyboard.css');
 @import url('./search.css');
@@ -15,6 +16,7 @@
 @import url('./footer.css');
 @import url('./popupcocktails.css');
 @import url('./scroll-up.css');
+@import url('./pop-up-ingredients.css');
 
 :root {
   --main-color: #7e8fdd;
@@ -33,6 +35,10 @@ body {
   background-size: cover;
 }
 
+body.dark {
+  background-image: url(../img/background-dark.jpg);
+}
+
 @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
@@ -41,11 +47,19 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  body.dark {
+    background-image: url(../img/background-dark@2x.jpg);
+  }
 }
 
 @media screen and (min-width: 768px) {
   body {
     background-image: url(../img/background-tablet.jpg);
+  }
+
+  body.dark {
+    background-image: url(../img/background-tablet-dark.jpg);
   }
 }
 
@@ -55,11 +69,19 @@ body {
   body {
     background-image: url(../img/background-tablet@2x.jpg);
   }
+
+  body.dark {
+    background-image: url(../img/background-tablet-dark@2x.jpg);
+  }
 }
 
 @media screen and (min-width: 1280px) {
   body {
     background-image: url(../img/background-desktop.jpg);
+  }
+
+  body.dark {
+    background-image: url(../img/background-desktop-dark.jpg);
   }
 }
 
@@ -68,6 +90,10 @@ body {
   (min-resolution: 2dppx) {
   body {
     background-image: url(../img/background-desktop@2x.jpg);
+  }
+
+  body.dark {
+    background-image: url(../img/background-desktop-dark@2x.jpg);
   }
 }
 
