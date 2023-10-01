@@ -49,7 +49,7 @@ function createRandomCards() {
       cocktailsTitle.textContent = 'Cocktails';
     })
     .catch(error => {
-      Notiflix.Notify.failure('Server error');
+      // Notiflix.Notify.failure('Server error');
       console.log(error);
     });
 }
@@ -62,7 +62,7 @@ inputForm.addEventListener('submit', e => {
   const { searchQuery } = e.currentTarget.elements;
 
   if (!searchQuery.value.trim()) {
-    Notiflix.Notify.failure('Please, fill in the search');
+    // Notiflix.Notify.failure('Please, fill in the search');
     return;
   }
 
@@ -74,6 +74,7 @@ function resetSearch() {
   currentPage = 1;
   cardsGallery.innerHTML = '';
   paginationContainer.innerHTML = '';
+  inputForm.reset();
 }
 
 async function searchCocktails(input, link, param) {
@@ -96,7 +97,7 @@ async function searchCocktails(input, link, param) {
     inputForm.reset();
   } catch (error) {
     cocktailsTitle.textContent = '';
-    Notiflix.Notify.failure('No results found, please try another name');
+    // Notiflix.Notify.failure('No results found, please try another name');
     console.log(error);
     cocktWrapper.classList.remove('visually-hidden');
   }
@@ -119,52 +120,51 @@ function DisplayPaginatedList(items, wrapper, per_page, page) {
     .join('');
 }
 
-
 function SetupPagination(items, wrapper, per_page) {
   wrapper.innerHTML = '';
 
   let page_count = Math.ceil(items.length / per_page);
 
-    const options = {
-  totalItems: items.length,
-  itemsPerPage: per_page,
-//   visiblePages: 10,
-  page: 1,
-  centerAlign: false,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn btnStyle btnStyle btnStyle1">{{page}}</a>',
-    currentPage: '<strong class="tui-page-btn tui-is-selected btnStyle">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
+  const options = {
+    totalItems: items.length,
+    itemsPerPage: per_page,
+    //   visiblePages: 10,
+    page: 1,
+    centerAlign: false,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+    template: {
+      page: '<a href="#" class="tui-page-btn btnStyle btnStyle btnStyle1">{{page}}</a>',
+      currentPage:
+        '<strong class="tui-page-btn tui-is-selected btnStyle">{{page}}</strong>',
+      moveButton:
+        '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnStyle">' +
+        '</a>',
+      disabledMoveButton:
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '</span>',
+      moreButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
         '<span class="tui-ico-ellip">...</span>' +
-      '</a>'
-        }
-  
-    };
-    console.log(options);
+        '</a>',
+    },
+  };
+  console.log(options);
 
-    const pagination = new Pagination(paginationContainer, options);
+  const pagination = new Pagination(paginationContainer, options);
 
-    pagination.on('beforeMove', evt => {
-        const { page } = evt;
-  const result = DisplayPaginatedList(cards, cardsGallery, cardsPerPage, page);
-
-
-});
-
-
- }
-
+  pagination.on('beforeMove', evt => {
+    const { page } = evt;
+    const result = DisplayPaginatedList(
+      cards,
+      cardsGallery,
+      cardsPerPage,
+      page
+    );
+  });
+}
 
 // function SetupPagination(items, wrapper, per_page) {
 //   wrapper.innerHTML = '';

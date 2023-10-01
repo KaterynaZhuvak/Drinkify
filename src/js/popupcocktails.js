@@ -51,7 +51,7 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
     </svg>
   </button>
   <div class="box">
-    <div class="picture"><img src="${drinkThumb}" alt="${drink}" onerror="this.onerror=null;this.src='img/rafiki.jpg';"/></div>
+    <div class="picture"><img src="${drinkThumb}" alt="${drink}" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/KulibabaYuliia/projecttest/main/src/img/rafiki.jpg';"/></div>
     <div>
       <h2 class="name">${drink}</h2>
       <p class="caption-card">Ingredients:</p>
