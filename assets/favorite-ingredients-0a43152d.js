@@ -1,4 +1,4 @@
-import"./styles-7f3f2d3f.js";import{b as d}from"./basicLightbox.min-d8571883.js";const o=document.querySelector(".favorite-ingredients-list"),c=document.querySelector(".sorry-ingredients"),s=JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS"))??[];c.classList.add("hidden");r(s,o);s.length||c.classList.remove("hidden");o.addEventListener("click",u);function r(i,t){const n=i.map(e=>`<li class="in-card" data-id=${e._id}>
+import"./styles-9198f71d.js";import{b as d}from"./basicLightbox.min-d8571883.js";const o=document.querySelector(".favorite-ingredients-list"),c=document.querySelector(".sorry-ingredients"),s=JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS"))??[];c.classList.add("hidden");r(s,o);s.length||c.classList.remove("hidden");o.addEventListener("click",u);function r(i,t){const n=i.map(e=>`<li class="in-card" data-id=${e._id}>
         <h3 class="in-card-title">${e.title}</h3>
         <p class="in-card-alco">${e.alcohol}</p>
         <p class="in-card-descr">${e.description}</p>
