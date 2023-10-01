@@ -13,15 +13,13 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
+    padding-bottom: 80px;
 }
 
 .cardlist-item{
     background-color: var(--cards-color);
     border-radius: 16px;
     width: 335px;
-}
-.cardlist-item:last-child{
-    padding-bottom: 80px;
 }
 
 .cardlist-img{
@@ -88,6 +86,10 @@
     background: var(--main-color);
     border-color: transparent;
 }
+.cardlist-svg{
+    stroke: var(--cards-color);
+    min-width: 18px;
+}
 
 
 .cartlist-btns{
@@ -112,7 +114,7 @@
         width: 316px;
         height: 289px;
     }
-    .cardlist-item:last-child{
+    .cardlist:last-child{
         display: none;
         }
     .cardlist-drink{
@@ -122,6 +124,16 @@
     .cardlist-descr{
         margin: 14px 24px 0 24px;
     }
+    .cardlist-fav{
+        max-width: 56px;
+        max-height: 56px;
+    }
+    .cardlist-svg{
+        min-width: 24px;
+        height: 24px;
+        
+    }
+
     .cardlist-learn{
         font-size: 18px;
         letter-spacing: 0.36px;
@@ -135,7 +147,7 @@
     .cardlist{
         gap: 44px 24px;
     }
-    .cardlist-item:last-child {
+    .cardlist:last-child {
         display: block;
     }   
 }

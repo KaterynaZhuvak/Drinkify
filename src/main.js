@@ -11,4 +11,4 @@ import './js/popupcocktails';
 import './js/scroll-up';
 import './js/footer';
 import './js/scroll-dawn';
-
+import './js/favorite_btn';
