@@ -114,24 +114,24 @@
   }
 
   /* ================= Theme dark ================= */
-  .container-popup.dark {
+  body.dark .container-popup {
     background-color: #232330;
   }
-  .caption-card.dark {
+  body.dark .caption-card {
     color: var(--cards-color);
   }
-  .text.dark {
+  body.dark .text {
     color: rgba(253, 253, 255, 0.5);
   }
-  .item-card.dark {
+  body.dark .item-card {
     color: rgba(253, 253, 255, 0.8);
   }
   /* .favorite-theme-light has the same color as in the dark theme */
-  .back.dark {
+  body.dark .back {
     color: var(--cards-color);
     background-color: rgb(253, 253, 255, 0.1);
   }
-  .back.dark:hover {
+  body.dark .back:hover {
     background-color: rgb(253, 253, 255, 0.2);
   }
   /* =================== / Theme dark ==================== */
