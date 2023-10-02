@@ -2,10 +2,12 @@ import { fetchIngredients } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
 import spriteURL from '/img/sprite.svg';
 // const KEY_FAVORITE_INGREDIENTS = 'FavIngrArr';
+
 const SEARCH_BY_ID_LINK = 'ingredients/';
 const favoriteArrIn =
   JSON.parse(localStorage.getItem('KEY_FAVORITE_INGREDIENTS')) ?? [];
 let ingredientObj;
+
 function onIngrListClickHandler(e) {
   e.preventDefault();
   const IngrId = e.target.closest('.item-card').dataset.id;
@@ -31,6 +33,7 @@ function onIngrListClickHandler(e) {
     showModalWindow(ingredientObj);
   });
 }
+
 function showModalWindow(ingredientObj) {
   const { id, title, description, type, abv, flavour, country } = ingredientObj;
   const instance = basicLightbox.create(

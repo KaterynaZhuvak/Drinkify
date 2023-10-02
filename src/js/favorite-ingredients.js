@@ -1,11 +1,10 @@
 import * as basicLightbox from 'basiclightbox';
 import { onClickIn } from './popupingredients';
+
 const list = document.querySelector('.favorite-ingredients-list');
 const sorryImage = document.querySelector('.sorry-ingredients');
 const favorite =
   JSON.parse(localStorage.getItem('KEY_FAVORITE_INGREDIENTS')) ?? [];
-
-console.log(favorite);
 
 sorryImage.classList.add('hidden');
 renderMarkup(favorite, list);
@@ -28,8 +27,8 @@ function renderMarkup(arr, container) {
         <p class="in-card-alco">${isAcloholic}</p>
         <p class="in-card-descr">${card.description || 'No data'}</p>
         <div class="in-card-btns"><button class="btn-learn-more">learn more</button><button class="btn-remove"><svg class="remove-icon">
-                        <use href="./img/sprite.svg#trash"></use>
-                    </svg></button></div>
+        <use href="./img/sprite.svg#trash"></use>
+        </svg></button></div>
 </li>`;
     })
     .join('');
