@@ -58,7 +58,7 @@ function onClick(e) {
           </ul>
         </div>
         <div class="buttons-in">
-          <button class="btn-in">REMOVE FROM FAVORITE</button>
+          <button class="btn-in remove-btn">REMOVE FROM FAVORITE</button>
           <button type="button" id="btn-back" class="btn-in btn-back close-cocktail-modal-back">
             BACK
           </button></div></div>`,
@@ -68,8 +68,8 @@ function onClick(e) {
                         instance.close;
                     instance.element().querySelector('.close-cocktail-modal-x').onclick =
                         instance.close;
-                    instance.element().querySelector('.btn-in').onclick =
-                        removeIngredient(e);
+                    instance.element().querySelector('.remove-btn').onclick =
+                        instance.close;
                 },
             }
         );

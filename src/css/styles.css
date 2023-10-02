@@ -162,8 +162,8 @@ body::-webkit-scrollbar-thumb:hover {
 @media screen and (min-width: 1280px) {
   .container {
     width: 1280px;
-    padding-right: 64px;
-    padding-left: 64px;
+    padding-right: 100px;
+    padding-left: 100px;
   }
 
   .alphabet-menu {
