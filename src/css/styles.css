@@ -125,10 +125,6 @@ body::-webkit-scrollbar-thumb {
   transition: background 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
 }
 
-body::-webkit-scrollbar-track {
-  background: var(--cards-color);
-}
-
 body::-webkit-scrollbar-thumb:hover {
   background: var(--accent-color);
 }
