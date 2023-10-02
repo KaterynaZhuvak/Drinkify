@@ -1,31 +1,40 @@
 import { fetchIngredients } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
-
+const KEY_FAVORITE_INGREDIENTS = 'FavIngrArr';
 const SEARCH_BY_ID_LINK = 'ingredients/';
-//const favoriteArrIn =
-//JSON.parse(localStorage.getItem(KEY_FAVORITE_INGREDIENTS)) ?? [];
-
+const favoriteArrIn =
+  JSON.parse(localStorage.getItem(KEY_FAVORITE_INGREDIENTS)) ?? [];
+let ingredientObj;
 function onIngrListClickHandler(e) {
   e.preventDefault();
-
-  console.log(e.target.nodeName);
-
   if (e.target.nodeName !== 'A') {
     return;
   }
-
-  console.log(e.target.closest('.item-card'));
-
-  const id = e.target.closest('.item-card').dataset.id;
-  console.log(id);
-  fetchIngredients(SEARCH_BY_ID_LINK, id).then(resp => {
-    const { _id, title, description, type, abv, flavour, country } = resp[0];
-
-    showModalWindow(_id, title, description, type, abv, flavour, country);
+  const IngrId = e.target.closest('.item-card').dataset.id;
+  fetchIngredients(SEARCH_BY_ID_LINK, IngrId).then(resp => {
+    const {
+      _id: id,
+      title,
+      description,
+      type,
+      abv,
+      flavour,
+      country,
+    } = resp[0];
+    ingredientObj = {
+      id,
+      title,
+      description,
+      type,
+      abv,
+      flavour,
+      country,
+    };
+    showModalWindow(ingredientObj);
   });
 }
-
-function showModalWindow(id, title, description, type, abv, flavour, country) {
+function showModalWindow(ingredientObj) {
+  const { id, title, description, type, abv, flavour, country } = ingredientObj;
   const instance = basicLightbox.create(
     `
     <div id="modal-ingredients" class="modal-in theme-dark container-popup">
@@ -68,33 +77,28 @@ function showModalWindow(id, title, description, type, abv, flavour, country) {
           instance.close;
         instance.element().querySelector('.close-cocktail-modal-x').onclick =
           instance.close;
-        // instance
-        //.element()
-        // .querySelector('.js-btningr')
-        //.addEventListener('click', onClickIn);
+        instance
+          .element()
+          .querySelector('.js-btningr')
+          .addEventListener('click', onClickIn);
       },
     }
   );
   instance.show();
 }
-
-//function onClickIn(event) {
-//event.preventDefault();
-//if (event.target.classlist.contains('js-btningr')) {
-//const { id } = event.target.closeset('modal-in').dataset;
-//const ingredientEl = findInfredient(event.target);
-//const inStorageIn = favoriteArrIn.some(({ id }) => id === ingredientEl.id);
-
-// if (inStorageIn) {
-//   return;
-// }
-
-// favoriteArrIn.push(ingredientEl);
-//localStorage.setItem(
-//  KEY_FAVORITE_INGREDIENTS,
-// JSON.stringify(favoriteArrIn)
-// );
-//}
-//}
-
+function onClickIn(event) {
+  event.preventDefault();
+  if (event.target.classList.contains('js-btningr')) {
+    const inStorageIn = favoriteArrIn.find(({ id }) => id === ingredientObj.id);
+    if (inStorageIn) {
+      return;
+    }
+    favoriteArrIn.push(ingredientObj);
+    localStorage.setItem(
+      KEY_FAVORITE_INGREDIENTS,
+      JSON.stringify(favoriteArrIn)
+    );
+  }
+}
 export { onIngrListClickHandler };
+export { onClickIn };
