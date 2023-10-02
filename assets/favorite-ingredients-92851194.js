@@ -1,4 +1,4 @@
-import{b as d}from"./basicLightbox.min-074928df.js";const c=document.querySelector(".favorite-ingredients-list"),l=document.querySelector(".sorry-ingredients"),i=JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS"))??[];i.splice(0,6);l.classList.add("hidden");r(i,c);i.length||l.classList.remove("hidden");c.addEventListener("click",g);function r(n,e){const s=n.map(t=>{let o="Alcoholic";return t.alcohol==="No"&&(o="Non-alcoholic"),`<li class="in-card" data-id=${t._id}>
+import{b as d}from"./popupingredients-2eee1e7e.js";const c=document.querySelector(".favorite-ingredients-list"),l=document.querySelector(".sorry-ingredients"),i=JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS"))??[];i.splice(0,6);l.classList.add("hidden");r(i,c);i.length||l.classList.remove("hidden");c.addEventListener("click",g);function r(n,e){const s=n.map(t=>{let o="Alcoholic";return t.alcohol==="No"&&(o="Non-alcoholic"),`<li class="in-card" data-id=${t._id}>
         <h3 class="in-card-title">${t.title}</h3>
         <p class="in-card-alco">${o}</p>
         <p class="in-card-descr">${t.description||"No data"}</p>
