@@ -1,4 +1,4 @@
-import{b as d}from"./popupingredients-30ac8a02.js";const c=document.querySelector(".favorite-ingredients-list"),l=document.querySelector(".sorry-ingredients"),i=JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS"))??[];i.splice(0,6);l.classList.add("hidden");r(i,c);i.length||l.classList.remove("hidden");c.addEventListener("click",g);function r(n,e){const s=n.map(t=>{let o="Alcoholic";return t.alcohol==="No"&&(o="Non-alcoholic"),`<li class="in-card" data-id=${t._id}>
+import{b as d}from"./popupingredients-d0096371.js";const c=document.querySelector(".favorite-ingredients-list"),l=document.querySelector(".sorry-ingredients"),i=JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS"))??[];console.log(i);l.classList.add("hidden");r(i,c);i.length||l.classList.remove("hidden");c.addEventListener("click",g);function r(n,e){const s=n.map(t=>{let o="Alcoholic";return t.abv==="0"&&(o="Non-alcoholic"),`<li class="in-card" data-id=${t.id}>
         <h3 class="in-card-title">${t.title}</h3>
         <p class="in-card-alco">${o}</p>
         <p class="in-card-descr">${t.description||"No data"}</p>
@@ -11,7 +11,7 @@ import{b as d}from"./popupingredients-30ac8a02.js";const c=document.querySelecto
           <use href="./img/sprite.svg#cross"></use>
         </svg>
       </button>
-    <div class="descripe-ingredients" data-id="${e._id}"><div class="header-in">
+    <div class="descripe-ingredients" data-id="${e.id}"><div class="header-in">
           <h2 id="ingredients-title" class="ingredients-title">${e.title}</h2>
           <p class="kind-in">${e.type}</p>
         </div>
@@ -28,4 +28,4 @@ import{b as d}from"./popupingredients-30ac8a02.js";const c=document.querySelecto
           <button class="btn-in remove-btn">REMOVE FROM FAVORITE</button>
           <button type="button" id="btn-back" class="btn-in btn-back close-cocktail-modal-back">
             BACK
-          </button></div></div>`,{onShow:t=>{t.element().querySelector(".close-cocktail-modal-back").onclick=t.close,t.element().querySelector(".close-cocktail-modal-x").onclick=t.close,t.element().querySelector(".remove-btn").addEventListener("click",u),t.element().querySelector(".remove-btn").onclick=t.close}}).show()}(n.target.closest(".btn-remove")||n.target.closest(".btn-in"))&&(m(n),i.length||l.classList.remove("hidden"))}function a(n){const e=n.closest(".in-card").dataset.id;return i.find(({_id:s})=>s===e)}function m(n){const e=a(n.target),s=i.findIndex(({_id:t})=>t===e._id);i.splice(s,1),localStorage.setItem("KEY_FAVORITE_INGREDIENTS",JSON.stringify(i)),r(i,c)}function u(n){const e=n.target.closest(".descripe-ingredients").dataset.id,s=i.find(({_id:o})=>o===e),t=i.findIndex(({_id:o})=>o===s._id);i.splice(t,1),localStorage.setItem("KEY_FAVORITE_INGREDIENTS",JSON.stringify(i)),r(i,c)}
+          </button></div></div>`,{onShow:t=>{t.element().querySelector(".close-cocktail-modal-back").onclick=t.close,t.element().querySelector(".close-cocktail-modal-x").onclick=t.close,t.element().querySelector(".remove-btn").addEventListener("click",u),t.element().querySelector(".remove-btn").onclick=t.close}}).show()}(n.target.closest(".btn-remove")||n.target.closest(".btn-in"))&&(m(n),i.length||l.classList.remove("hidden"))}function a(n){const e=n.closest(".in-card").dataset.id;return i.find(({id:s})=>s===e)}function m(n){const e=a(n.target),s=i.findIndex(({id:t})=>t===e.id);i.splice(s,1),localStorage.setItem("KEY_FAVORITE_INGREDIENTS",JSON.stringify(i)),r(i,c)}function u(n){const e=n.target.closest(".descripe-ingredients").dataset.id,s=i.find(({id:o})=>o===e),t=i.findIndex(({id:o})=>o===s.id);i.splice(t,1),localStorage.setItem("KEY_FAVORITE_INGREDIENTS",JSON.stringify(i)),r(i,c)}
