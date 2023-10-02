@@ -2,6 +2,7 @@ import { fetchCocktails } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
 import { onIngrListClickHandler } from './popupingredients';
 import spriteURL from '/img/sprite.svg';
+import { renderFavCocktails, cardList } from './favorite_coctails';
 
 const KEY_FAVORITE_COCKTAILS = 'favoriteCocktails';
 const cardsGallery = document.querySelector('.cardlist');
@@ -51,6 +52,7 @@ async function onLearnMoreClickHandler(e) {
       })
       .join('');
 
+    console.log(cocktailObj);
     showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb);
   });
 }
@@ -93,15 +95,25 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
           instance.close;
         instance
           .element()
-          .querySelector('.favorite')
+          .querySelector('.add-to-fav-cockt')
           .addEventListener('click', onClickFavAddRemoveHandler);
+        instance
+          .element()
+          .querySelector('.remove-from-fav-cockt')
+          .addEventListener('click', onClickFavRemoveHandler);
         // scrollController.enabledScroll();
+
+        checkIfInFavStorage(instance);
       },
       onClose: instance => {
         instance
           .element()
-          .querySelector('.favorite')
+          .querySelector('.add-to-fav-cockt')
           .removeEventListener('click', onClickFavAddRemoveHandler);
+        instance
+          .element()
+          .querySelector('.remove-from-fav-cockt')
+          .removeEventListener('click', onClickFavRemoveHandler);
       },
     }
   );
@@ -112,25 +124,60 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
     .addEventListener('click', onIngrListClickHandler);
 }
 
-function onClickFavAddRemoveHandler(e) {
-  e.preventDefault();
+function checkIfInFavStorage(instance) {
+  const inStorageIn = favCokctArr.find(
+    ({ _id }) =>
+      _id === instance.element().querySelector('.container-popup').dataset.id
+  );
 
-  if (e.target.classList.contains('favorite')) {
-    const ifCocktailInStorage = favCokctArr.find(
-      ({ id }) => id === e.target.dataset.id
-    );
-    if (ifCocktailInStorage) {
-      return;
-    }
-    favCokctArr.push(cocktailObj);
-    localStorage.setItem(KEY_FAVORITE_COCKTAILS, JSON.stringify(favCokctArr));
+  if (inStorageIn) {
+    instance
+      .element()
+      .querySelector('.add-to-fav-cockt')
+      .classList.add('visually-hidden');
+    instance
+      .element()
+      .querySelector('.remove-from-fav-cockt')
+      .classList.remove('visually-hidden');
   }
 }
 
-export {
-  // scrollController,
-  onLearnMoreClickHandler,
-  showModalWindow,
-  SEARCH_BY_ID_LINK,
-  SEARCH_BY_ID_PARAM,
-};
+function onClickFavAddRemoveHandler(e) {
+  e.preventDefault();
+
+  console.log('loololo');
+
+  document.querySelector('.add-to-fav-cockt').classList.add('visually-hidden');
+  document
+    .querySelector('.remove-from-fav-cockt')
+    .classList.remove('visually-hidden');
+
+  favCokctArr.push(cocktailObj);
+  localStorage.setItem(KEY_FAVORITE_COCKTAILS, JSON.stringify(favCokctArr));
+}
+
+function onClickFavRemoveHandler(e) {
+  e.preventDefault();
+
+  document
+    .querySelector('.add-to-fav-cockt')
+    .classList.remove('visually-hidden');
+  document
+    .querySelector('.remove-from-fav-cockt')
+    .classList.add('visually-hidden');
+
+  const itemToRemove = favCokctArr.findIndex(
+    ({ _id }) => _id === e.target.dataset.id
+  );
+
+  favCokctArr.splice(itemToRemove, 1);
+  localStorage.setItem(KEY_FAVORITE_COCKTAILS, JSON.stringify(favCokctArr));
+
+  console.log(window.location.pathname);
+
+  if (window.location.pathname === '/favorite-cocktails.html') {
+    renderFavCocktails(favCokctArr, cardList);
+  }
+}
+
+export { onLearnMoreClickHandler, showModalWindow };

@@ -1,22 +1,18 @@
-import Notiflix from 'notiflix';
-import { fetchCocktails } from './drinkifyapi';
-import { showModalWindow } from './popupcocktails.js';
+// import Notiflix from 'notiflix';
+// import { fetchCocktails } from './drinkifyapi';
+// import { showModalWindow } from './popupcocktails.js';
+
+import { onLearnMoreClickHandler } from './popupcocktails';
 import { createMarkup } from './markup';
 
 const cardList = document.querySelector('.cardlist'); // list
 const plugEl = document.querySelector('.plug'); //sorry
-const containerSection = document.querySelector('.container-section');
-const sectionTitle = document.querySelector('.section-tittle');
 
 const KEY_FAVORITE_COCKTAILS = 'favoriteCocktails';
-// const SEARCH_BY_ID_LINK = 'ingredients/';
 const favCokctArr =
   JSON.parse(localStorage.getItem(KEY_FAVORITE_COCKTAILS)) ?? [];
-let ingredientObj;
 
-// const RANDOM_PARAM = 'r';
-// const RANDOM_LINK = 'cocktails/';
-let cardsAmount = 6;
+// let cardsAmount = 6;
 
 renderFavCocktails(favCokctArr, cardList);
 
@@ -34,4 +30,11 @@ function renderFavCocktails(arr, container) {
 
   container.innerHTML = markup;
 }
+
+cardList.addEventListener('click', onLearnMoreClickHandler);
+
+// cardList.addEventListener('click', onFavBtnClick);
+
 // stop
+
+export { renderFavCocktails, cardList };
