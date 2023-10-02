@@ -244,8 +244,3 @@ body.dark .btn-learn-more {
     width: 372px;
   }
 }
-
-.main-description-in {
-  height: 100px;
-  overflow: scroll;
-}
