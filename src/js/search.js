@@ -24,7 +24,7 @@ let cardsPerPage = 8;
 if (screen.width >= 1280) {
   cardsPerPage = 9;
 }
-let page_count;
+// let page_count;
 let cards;
 
 cocktailsTitle.textContent = 'Loading Data...';
@@ -123,7 +123,7 @@ function DisplayPaginatedList(items, wrapper, per_page, page) {
 function SetupPagination(items, wrapper, per_page) {
   wrapper.innerHTML = '';
 
-  let page_count = Math.ceil(items.length / per_page);
+  // let page_count = Math.ceil(items.length / per_page);
 
     const options = {
   totalItems: items.length,
@@ -135,7 +135,7 @@ function SetupPagination(items, wrapper, per_page) {
   lastItemClassName: 'tui-last-child',
   template: {
     page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
-    currentPage: '<strong class="tui-page-btn tui-is-selected btnStyle">{{page}}</strong>',
+    currentPage: '<strong class="tui-page-btn tui-is-selected btnStyleActive">{{page}}</strong>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
@@ -151,7 +151,7 @@ function SetupPagination(items, wrapper, per_page) {
         }
   
     };
-    console.log(options);
+    // console.log(options);
 
     const pagination = new Pagination(paginationContainer, options);
 
