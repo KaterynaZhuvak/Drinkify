@@ -1,10 +1,10 @@
 import { fetchIngredients } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
-
+import spriteURL from '/img/sprite.svg';
 // const KEY_FAVORITE_INGREDIENTS = 'FavIngrArr';
 const SEARCH_BY_ID_LINK = 'ingredients/';
 const favoriteArrIn =
-  JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS")) ?? [];
+  JSON.parse(localStorage.getItem('KEY_FAVORITE_INGREDIENTS')) ?? [];
 let ingredientObj;
 function onIngrListClickHandler(e) {
   e.preventDefault();
@@ -38,7 +38,7 @@ function showModalWindow(ingredientObj) {
     <div id="modal-ingredients" class="modal-in theme-dark container-popup">
       <button type="button" class="modal-in-close-button close-cocktail-modal-x">
         <svg class="icon-in-close" width="11" height="11">
-          <use href="../img/sprite.svg#cross"></use>
+          <use href="${spriteURL}#cross"></use>
         </svg>
       </button>
     <div class="descripe-ingredients" data-id="${id}"><div class="header-in">

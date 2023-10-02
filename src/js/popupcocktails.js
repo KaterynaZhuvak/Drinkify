@@ -1,6 +1,7 @@
 import { fetchCocktails } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
 import { onIngrListClickHandler } from './popupingredients';
+import spriteURL from '/img/sprite.svg';
 
 // const scrollController = {
 //   disabledScroll() {
@@ -47,7 +48,7 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
     `<div class="container-popup">
   <button class="popup-close-btn close-cocktail-modal-x">
     <svg class="popup-close-btn-icon">
-      <use href="./img/sprite.svg#cross"></use>
+      <use href="${spriteURL}#cross"></use>
     </svg>
   </button>
   <div class="box">
@@ -74,6 +75,7 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
           instance.close;
         instance.element().querySelector('.close-cocktail-modal-x').onclick =
           instance.close;
+
         // scrollController.enabledScroll();
       },
     }
