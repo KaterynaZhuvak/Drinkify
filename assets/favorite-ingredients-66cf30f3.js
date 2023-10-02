@@ -1,4 +1,4 @@
-import{b as d}from"./popupingredients-d0096371.js";const c=document.querySelector(".favorite-ingredients-list"),l=document.querySelector(".sorry-ingredients"),i=JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS"))??[];console.log(i);l.classList.add("hidden");r(i,c);i.length||l.classList.remove("hidden");c.addEventListener("click",g);function r(n,e){const s=n.map(t=>{let o="Alcoholic";return t.abv==="0"&&(o="Non-alcoholic"),`<li class="in-card" data-id=${t.id}>
+import{b as d}from"./popupingredients-798ccef4.js";const c=document.querySelector(".favorite-ingredients-list"),l=document.querySelector(".sorry-ingredients"),i=JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS"))??[];console.log(i);l.classList.add("hidden");r(i,c);i.length||l.classList.remove("hidden");c.addEventListener("click",g);function r(n,e){const s=n.map(t=>{let o="Alcoholic";return t.abv==="0"&&(o="Non-alcoholic"),`<li class="in-card" data-id=${t.id}>
         <h3 class="in-card-title">${t.title}</h3>
         <p class="in-card-alco">${o}</p>
         <p class="in-card-descr">${t.description||"No data"}</p>
