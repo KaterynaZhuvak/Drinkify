@@ -8,7 +8,7 @@ let page = 1;
 const sixItems = favorite.splice(0, 6);
 
 sorryImage.classList.add('hidden');
-renderMarkup(sixItems, list);
+renderMarkup(favorite, list);
 
 if (!favorite.length) {
     sorryImage.classList.remove("hidden");
