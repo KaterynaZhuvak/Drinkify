@@ -67,5 +67,3 @@ function createMarkup({ drinkThumb, drink, description, _id }) {
 
 
 
-
-
