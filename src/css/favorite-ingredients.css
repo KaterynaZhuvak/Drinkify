@@ -87,7 +87,7 @@ body.dark .in-card-title {
 
 .in-card-descr {
   margin-bottom: 20px;
-  height: auto;
+  height: 54px;
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--text-color);

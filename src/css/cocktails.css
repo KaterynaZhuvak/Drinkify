@@ -11,6 +11,10 @@
   line-height: 1.2;
 }
 
+body.dark .cardlist-header {
+  color: var(--cards-color);
+}
+
 .cardlist {
   display: flex;
   flex-direction: column;
@@ -23,6 +27,10 @@
   width: 335px;
   height: 471px;
   padding: 14px;
+}
+
+body.dark .cardlist-item {
+  background-color: var(--dark-cards-color);
 }
 
 .cardlist-img {
@@ -42,6 +50,10 @@
   line-height: 1.33;
 }
 
+body.dark .cardlist-drink {
+  color: var(--cards-color);
+}
+
 .cardlist-descr {
   margin-bottom: 20px;
   margin-left: 6px;
@@ -58,6 +70,10 @@
   white-space: pre-wrap;
 }
 
+body.dark .cardlist-descr {
+  color: var(--cards-color);
+}
+
 .cardlist-learn {
   margin-left: 6px;
   width: 232px;
@@ -72,6 +88,10 @@
   border-radius: 12px;
   border: 1px solid var(--main-color);
   background-color: transparent;
+}
+
+body.dark .cardlist-learn {
+  color: var(--cards-color);
 }
 
 .cardlist-learn:focus,
@@ -103,7 +123,7 @@
   column-gap: 15px;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   .cocktails-section {
     padding-bottom: 100px;
   }

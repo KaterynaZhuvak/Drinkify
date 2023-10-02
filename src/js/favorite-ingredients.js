@@ -4,10 +4,11 @@ import * as basicLightbox from 'basiclightbox';
 const list = document.querySelector(".favorite-ingredients-list");
 const sorryImage = document.querySelector(".sorry-ingredients");
 const favorite = JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS")) ?? [];
-
+let page = 1; 
+const sixItems = favorite.splice(0, 6);
 
 sorryImage.classList.add('hidden');
-renderMarkup(favorite, list);
+renderMarkup(sixItems, list);
 
 if (!favorite.length) {
     sorryImage.classList.remove("hidden");
@@ -15,18 +16,24 @@ if (!favorite.length) {
 
 list.addEventListener("click", onClick);
 
-
 function renderMarkup(arr, container) {
     const markup = arr.map(
-        (card) => `<li class="in-card" data-id=${card._id}>
+        (card) => {
+            let isAcloholic = "Alcoholic";
+            if (card.alcohol === "No") {
+                isAcloholic = "Non-alcoholic"
+            };
+            return `<li class="in-card" data-id=${card._id}>
         <h3 class="in-card-title">${card.title}</h3>
-        <p class="in-card-alco">${card.alcohol}</p>
-        <p class="in-card-descr">${card.description}</p>
+        <p class="in-card-alco">${isAcloholic
+                }</p>
+        <p class="in-card-descr">${card.description || 'No data'
+                }</p>
         <div class="in-card-btns"><button class="btn-learn-more">learn more</button><button class="btn-remove"><svg class="remove-icon">
                         <use href="./img/sprite.svg#trash"></use>
                     </svg></button></div>
-</li>`  
-    )
+</li>`
+        })
     .join("");
 
   container.innerHTML = markup;
@@ -51,10 +58,14 @@ function onClick(e) {
           <p class="main-description-in">${ingredient.description || 'No data'
             }</p>
           <ul class="ingredients-spec">
-            <li class="ingredients-description">Type: ${ingredient.type}</li>
-            <li class="ingredients-description">Country of origin: ${ingredient.country}</li>
-            <li class="ingredients-description">Alcohol by volume: ${ingredient.abv}</li>
-            <li class="ingredients-description">Flavour: ${ingredient.flavour}</li>
+            <li class="ingredients-description">Type: ${ingredient.type || 'No data'
+            }</li>
+            <li class="ingredients-description">Country of origin: ${ingredient.country || 'No data'
+            }</li>
+            <li class="ingredients-description">Alcohol by volume: ${ingredient.abv || 'No data'
+            }</li>
+            <li class="ingredients-description">Flavour: ${ingredient.flavour || 'No data'
+            }</li>
           </ul>
         </div>
         <div class="buttons-in">
@@ -68,6 +79,7 @@ function onClick(e) {
                         instance.close;
                     instance.element().querySelector('.close-cocktail-modal-x').onclick =
                         instance.close;
+                    instance.element().querySelector('.remove-btn').addEventListener("click", onRemoveClick);
                     instance.element().querySelector('.remove-btn').onclick =
                         instance.close;
                 },
@@ -84,8 +96,8 @@ function onClick(e) {
 };
 
 function findIngredient(elem) {
-    const productId = elem.closest(".in-card").dataset.id;
-    return favorite.find(({ _id }) => _id === productId);
+    const ingredientId = elem.closest(".in-card").dataset.id;
+    return favorite.find(({ _id }) => _id === ingredientId);
 };
     
 function removeIngredient(e) {
@@ -94,4 +106,15 @@ function removeIngredient(e) {
         favorite.splice(itemToRemove, 1);
         localStorage.setItem("KEY_FAVORITE_INGREDIENTS", JSON.stringify(favorite));
         renderMarkup(favorite, list);
-}
+};
+
+function onRemoveClick(e) {
+        const ingredientId = e.target.closest(".descripe-ingredients").dataset.id;
+    const ingredient = favorite.find(({ _id }) => _id === ingredientId);
+    const itemToRemove = favorite.findIndex(({ _id }) => _id === ingredient._id);
+        favorite.splice(itemToRemove, 1);
+        localStorage.setItem("KEY_FAVORITE_INGREDIENTS", JSON.stringify(favorite));
+    renderMarkup(favorite, list);
+    
+     }
+
