@@ -1,10 +1,10 @@
 import { fetchIngredients } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
 
-const KEY_FAVORITE_INGREDIENTS = 'FavIngrArr';
+// const KEY_FAVORITE_INGREDIENTS = 'FavIngrArr';
 const SEARCH_BY_ID_LINK = 'ingredients/';
 const favoriteArrIn =
-  JSON.parse(localStorage.getItem(KEY_FAVORITE_INGREDIENTS)) ?? [];
+  JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS")) ?? [];
 let ingredientObj;
 function onIngrListClickHandler(e) {
   e.preventDefault();
