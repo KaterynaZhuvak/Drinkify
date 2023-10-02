@@ -134,7 +134,7 @@ function SetupPagination(items, wrapper, per_page) {
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
   template: {
-    page: '<a href="#" class="tui-page-btn btnStyle btnStyle btnStyle1">{{page}}</a>',
+    page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
     currentPage: '<strong class="tui-page-btn tui-is-selected btnStyle">{{page}}</strong>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
