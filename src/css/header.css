@@ -30,7 +30,8 @@
   border: none;
 }
 
-.header-menu-burger {
+.header-menu-burger,
+.header-item {
   &:hover,
   &:focus {
     color: var(--main-color);
@@ -205,7 +206,7 @@
     font-size: 12px;
     padding: 0;
     border: 0;
-    background-color: #f00;
+    background-color: var(--accent-color);
   }
   .themetoggleswitch {
     position: absolute;

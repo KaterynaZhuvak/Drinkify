@@ -1,28 +1,28 @@
 /// open\close favorite-list
-const favoriteSwitch = document.querySelector(".js-header-menu-link");
-const favoriteIcon = document.querySelector(".js-header-menu-link-icon");
-const favoriteList = document.querySelector(".js-favorite-menu-list");
-let currentRotation = 0;
+const modalFavoriteSwitch = document.querySelector(".js-header-menu-link");
+const modalFavoriteIcon = document.querySelector(".js-header-menu-link-icon");
+const modalFavoriteList = document.querySelector(".js-favorite-menu-list");
+let modalCurrentRotation = 0;
 
-favoriteSwitch.addEventListener("click", onClickFavorite);
+modalFavoriteSwitch.addEventListener("click", onClickFavorite);
 
 function onClickFavorite() {
-  let displayStyle = favoriteList.style.display;
-  currentRotation += 180;
-  favoriteIcon.style.transform = `rotate(${currentRotation}deg)`;
+  let displayStyle = modalFavoriteList.style.display;
+  modalCurrentRotation += 180;
+  modalFavoriteIcon.style.transform = `rotate(${modalCurrentRotation}deg)`;
 
 if (displayStyle === "none" || displayStyle === "") {
     displayStyle = "flex";
   } else {
     displayStyle = "none";
   }
-  favoriteList.style.display = displayStyle;
+  modalFavoriteList.style.display = displayStyle;
 }
 
 /// toggle theme
-window.addEventListener("load", windowLoad);
+window.addEventListener("load", modalWindowLoad);
 
-function windowLoad() {
+function modalWindowLoad() {
   const bodyBlock = document.body;
   const saveUserTheme = localStorage.getItem('user-theme');
   let userTheme;
@@ -30,37 +30,36 @@ function windowLoad() {
     userTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    !saveUserTheme ? changeTheme() : null;
+    !saveUserTheme ? modalChangeTheme() : null;
   });
 
-  const themeButton = document.querySelector('.themetoggle2');
-  const resetButton = document.querySelector('.themetoggle_reset2');
-  if (themeButton) {
-    themeButton.addEventListener("click", function (e) {
-      resetButton.classList.add('active');
-      changeTheme(true);
+  const modalThemeButton = document.querySelector('.themetoggle2');
+  const modalResetButton = document.querySelector('.themetoggle_reset2');
+  if (modalThemeButton) {
+    modalThemeButton.addEventListener("click", function (e) {
+      modalResetButton.classList.add('active');
+      modalChangeTheme(true);
     });
   }
-  if (resetButton) {
-    resetButton.addEventListener("click", function (e) {
-      resetButton.classList.remove('active');
-      console.dir(resetButton)
+  if (modalResetButton) {
+    modalResetButton.addEventListener("click", function (e) {
+      modalResetButton.classList.remove('active');
       localStorage.setItem('user-theme', '');
     });
   }
 
-  function setThemeClass() {
+  function modalSetThemeClass() {
     if (saveUserTheme) {
 
       bodyBlock.classList.add(saveUserTheme)
-      resetButton.classList.add('active');
+      modalResetButton.classList.add('active');
     } else {
       bodyBlock.classList.add(userTheme);
     }
   }
-  setThemeClass();
+  modalSetThemeClass();
 
-  function changeTheme(saveTheme = false) {
+  function modalChangeTheme(saveTheme = false) {
     let currentTheme = bodyBlock.classList.contains('light') ? 'light' : 'dark';
     let newTheme;
 

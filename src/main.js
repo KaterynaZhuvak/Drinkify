@@ -1,5 +1,6 @@
-import './js/header';
-import './js/header_backdrop'
+// import './js/header';
+// import './js/header_burger';
+// import './js/header_backdrop';
 import './js/hero';
 import './js/drinkifyapi';
 import './js/keyboard';
@@ -11,4 +12,4 @@ import './js/popupcocktails';
 import './js/scroll-up';
 import './js/footer';
 import './js/scroll-dawn';
-
+import './js/favorite_btn';
