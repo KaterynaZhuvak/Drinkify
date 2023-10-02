@@ -2,16 +2,17 @@ import { fetchCocktails } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
 import { onIngrListClickHandler } from './popupingredients';
 
-// const scrollController = {
-//   disabledScroll() {
-//     document.body.style.cssText = `
-//     overflow: hidden;
-//     `;
-//   },
-//   enabledScroll() {
-//     document.body.style.cssText = '';
-//   }
-// }
+const scrollController = {
+  disabledScroll() {
+    document.body.style.cssText = `
+    overflow: hidden;
+    padding-right: ${window.innerWidth - document.body.offsetWidth}px;
+    `;
+  },
+  enabledScroll() {
+    document.body.style.cssText = '';
+  }
+}
 
 const cardsGallery = document.querySelector('.cardlist');
 const SEARCH_BY_ID_LINK = 'cocktails/lookup/';
@@ -39,6 +40,7 @@ function onLearnMoreClickHandler(e) {
       .join('');
 
     showModalWindow(ingredientsRaw, drink, instructions, drinkThumb);
+      scrollController.disabledScroll();
   });
 }
 
@@ -74,19 +76,20 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
           instance.close;
         instance.element().querySelector('.close-cocktail-modal-x').onclick =
           instance.close;
-        // scrollController.enabledScroll();
       },
+      onClose: () => {
+        scrollController.enabledScroll();
+      }
     }
   );
   instance.show();
-  // scrollController.disabledScroll();
   document
     .querySelector('.ingredients-list')
     .addEventListener('click', onIngrListClickHandler);
 }
 
 export {
-  // scrollController,
+  scrollController,
   onLearnMoreClickHandler,
   showModalWindow,
   SEARCH_BY_ID_LINK,

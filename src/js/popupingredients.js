@@ -29,6 +29,7 @@ function onIngrListClickHandler(e) {
       country,
     };
     showModalWindow(ingredientObj);
+    hiddenPopupCocktails();
   });
 }
 function showModalWindow(ingredientObj) {
@@ -80,6 +81,9 @@ function showModalWindow(ingredientObj) {
           .querySelector('.js-btningr')
           .addEventListener('click', onClickIn);
       },
+      onClose: () => {
+        showPopupCocktails();
+      }
     }
   );
   instance.show();
@@ -98,5 +102,14 @@ function onClickIn(event) {
     );
   }
 }
-export { onIngrListClickHandler };
-export { onClickIn };
+
+function hiddenPopupCocktails() {
+  const containerPopup = document.querySelector('.container-popup');
+  containerPopup.classList.add('hiden-popup-cocktails');
+}
+
+function showPopupCocktails() {
+  const containerPopup = document.querySelector('.container-popup');
+  containerPopup.classList.remove('hiden-popup-cocktails');
+}
+export { onIngrListClickHandler, onClickIn, hiddenPopupCocktails, showPopupCocktails };

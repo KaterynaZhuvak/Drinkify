@@ -107,7 +107,7 @@
   .back:hover {
     background-color: rgba(36, 36, 36, 0.2);
   }
-  .is-hidden {
+  .hiden-popup-cocktails {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
