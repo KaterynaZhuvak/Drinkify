@@ -4,8 +4,8 @@ const list = document.querySelector('.favorite-ingredients-list');
 const sorryImage = document.querySelector('.sorry-ingredients');
 const favorite =
   JSON.parse(localStorage.getItem('KEY_FAVORITE_INGREDIENTS')) ?? [];
-let page = 1;
-const sixItems = favorite.splice(0, 6);
+
+console.log(favorite);
 
 sorryImage.classList.add('hidden');
 renderMarkup(favorite, list);
@@ -20,10 +20,10 @@ function renderMarkup(arr, container) {
   const markup = arr
     .map(card => {
       let isAcloholic = 'Alcoholic';
-      if (card.alcohol === 'No') {
+      if (card.abv === '0') {
         isAcloholic = 'Non-alcoholic';
       }
-      return `<li class="in-card" data-id=${card._id}>
+      return `<li class="in-card" data-id=${card.id}>
         <h3 class="in-card-title">${card.title}</h3>
         <p class="in-card-alco">${isAcloholic}</p>
         <p class="in-card-descr">${card.description || 'No data'}</p>
@@ -48,7 +48,7 @@ function onClick(e) {
         </svg>
       </button>
     <div class="descripe-ingredients" data-id="${
-      ingredient._id
+      ingredient.id
     }"><div class="header-in">
           <h2 id="ingredients-title" class="ingredients-title">${
             ingredient.title
@@ -108,12 +108,12 @@ function onClick(e) {
 
 function findIngredient(elem) {
   const ingredientId = elem.closest('.in-card').dataset.id;
-  return favorite.find(({ _id }) => _id === ingredientId);
+  return favorite.find(({ id }) => id === ingredientId);
 }
 
 function removeIngredient(e) {
   const ingredient = findIngredient(e.target);
-  const itemToRemove = favorite.findIndex(({ _id }) => _id === ingredient._id);
+  const itemToRemove = favorite.findIndex(({ id }) => id === ingredient.id);
   favorite.splice(itemToRemove, 1);
   localStorage.setItem('KEY_FAVORITE_INGREDIENTS', JSON.stringify(favorite));
   renderMarkup(favorite, list);
@@ -121,8 +121,8 @@ function removeIngredient(e) {
 
 function onRemoveClick(e) {
   const ingredientId = e.target.closest('.descripe-ingredients').dataset.id;
-  const ingredient = favorite.find(({ _id }) => _id === ingredientId);
-  const itemToRemove = favorite.findIndex(({ _id }) => _id === ingredient._id);
+  const ingredient = favorite.find(({ id }) => id === ingredientId);
+  const itemToRemove = favorite.findIndex(({ id }) => id === ingredient.id);
   favorite.splice(itemToRemove, 1);
   localStorage.setItem('KEY_FAVORITE_INGREDIENTS', JSON.stringify(favorite));
   renderMarkup(favorite, list);
