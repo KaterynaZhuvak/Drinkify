@@ -1,4 +1,4 @@
-/// open\close favorite-list
+//// open\close favorite-list
 const favoriteSwitch = document.querySelector(".js-header-link");
 const favoriteIcon = document.querySelector(".js-header-link-icon");
 const favoriteList = document.querySelector(".js-favorite-list");
@@ -17,24 +17,6 @@ if (displayStyle === "none" || displayStyle === "") {
     displayStyle = "none";
   }
   favoriteList.style.display = displayStyle;
-}
-
-/// open/close modal burger
-const btnMenuBurger = document.querySelector(".js-header-menu-burger");
-const modalBurger = document.querySelector(".header-backdrop");
-const closeModalBurger = document.querySelector(".header-menu-close");
-
-btnMenuBurger.addEventListener("click", onClickBurger);
-
-function onClickBurger() {
-  modalBurger.style.transform = "translateX(0)";
-  closeModalBurger.addEventListener("click", onClickCloseModalBurger);
-  btnMenuBurger.removeEventListener("click", onClickBurger);
-}
-
-function onClickCloseModalBurger() {
-  modalBurger.style.transform = "translateX(100%)";
-  btnMenuBurger.addEventListener("click", onClickBurger);
 }
 
 /// toggle theme
@@ -62,7 +44,6 @@ function windowLoad() {
   if (resetButton) {
     resetButton.addEventListener("click", function (e) {
       resetButton.classList.remove('active');
-      console.dir(resetButton)
       localStorage.setItem('user-theme', '');
     });
   }
@@ -92,3 +73,65 @@ function windowLoad() {
     saveTheme ? localStorage.setItem('user-theme', newTheme) : null;
   }
 }
+
+
+
+
+// function initializeFavoriteList(
+//   switchSelector,
+//   iconSelector,
+//   listSelector
+// ) {
+//   let currentRotation = 0;
+
+//   function onClickFavorite() {
+//     let displayStyle = favoriteList.style.display;
+//     currentRotation += 180;
+//     favoriteIcon.style.transform = `rotate(${currentRotation}deg)`;
+
+//     if (displayStyle === "none" || displayStyle === "") {
+//       displayStyle = "flex";
+//     } else {
+//       displayStyle = "none";
+//     }
+//     favoriteList.style.display = displayStyle;
+//   }
+
+//   function updateOnResize() {
+//     const screenWidth = window.innerWidth;
+
+//     if (screenWidth >= 1280) {
+//       // Выполните действия для экранов 1280 пикселей и более
+//       console.log("Screen width is 1280 pixels or larger");
+//     } else if (screenWidth <= 1279) {
+//       // Выполните действия для экранов менее 1280 пикселей
+//       console.log("Screen width is less than 1280 pixels");
+//     }
+//   }
+
+//   const favoriteSwitch = document.querySelector(switchSelector);
+//   const favoriteIcon = document.querySelector(iconSelector);
+//   const favoriteList = document.querySelector(listSelector);
+
+//   favoriteSwitch.addEventListener("click", onClickFavorite);
+
+//   // Слушаем событие изменения размера экрана
+//   window.addEventListener("resize", updateOnResize);
+
+//   // Вызываем функцию обновления при загрузке страницы
+//   updateOnResize();
+// }
+
+// // Вызываем инициализацию для страницы 1
+// initializeFavoriteList(
+//   ".js-header-link",
+//   ".js-header-link-icon",
+//   ".js-favorite-list"
+// );
+
+// // Вызываем инициализацию для страницы 2
+// initializeFavoriteList(
+//   ".js-header-menu-link",
+//   ".js-header-menu-link-icon",
+//   ".js-favorite-menu-list"
+// );

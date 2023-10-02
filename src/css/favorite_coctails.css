@@ -27,20 +27,44 @@
   color: var(--accent-color);
   font-style: italic;
 }
-@media screen and (max-width: 767px) {
-  .container-section {
-    padding-top: 80px;
-    padding-bottom: 138px;
-  }
+
+.cardlist-item:last-child {
+  padding-bottom: 0;
 }
+
+.cardlist {
+  padding-bottom: 0;
+}
+
+.section-tittle-with-cards {
+  margin-bottom: 40px;
+}
+
+.container-section {
+  padding-top: 80px;
+  padding-bottom: 138px;
+}
+
+.container-section-with-cards {
+  padding-bottom: 80px;
+}
+
 @media screen and (min-width: 768px) {
   .container-section {
     padding-top: 110px;
     padding-bottom: 140px;
   }
 
+  .container-section-with-cards {
+    padding-bottom: 100px;
+  }
+
   .section-tittle {
     font-size: 40px;
+  }
+
+  .section-tittle-with-cards {
+    margin-bottom: 32px;
   }
 
   .icon-cocktails {
@@ -55,9 +79,15 @@
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .section-tittle-with-cards {
+    margin-bottom: 44px;
+  }
+}
+
 /* =================== / Theme dark ==================== */
 
-/* body.dark {
+body.dark {
   color: var(--cards-color);
   background-image: url(../img/background-dark.jpg);
 }
@@ -96,4 +126,4 @@
   body.dark {
     background-image: url(../img/background-desktop-dark@2x.jpg);
   }
-} */
+}
