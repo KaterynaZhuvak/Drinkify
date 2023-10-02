@@ -4,7 +4,7 @@ import * as basicLightbox from 'basiclightbox';
 // const KEY_FAVORITE_INGREDIENTS = 'FavIngrArr';
 const SEARCH_BY_ID_LINK = 'ingredients/';
 const favoriteArrIn =
-  JSON.parse(localStorage.getItem("KEY_FAVORITE_INGREDIENTS")) ?? [];
+  JSON.parse(localStorage.getItem('KEY_FAVORITE_INGREDIENTS')) ?? [];
 let ingredientObj;
 function onIngrListClickHandler(e) {
   e.preventDefault();
@@ -46,7 +46,7 @@ function showModalWindow(ingredientObj) {
           <p class="kind-in theme-dark">${type}</p>
         </div>
         <div class="ingredients-information">
-          <p class="main-description-ing theme-dark">${
+          <p class="main-description-in theme-dark">${
             description || 'На жаль дані тимчасово відсутні'
           }</p>
           <ul class="ingredients-spec">
@@ -60,9 +60,8 @@ function showModalWindow(ingredientObj) {
           <button type="button" id="btn-in" class="btn-in js-btningr">
             ADD TO FAVORITE
           </button>
-          <button type="button" id="btn-in" class="is-hidden btn-in js-btningr">
-            Remove from favorite
-          </button>
+          
+          <button type="button" id="btn-in" class="btn-in remove-btn js-btningr">REMOVE FROM FAVORITE</button>
           <button type="button" id="btn-back" class="btn-in btn-back  theme-dark close-cocktail-modal-back">
             BACK
           </button>
@@ -78,12 +77,17 @@ function showModalWindow(ingredientObj) {
         instance
           .element()
           .querySelector('.js-btningr')
+          .querySelector('.remove-btn')
+          .addEventListener('click', onRemoveClickIn)
           .addEventListener('click', onClickIn);
+        instance.element().querySelector('.remove-btn').onclick =
+          instance.close;
       },
     }
   );
   instance.show();
 }
+
 function onClickIn(event) {
   event.preventDefault();
   if (event.target.classList.contains('js-btningr')) {
@@ -98,5 +102,19 @@ function onClickIn(event) {
     );
   }
 }
+
+function onRemoveClickIn(e) {
+  const ingredientIn = e.target.closest('.descripe-ingredients').dataset.id;
+  const ingredientEl = favoriteArrIn.find(({ id }) => id === ingredientIn);
+  const itemToRemoveIn = favoriteArrIn.findIndex(
+    ({ id }) => id === ingredientEl.id
+  );
+  favoriteArrIn.splice(itemToRemoveIn, 1);
+  localStorage.setItem(
+    'KEY_FAVORITE_INGREDIENTS',
+    JSON.stringify(favoriteArrIn)
+  );
+}
+
 export { onIngrListClickHandler };
 export { onClickIn };
