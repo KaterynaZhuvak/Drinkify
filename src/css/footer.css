@@ -129,6 +129,7 @@
   cursor: pointer;
   scroll-snap-align: start;
   box-shadow: 1px 10px 26px -18px rgba(66, 68, 90, 1);
+  padding: 12px;
 }
 
 .carousel-cr-by {
@@ -192,6 +193,42 @@
 
 .cr-by-arrow:last-child {
   right: -12px;
+}
+
+.footer-created-by-title {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28; /* 128.571% */
+  text-align: center;
+  /* text-transform: upperrcase; */
+  margin-bottom: 16px;
+}
+
+.dev-name {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28; /* 128.571% */
+  text-align: center;
+  /* text-transform: upperrcase; */
+}
+
+.dev-duities {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28; /* 128.571% */
+  text-align: center;
+  /* text-transform: upperrcase; */
+}
+
+.cr-by-image {
+ margin-bottom: 8px;
+}
+
+.developer-img {
+  border-radius: 50%;
 }
 
 @media screen and (max-width: 1279px) {
