@@ -87,7 +87,7 @@ body.dark .in-card-title {
 
 .in-card-descr {
   margin-bottom: 20px;
-  height: auto;
+  height: 54px;
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--text-color);
@@ -243,4 +243,9 @@ body.dark .btn-learn-more {
   .sorry {
     width: 372px;
   }
+}
+
+.main-description-in {
+  height: 100px;
+  overflow: scroll;
 }
