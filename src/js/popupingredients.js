@@ -1,5 +1,6 @@
 import { fetchIngredients } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
+
 const KEY_FAVORITE_INGREDIENTS = 'FavIngrArr';
 const SEARCH_BY_ID_LINK = 'ingredients/';
 const favoriteArrIn =
@@ -7,9 +8,6 @@ const favoriteArrIn =
 let ingredientObj;
 function onIngrListClickHandler(e) {
   e.preventDefault();
-  if (e.target.nodeName !== 'A') {
-    return;
-  }
   const IngrId = e.target.closest('.item-card').dataset.id;
   fetchIngredients(SEARCH_BY_ID_LINK, IngrId).then(resp => {
     const {
@@ -48,7 +46,7 @@ function showModalWindow(ingredientObj) {
           <p class="kind-in theme-dark">${type}</p>
         </div>
         <div class="ingredients-information">
-          <p class="main-description-in theme-dark">${
+          <p class="main-description-ing theme-dark">${
             description || 'На жаль дані тимчасово відсутні'
           }</p>
           <ul class="ingredients-spec">
@@ -95,7 +93,7 @@ function onClickIn(event) {
     }
     favoriteArrIn.push(ingredientObj);
     localStorage.setItem(
-      KEY_FAVORITE_INGREDIENTS,
+      'KEY_FAVORITE_INGREDIENTS',
       JSON.stringify(favoriteArrIn)
     );
   }

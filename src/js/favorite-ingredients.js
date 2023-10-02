@@ -1,5 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
-//import { onClickIn } from './popupingredients';
+import { onClickIn } from './popupingredients';
 const list = document.querySelector('.favorite-ingredients-list');
 const sorryImage = document.querySelector('.sorry-ingredients');
 const favorite =
