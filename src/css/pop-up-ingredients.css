@@ -81,7 +81,7 @@ body.dark .icon-in-close {
 
 .btn-in:hover,
 .btn-in:focus {
-  transform: scale(1.1);
+  transform: scale(1.05);
   color: #fdfdff;
   background-color: #6e7fcf;
   border: 1px solid #6e7fcf;
@@ -89,7 +89,7 @@ body.dark .icon-in-close {
 
 .btn-back:hover,
 .btn-back:focus {
-  transform: scale(1.1);
+  transform: scale(1.05);
   color: #242424;
   border: 1px solid rgba(36, 36, 36, 0.2);
   background-color: rgba(36, 36, 36, 0.2);
