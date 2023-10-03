@@ -79,7 +79,7 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
     </div>
   </div>
   <p class="caption-card">Instructions:</p>
-  <p class="text desc-card custom-scrollbar ingredients-information">
+  <p class="text desc-card custom-scrollbar">
    ${instructions}
   </p>
   <div class="container-button">

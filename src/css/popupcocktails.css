@@ -156,12 +156,6 @@
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: var(--accent-color);
   }
-  .ingredients-information::first-letter {
-    color: #242424;
-  }
-  body.dark .ingredients-information::first-letter {
-    color: #fdfdff;
-  }
 
   /* ================= Theme dark ================= */
   body.dark .container-popup {
