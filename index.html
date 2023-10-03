@@ -36,10 +36,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     
-    <script type="module" crossorigin src="/Drinkify/assets/index-58988a79.js"></script>
-    <link rel="modulepreload" crossorigin href="/Drinkify/assets/tui-pagination-14ac2a24.js">
-    <link rel="modulepreload" crossorigin href="/Drinkify/assets/favorite_coctails-c18f731a.js">
-    <link rel="stylesheet" href="/Drinkify/assets/tui-pagination-b96ca92e.css">
+    <script type="module" crossorigin src="/Drinkify/assets/index-948cb580.js"></script>
+    <link rel="modulepreload" crossorigin href="/Drinkify/assets/tui-pagination-60fc01f9.js">
+    <link rel="modulepreload" crossorigin href="/Drinkify/assets/favorite_coctails-f555bf87.js">
+    <link rel="stylesheet" href="/Drinkify/assets/tui-pagination-73a4e0f8.css">
     <link rel="stylesheet" href="/Drinkify/assets/index-dd557a70.css">
   </head>
   <body>
@@ -277,29 +277,33 @@
   </div>
 </section>
 
-      <!-- <div class="container-popup">
+      <!-- <div class="container-popup id-for-del" data-id="${id}">
   <button class="popup-close-btn close-cocktail-modal-x">
     <svg class="popup-close-btn-icon">
-      <use href="img/sprite.svg#popup-close-btn"></use>
+      <use href="${spriteURL}#cross"></use>
     </svg>
   </button>
   <div class="box">
-    <div class="picture"><img src="${drinkThumb}" alt="${drink}" onerror="this.onerror=null;this.src='../img/rafiki.jpg';"/></div>
+    <div class="picture"><img src="${drinkThumb}" alt="${drink}" onerror="this.onerror=null;this.src='img/rafiki.jpg';"/></div>
     <div>
       <h2 class="name">${drink}</h2>
       <p class="caption-card">Ingredients:</p>
       <p class="text text-card">Per cocktail</p>
-      <ul class="list-card ingredients-list">${ingredientsRaw}</ul>
+      <ul class="list-card ingredients-list custom-scrollbar">${ingredientsRaw}</ul>
     </div>
   </div>
   <p class="caption-card">Instructions:</p>
-  <p class="text desc-card">
+  <p class="text desc-card custom-scrollbar ingredients-information">
    ${instructions}
   </p>
-  <button type="button" class="button-card favorite-theme-light">
+  <div class="container-button">
+  <button type="button" class="button-card favorite add-to-fav-cockt" data-id="${id}">
     add to favorite
   </button>
-   <button type="button" class="button-card back-theme-light close-cocktail-modal-back">Back</button>
+   <button type="button" class="visually-hidden button-card favorite remove-from-fav-cockt" data-id="${id}">
+    Remove from favorite
+  </button>
+   <button type="button" class="button-card back close-cocktail-modal-back">Back</button></div>
 </div> -->
 
     </main>
