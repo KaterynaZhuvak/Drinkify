@@ -161,14 +161,17 @@
   body.dark .container-popup {
     background-color: #232330;
   }
+  body.dark .popup-close-btn-icon {
+    stroke: var(--cards-color);
+  }
   body.dark .caption-card {
     color: var(--cards-color);
   }
   body.dark .text {
     color: rgba(253, 253, 255, 0.5);
   }
-  body.dark .item-card {
-    color: rgba(253, 253, 255, 0.8);
+  body.dark .item-card:hover {
+    color: var(--main-color);
   }
   /* .favorite-theme-light has the same color as in the dark theme */
   body.dark .back {
