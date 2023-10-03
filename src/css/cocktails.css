@@ -43,6 +43,8 @@ body.dark .cardlist-item {
 }
 
 .cardlist-drink {
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-top: 20px;
   margin-left: 6px;
   margin-bottom: 14px;
@@ -50,6 +52,11 @@ body.dark .cardlist-item {
   font-size: 18px;
   font-weight: 600;
   line-height: 1.33;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  white-space: pre-wrap;
+
 }
 
 body.dark .cardlist-drink {
