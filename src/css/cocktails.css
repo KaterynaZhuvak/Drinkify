@@ -148,9 +148,9 @@ body.dark .cardlist-learn {
   .cardlist {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 32px 16px;
+    row-gap: 32px;
+    justify-content: space-between;
     display: flex;
-    justify-content: left;
   }
 
   .cardlist-item {
@@ -198,7 +198,7 @@ body.dark .cardlist-learn {
     margin-bottom: 44px;
   }
   .cardlist {
-    gap: 44px 24px;
+    row-gap: 44px;
   }
   .cardlist:last-child {
     display: block;
