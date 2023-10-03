@@ -48,23 +48,23 @@ const dragStop = () => {
     carousel.classList.remove("dragging");
 }
 
-const infiniteScroll = () => {
-    if (carousel.scrollLeft === 0) {
-        console.log("left side reached")
-        carousel.classList.add("no-transition-cr-by");
-        carousel.scrollLeft = carousel.scrolllWidth - ( 2 * carousel.offSetWidth);
-        carousel.classList.remove("no-transition-cr-by");
-    } else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offSetWidth) {
-        console.log("right side reached")
-        carousel.classList.add("no-transition-cr-by");
-        carousel.scrollLeft = carousel.offSetWidth;
-        carousel.classList.remove("no-transition-cr-by");
-    }
-}
+// const infiniteScroll = () => {
+//     if (carousel.scrollLeft === 0) {
+//         console.log("left side reached")
+//         carousel.classList.add("no-transition-cr-by");
+//         carousel.scrollLeft = carousel.scrolllWidth - ( 2 * carousel.offSetWidth);
+//         carousel.classList.remove("no-transition-cr-by");
+//     } else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offSetWidth) {
+//         console.log("right side reached")
+//         carousel.classList.add("no-transition-cr-by");
+//         carousel.scrollLeft = carousel.offSetWidth;
+//         carousel.classList.remove("no-transition-cr-by");
+//     }
+// }
 
 carousel.addEventListener("mousedown", dragStart);
 carousel.addEventListener("mousemove", dragging);
 document.addEventListener("mouseup", dragStop)
-carousel.addEventListener("scroll", infiniteScroll);
+// carousel.addEventListener("scroll", infiniteScroll);
 arrowBtnSliderLeft.addEventListener("click", btnClickFootLeft)
 arrowBtnSliderRight.addEventListener("click", btnClickFootRight)
