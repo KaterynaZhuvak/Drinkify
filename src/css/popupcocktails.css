@@ -32,6 +32,10 @@
     height: 22px;
     stroke: var(--text-color);
   }
+  .popup-close-btn-icon:hover,
+  .popup-close-btn-icon:focus {
+    transform: scale(1.1);
+  }
   .picture {
     width: 295px;
     height: 277px;
@@ -72,7 +76,9 @@
     overflow-x: hidden;
     overflow-y: auto;
   }
-  .item-card {
+  .item-card:hover,
+  .item-card:focus {
+    transform: scale(1.05) translateX(7px);
     color: rgba(36, 36, 36, 0.8);
 
     transition: all 250ms linear;
@@ -150,16 +156,16 @@
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: var(--accent-color);
   }
-  .ingredients-information::first-letter {
-    color: #242424;
-  }
-  body.dark .ingredients-information::first-letter {
-    color: #fdfdff;
-  }
 
   /* ================= Theme dark ================= */
   body.dark .container-popup {
     background-color: #232330;
+  }
+  body.dark .popup-close-btn-icon {
+    stroke: var(--cards-color);
+  }
+  body.dark .name {
+    color: var(--cards-color);
   }
   body.dark .caption-card {
     color: var(--cards-color);
@@ -167,8 +173,8 @@
   body.dark .text {
     color: rgba(253, 253, 255, 0.5);
   }
-  body.dark .item-card {
-    color: rgba(253, 253, 255, 0.8);
+  body.dark .item-card:hover {
+    color: var(--main-color);
   }
   /* .favorite-theme-light has the same color as in the dark theme */
   body.dark .back {
@@ -205,10 +211,6 @@
     width: 24px;
     height: 24px;
     transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
-  }
-  .popup-close-btn-icon:hover,
-  .popup-close-btn-icon:focus {
-    transform: scale(1.1);
   }
   .picture {
     width: 288px;
@@ -250,8 +252,9 @@
     width: 172px;
     margin-top: 0;
   }
-  .item-card:hover {
-    transform: scale(1.1) translateX(9px);
+  .item-card:hover,
+  .item-card:focus {
+    transform: scale(1.05) translateX(5px);
   }
 }
 
