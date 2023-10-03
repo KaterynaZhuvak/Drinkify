@@ -1,3 +1,4 @@
+import spriteURL from '/img/sprite.svg';
 import * as basicLightbox from 'basiclightbox';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
@@ -10,13 +11,9 @@ const paginationContainer = document.querySelector('.pagination-main');
 const favorite =
   JSON.parse(localStorage.getItem('KEY_FAVORITE_INGREDIENTS')) ?? [];
 
-console.log(favorite);
-
 let currentPage = 1;
-let ingredientsPerPage = 8;
-if (screen.width >= 1280) {
-  ingredientsPerPage = 9;
-}
+let ingredientsPerPage = 6;
+
 
 sorryImage.classList.add('hidden');
 renderMarkup(favorite, list);
@@ -40,10 +37,10 @@ function renderMarkup(arr, container) {
         return `<li class="in-card" data-id=${card.id}>
         <h3 class="in-card-title">${card.title}</h3>
         <p class="in-card-alco">${isAcloholic}</p>
-        <p class="in-card-descr">${card.description || 'No data'}</p>
+        <p class="in-card-descr">${card.description || '-'}</p>
         <div class="in-card-btns"><button class="btn-learn-more">learn more</button><button class="btn-remove"><svg class="remove-icon">
-        <use href="./img/sprite.svg#trash"></use>
-        </svg></button></div>
+                        <use href="${spriteURL}#trash"></use>
+                    </svg></button></div>
 </li>`;
       })
       .join('');
@@ -129,20 +126,20 @@ function onClick(e) {
         </div>
         <div class="ingredients-information">
           <p class="main-description-in">${
-            ingredient.description || 'No data'
+            ingredient.description || '-'
           }</p>
           <ul class="ingredients-spec">
             <li class="ingredients-description">Type: ${
-              ingredient.type || 'No data'
+              ingredient.type || '-'
             }</li>
             <li class="ingredients-description">Country of origin: ${
-              ingredient.country || 'No data'
+              ingredient.country || '-'
             }</li>
             <li class="ingredients-description">Alcohol by volume: ${
-              ingredient.abv || 'No data'
+              ingredient.abv || '-'
             }</li>
             <li class="ingredients-description">Flavour: ${
-              ingredient.flavour || 'No data'
+              ingredient.flavour || '-'
             }</li>
           </ul>
         </div>
@@ -165,7 +162,11 @@ function onClick(e) {
             .addEventListener('click', onRemoveClick);
           instance.element().querySelector('.remove-btn').onclick =
             instance.close;
-        },
+          },
+          onClose: instance => {
+              instance
+                  .element().querySelector('.remove-btn').removeEventListener('click', onRemoveClick);
+          }
       }
     );
     instance.show();
