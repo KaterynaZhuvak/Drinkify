@@ -60,13 +60,15 @@ body.dark .icon-in-close {
   cursor: pointer;
   background-color: #7e8fdd;
   color: #fdfdff;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-back {
   background-color: rgba(36, 36, 36, 0.1);
   border: 1px solid rgba(36, 36, 36, 0.1);
   color: #242424;
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*.btn.remove:hover,
@@ -78,6 +80,7 @@ body.dark .icon-in-close {
 
 .btn-in:hover,
 .btn-in:focus {
+  transform: scale(1.1);
   color: #fdfdff;
   background-color: #6e7fcf;
   border: 1px solid #6e7fcf;
@@ -85,6 +88,7 @@ body.dark .icon-in-close {
 
 .btn-back:hover,
 .btn-back:focus {
+  transform: scale(1.1);
   color: #242424;
   border: 1px solid rgba(36, 36, 36, 0.2);
   background-color: rgba(36, 36, 36, 0.2);
@@ -251,7 +255,8 @@ body.dark .btn-back {
   }
 
   .btn-back {
-    width: 172px;
+    width: auto;
+    padding: 16px 60px;
   }
 
   .buttons-in {
@@ -289,6 +294,13 @@ body.dark .btn-back {
   .icon-in-close {
     width: 24px;
     height: 24px;
+
+    transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
+  }
+
+  .icon-in-close:hover,
+  .icon-in-close:focus {
+    transform: scale(1.1);
   }
 
   .modal-in-close-button {
