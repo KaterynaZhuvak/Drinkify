@@ -1,19 +1,20 @@
-// import Notiflix from 'notiflix';
-// import { fetchCocktails } from './drinkifyapi';
-// import { showModalWindow } from './popupcocktails.js';
-
 import { onLearnMoreClickHandler } from './popupcocktails';
 import { createMarkup } from './markup';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 
 const cardList = document.querySelector('.cardlist'); // list
 const plugEl = document.querySelector('.plug'); //sorry
+const paginationContainer = document.querySelector('.pagination-main');
 
 const KEY_FAVORITE_COCKTAILS = 'favoriteCocktails';
 const favCokctArr =
   JSON.parse(localStorage.getItem(KEY_FAVORITE_COCKTAILS)) ?? [];
 
+
 let currentPage = 1;
-let cardsPerPage = 6;
+let coctailsPerPage = 6;
+
 
 renderFavCocktails(favCokctArr, cardList);
 
@@ -27,15 +28,72 @@ function renderFavCocktails(arr, container) {
     } else plugEl.classList.add('visually-hidden');
   }
 
-  const markup = arr
+  container.innerHTML = '';
+  paginationContainer.innerHTML = '';
+
+  if (arr.length <= coctailsPerPage) {
+    container.innerHTML = arr
     .map(card => {
       return createMarkup(card);
     })
-    .join('');
+      .join('');
+  } else {
+    showPaginatedList(favCokctArr, cardList, coctailsPerPage, currentPage);
+    SetupPagination(favCokctArr, paginationContainer, coctailsPerPage);
+  }
 
-  container.innerHTML = markup;
 }
 
-// cardList.addEventListener('click', onLearnMoreClickHandler);
+
+function showPaginatedList(arr, container, per_page, page) {
+  container.innerHTML = '';
+  page--;
+
+  let start = per_page * page;
+  let end = start + per_page;
+  let markup = arr.slice(start, end);
+
+  return renderFavCocktails(markup, cardList);
+
+}
+
+function SetupPagination(items, wrapper, per_page) {
+  wrapper.innerHTML = '';
+
+  const options = {
+    totalItems: items.length,
+    itemsPerPage: per_page,
+    //   visiblePages: 10,
+    page: 1,
+    centerAlign: false,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+    template: {
+      page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
+      currentPage:
+        '<strong class="tui-page-btn tui-is-selected btnStyleActive">{{page}}</strong>',
+      moveButton:
+        '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
+        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '</a>',
+      disabledMoveButton:
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnStyle">' +
+        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '</span>',
+      moreButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<span class="tui-ico-ellip">...</span>' +
+        '</a>',
+    },
+  };
+
+  const pagination = new Pagination(paginationContainer, options);
+
+  pagination.on('beforeMove', evt => {
+    const { page } = evt;
+    const result = showPaginatedList(favCokctArr, cardList, coctailsPerPage, page);
+  });
+}
+
 
 export { renderFavCocktails, cardList, favCokctArr };
