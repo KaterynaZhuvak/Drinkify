@@ -31,6 +31,7 @@ function onIngrListClickHandler(e) {
       country,
     };
     showModalWindow(ingredientObj);
+    hiddenPopupCocktails();
   });
 }
 
@@ -89,6 +90,9 @@ function showModalWindow(ingredientObj) {
         instance.element().querySelector('.remove-btn').onclick =
           instance.close;
       },
+      onClose: () => {
+        showPopupCocktails();
+      }
     }
   );
   instance.show();
@@ -122,5 +126,15 @@ function onRemoveClickIn(e) {
   );
 }
 
+
+function hiddenPopupCocktails() {
+  const containerPopup = document.querySelector('.container-popup');
+  containerPopup.classList.add('popup-cocktails-hidden');
+}
+
+function showPopupCocktails() {
+  const containerPopup = document.querySelector('.container-popup');
+  containerPopup.classList.remove('popup-cocktails-hidden');
+}
 export { onIngrListClickHandler };
 export { onClickIn };

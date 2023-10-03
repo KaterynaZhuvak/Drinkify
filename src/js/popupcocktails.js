@@ -13,6 +13,17 @@ const favCokctArr =
 let cocktailObj;
 let currentCocktail;
 
+const scrollController = {
+  disabledScroll() {
+    document.body.style.cssText = `
+    overflow: hidden;
+    padding-right: ${window.innerWidth - document.body.offsetWidth}px;`
+  },
+  enabledScroll() {
+    document.body.style.cssText = '';
+  }
+};
+
 cardsGallery.addEventListener('click', onLearnMoreClickHandler);
 cardsGallery.addEventListener('click', onAddOrRemoveButtonHandler);
 
@@ -45,6 +56,8 @@ async function onLearnMoreClickHandler(e) {
       .join('');
 
     showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb);
+    scrollController.disabledScroll();
+
   });
 }
 
@@ -69,13 +82,14 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
   <p class="text desc-card">
    ${instructions}
   </p>
+  <div class="container-button">
   <button type="button" class="button-card favorite add-to-fav-cockt" data-id="${id}">
     add to favorite
   </button>
    <button type="button" class="visually-hidden button-card favorite remove-from-fav-cockt" data-id="${id}">
     Remove from favorite
   </button>
-   <button type="button" class="button-card back close-cocktail-modal-back">Back</button>
+   <button type="button" class="button-card back close-cocktail-modal-back">Back</button></div>
 </div>`,
     {
       onShow: instance => {
@@ -91,7 +105,6 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
           .element()
           .querySelector('.remove-from-fav-cockt')
           .addEventListener('click', onClickFavRemoveHandler);
-        // scrollController.enabledScroll();
 
         checkIfInFavStorage(instance);
       },
@@ -105,10 +118,12 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
           .querySelector('.remove-from-fav-cockt')
           .removeEventListener('click', onClickFavRemoveHandler);
       },
+      onClose: () => {
+      scrollController.enabledScroll();
+      },
     }
   );
   instance.show();
-  // scrollController.disabledScroll();
   document
     .querySelector('.ingredients-list')
     .addEventListener('click', onIngrListClickHandler);
@@ -223,5 +238,6 @@ function RemoveCockt(e) {
     renderFavCocktails(favCokctArr, cardList);
   }
 }
+
 
 export { onLearnMoreClickHandler, showModalWindow, onClickFavRemoveHandler };

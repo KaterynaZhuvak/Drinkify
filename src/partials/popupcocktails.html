@@ -1,11 +1,11 @@
-<!-- <div class="container-popup">
+<!-- <div class="container-popup id-for-del" data-id="${id}">
   <button class="popup-close-btn close-cocktail-modal-x">
     <svg class="popup-close-btn-icon">
-      <use href="img/sprite.svg#popup-close-btn"></use>
+      <use href="${spriteURL}#cross"></use>
     </svg>
   </button>
   <div class="box">
-    <div class="picture"><img src="${drinkThumb}" alt="${drink}" onerror="this.onerror=null;this.src='../img/rafiki.jpg';"/></div>
+    <div class="picture"><img src="${drinkThumb}" alt="${drink}" onerror="this.onerror=null;this.src='img/rafiki.jpg';"/></div>
     <div>
       <h2 class="name">${drink}</h2>
       <p class="caption-card">Ingredients:</p>
@@ -17,8 +17,12 @@
   <p class="text desc-card">
    ${instructions}
   </p>
-  <button type="button" class="button-card favorite-theme-light">
+  <div class="container-button">
+  <button type="button" class="button-card favorite add-to-fav-cockt" data-id="${id}">
     add to favorite
   </button>
-   <button type="button" class="button-card back-theme-light close-cocktail-modal-back">Back</button>
+   <button type="button" class="visually-hidden button-card favorite remove-from-fav-cockt" data-id="${id}">
+    Remove from favorite
+  </button>
+   <button type="button" class="button-card back close-cocktail-modal-back">Back</button></div>
 </div> -->
