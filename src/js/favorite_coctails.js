@@ -18,7 +18,10 @@ let cardsPerPage = 6;
 renderFavCocktails(favCokctArr, cardList);
 
 function renderFavCocktails(arr, container) {
-  if (window.location.pathname === '/favorite-cocktails.html') {
+  if (
+    window.location.pathname === '/Drinkify/favorite-cocktails.html' ||
+    window.location.pathname === '/favorite-cocktails.html'
+  ) {
     if (!arr.length) {
       plugEl.classList.remove('visually-hidden');
     } else plugEl.classList.add('visually-hidden');

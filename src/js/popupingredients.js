@@ -80,9 +80,12 @@ function showModalWindow(ingredientObj) {
         instance
           .element()
           .querySelector('.js-btningr')
-          .querySelector('.remove-btn')
-          .addEventListener('click', onRemoveClickIn)
           .addEventListener('click', onClickIn);
+        instance
+          .element()
+          .querySelector('.remove-btn')
+          .addEventListener('click', onRemoveClickIn);
+
         instance.element().querySelector('.remove-btn').onclick =
           instance.close;
       },

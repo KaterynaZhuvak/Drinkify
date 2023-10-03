@@ -216,7 +216,10 @@ function RemoveCockt(e) {
   favCokctArr.splice(itemToRemove, 1);
   localStorage.setItem(KEY_FAVORITE_COCKTAILS, JSON.stringify(favCokctArr));
 
-  if (window.location.pathname === '/favorite-cocktails.html') {
+  if (
+    window.location.pathname === '/Drinkify/favorite-cocktails.html' ||
+    window.location.pathname === '/favorite-cocktails.html'
+  ) {
     renderFavCocktails(favCokctArr, cardList);
   }
 }
