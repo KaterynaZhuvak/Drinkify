@@ -17,11 +17,11 @@ const scrollController = {
   disabledScroll() {
     document.body.style.cssText = `
     overflow: hidden;
-    padding-right: ${window.innerWidth - document.body.offsetWidth}px;`
+    padding-right: ${window.innerWidth - document.body.offsetWidth}px;`;
   },
   enabledScroll() {
     document.body.style.cssText = '';
-  }
+  },
 };
 
 cardsGallery.addEventListener('click', onLearnMoreClickHandler);
@@ -57,7 +57,6 @@ async function onLearnMoreClickHandler(e) {
 
     showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb);
     scrollController.disabledScroll();
-
   });
 }
 
@@ -70,7 +69,7 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
     </svg>
   </button>
   <div class="box">
-    <div class="picture"><img src="${drinkThumb}" alt="${drink}" onerror="this.onerror=null;this.src='img/rafiki.jpg';"/></div>
+    <div class="picture"><img src="${drinkThumb}" alt="${drink}" loading='lazy' onerror="this.onerror=null;this.src='img/rafiki.jpg';"/></div>
     <div>
       <h2 class="name">${drink}</h2>
       <p class="caption-card">Ingredients:</p>
@@ -119,7 +118,7 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
           .removeEventListener('click', onClickFavRemoveHandler);
       },
       onClose: () => {
-      scrollController.enabledScroll();
+        scrollController.enabledScroll();
       },
     }
   );
@@ -238,6 +237,5 @@ function RemoveCockt(e) {
     renderFavCocktails(favCokctArr, cardList);
   }
 }
-
 
 export { onLearnMoreClickHandler, showModalWindow, onClickFavRemoveHandler };

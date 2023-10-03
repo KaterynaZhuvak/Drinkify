@@ -18,6 +18,7 @@
 @import url('./scroll-up.css');
 @import url('./pop-up-ingredients.css');
 @import url('./pagination.css');
+@import url('./favorite_coctails.css');
 
 :root {
   --main-color: #7e8fdd;
