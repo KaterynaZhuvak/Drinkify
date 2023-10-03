@@ -311,6 +311,7 @@ body .element-dark {
   .rectangle {
     width: 380px;
     height: 476px;
+    z-index: 0;
   }
   .img-text {
     width: 219px;
