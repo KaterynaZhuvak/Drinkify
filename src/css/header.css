@@ -19,6 +19,17 @@
   fill: var(--main-color);
 }
 
+.animation-left {
+  animation: backInLeft;
+  animation-delay: 1s;
+  animation-duration: 2s;
+}
+.animation-right {
+  animation: backInRight;
+  animation-delay: 1s;
+  animation-duration: 2s;
+}
+
 .header-menu-burger {
   display: flex;
   align-items: center;
@@ -126,6 +137,7 @@
     align-items: center;
     gap: 28px;
   }
+
   .favorite-list {
     position: absolute;
     top: 34px;
