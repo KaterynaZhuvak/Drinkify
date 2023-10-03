@@ -31,11 +31,16 @@
 }
 
 .header-menu-burger,
-.header-item {
+.header-item,
+.header-logo,
+.favorite-item {
   &:hover,
   &:focus {
     color: var(--main-color);
+    scale: 1.05;
   }
+  transition: color var(--transition-duration-and-func),
+    scale var(--transition-duration-and-func);
 }
 
 .header-burger-mobile,
@@ -71,10 +76,6 @@
     font-size: 22px;
     line-height: 1.1em;
     letter-spacing: -0.02em;
-    font-weight: 600;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
   }
   .header-logo-icon {
     margin-left: 8px;
@@ -115,7 +116,7 @@
   .header-nav {
     position: relative;
     display: flex;
-    width: calc(50% + 30px);
+    width: calc(50% + 66px);
     justify-content: space-between;
     align-items: start;
   }
@@ -127,10 +128,10 @@
   }
   .favorite-list {
     position: absolute;
-    top: 40px;
+    top: 34px;
     left: 33px;
     font-size: 14px;
-    padding: 18px 24px;
+    padding: 18px 24px 16px 24px;
     border-radius: 16px;
     background: var(--main-color);
     color: rgba(253, 253, 255, 0.5);
@@ -138,7 +139,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 10px;
+    gap: 4px;
   }
   .header-list,
   .favorite-list {
@@ -166,7 +167,6 @@
 
   .header-btn-wrapper {
     position: relative;
-    margin-right: 72px;
   }
 
   .themetoggle_reset {
@@ -191,8 +191,15 @@
     padding: 0;
 
     transition: background-color var(--transition-duration-and-func),
-      border-color var(--transition-duration-and-func);
+      border-color var(--transition-duration-and-func),
+      box-shadow var(--transition-duration-and-func);
   }
+
+  .themetoggle:hover {
+    box-shadow: 0px 0px 12px rgba(36, 36, 36, 0.3),
+      0px 4px 10px rgba(36, 36, 36, 0.2);
+  }
+
   .themetoggle_reset {
     position: absolute;
     top: -8px;
@@ -233,6 +240,10 @@
     background-color: var(--accent-color);
     border-color: var(--main-color);
   }
+  body.dark .themetoggle:hover {
+    box-shadow: 0px 0px 22px rgba(253, 253, 255, 0.3),
+      0px 4px 20px rgba(253, 253, 255, 0.3);
+  }
   body.dark .themetoggleswitch {
     transform: translate(0, -50%);
     background-color: var(--cards-color);
@@ -245,7 +256,8 @@ body.dark .header-list {
   color: var(--cards-color);
 }
 
-body.dark .header-menu-burger {
+body.dark .header-logo,
+.header-menu-burger {
   &:hover,
   &:focus {
     color: var(--main-color);

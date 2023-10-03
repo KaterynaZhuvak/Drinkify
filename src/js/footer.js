@@ -4,11 +4,9 @@ const arrowBtnSliderRight = document.querySelector(".cr-by-arrow-right");
 const firstCardWidth = carousel.querySelector(".cr-by-card").offSetWidth;
 const carouselChildrens = [...carousel.children];
 
-
-
-
 let isDragging = false, startX, startScrollLeft;
 let cardPerView = Math.round(carousel.offSetWidth / firstCardWidth);
+
 
 // carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
 //     carousel.insertAdjacentHTML("beforeend", card.outerHTML);
@@ -18,13 +16,7 @@ let cardPerView = Math.round(carousel.offSetWidth / firstCardWidth);
 //     carousel.insertAdjacentHTML("afterbegin", card.outerHTML)
 // })
 
-// arrowBtnsSliderLeft.forEach(btn => {
-//     btn.addEventListener("click", () => {
-//         carousel.scrollLeft += btn.id === "leftslider" ? -firstCardWidth : firstCardWidth;
-//     })
-// })
-
-// arrowBtnsSliderRight.forEach(btn => {
+// arrowBtnsSlider.forEach(btn => {
 //     btn.addEventListener("click", () => {
 //         carousel.scrollLeft += btn.id === "leftslider" ? -firstCardWidth : firstCardWidth;
 //     })
@@ -37,9 +29,6 @@ const btnClickFootLeft = () => {
 const btnClickFootRight = () => {
     carousel.scrollLeft += 247;
 }
-
-arrowBtnSliderLeft.addEventListener("click", btnClickFootLeft)
-arrowBtnSliderRight.addEventListener("click", btnClickFootRight)
 
 
 const dragStart = (e) => {
@@ -61,10 +50,12 @@ const dragStop = () => {
 
 const infiniteScroll = () => {
     if (carousel.scrollLeft === 0) {
+        console.log("left side reached")
         carousel.classList.add("no-transition-cr-by");
         carousel.scrollLeft = carousel.scrolllWidth - ( 2 * carousel.offSetWidth);
         carousel.classList.remove("no-transition-cr-by");
     } else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offSetWidth) {
+        console.log("right side reached")
         carousel.classList.add("no-transition-cr-by");
         carousel.scrollLeft = carousel.offSetWidth;
         carousel.classList.remove("no-transition-cr-by");
@@ -75,3 +66,5 @@ carousel.addEventListener("mousedown", dragStart);
 carousel.addEventListener("mousemove", dragging);
 document.addEventListener("mouseup", dragStop)
 carousel.addEventListener("scroll", infiniteScroll);
+arrowBtnSliderLeft.addEventListener("click", btnClickFootLeft)
+arrowBtnSliderRight.addEventListener("click", btnClickFootRight)
