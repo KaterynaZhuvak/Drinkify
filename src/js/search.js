@@ -122,7 +122,7 @@ function DisplayPaginatedList(items, wrapper, per_page, page) {
 function SetupPagination(items, wrapper, per_page) {
   wrapper.innerHTML = '';
 
-  let page_count = Math.ceil(items.length / per_page);
+  // let page_count = Math.ceil(items.length / per_page);
 
   const options = {
     totalItems: items.length,
@@ -133,9 +133,9 @@ function SetupPagination(items, wrapper, per_page) {
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
     template: {
-      page: '<a href="#" class="tui-page-btn btnStyle btnStyle btnStyle1">{{page}}</a>',
+      page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
       currentPage:
-        '<strong class="tui-page-btn tui-is-selected btnStyle">{{page}}</strong>',
+        '<strong class="tui-page-btn tui-is-selected btnStyleActive">{{page}}</strong>',
       moveButton:
         '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
@@ -150,7 +150,7 @@ function SetupPagination(items, wrapper, per_page) {
         '</a>',
     },
   };
-  console.log(options);
+  // console.log(options);
 
   const pagination = new Pagination(paginationContainer, options);
 
