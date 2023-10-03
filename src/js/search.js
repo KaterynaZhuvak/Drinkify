@@ -21,9 +21,12 @@ const cocktailsSection = document.querySelector('#cocktails-section');
 
 let currentPage = 1;
 let cardsPerPage = 8;
+let visibleNumbers = 4;
 if (screen.width >= 1280) {
   cardsPerPage = 9;
+  visibleNumbers = 7;
 }
+
 // let page_count;
 let cards;
 
@@ -127,7 +130,7 @@ function SetupPagination(items, wrapper, per_page) {
   const options = {
     totalItems: items.length,
     itemsPerPage: per_page,
-    //   visiblePages: 10,
+    visiblePages: visibleNumbers,
     page: 1,
     centerAlign: false,
     firstItemClassName: 'tui-first-child',
