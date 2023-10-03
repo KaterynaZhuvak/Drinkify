@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-import { createMarkup } from './markup';
+import { createMarkup, iconMainMarkup } from './markup';
 import { fetchCocktails } from './drinkifyapi';
 import Notiflix from 'notiflix';
 
@@ -41,7 +41,7 @@ function createRandomCards() {
     .then(resp => {
       const randomCards = resp
         .map(item => {
-          return createMarkup(item);
+          return createMarkup(item, iconMainMarkup);
         })
         .join('');
 
@@ -84,7 +84,7 @@ async function searchCocktails(input, link, param) {
     if (cards.length <= cardsPerPage) {
       cardsGallery.innerHTML = cards
         .map(item => {
-          return createMarkup(item);
+          return createMarkup(item, iconMainMarkup);
         })
         .join('');
     } else {
@@ -114,7 +114,7 @@ function DisplayPaginatedList(items, wrapper, per_page, page) {
 
   wrapper.innerHTML = paginatedItems
     .map(item => {
-      return createMarkup(item);
+      return createMarkup(item, iconMainMarkup);
     })
     .join('');
 }

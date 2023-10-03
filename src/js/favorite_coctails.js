@@ -1,5 +1,5 @@
 import { onLearnMoreClickHandler } from './popupcocktails';
-import { createMarkup } from './markup';
+import { createMarkup, iconFavMarkup } from './markup';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
@@ -11,12 +11,15 @@ const KEY_FAVORITE_COCKTAILS = 'favoriteCocktails';
 const favCokctArr =
   JSON.parse(localStorage.getItem(KEY_FAVORITE_COCKTAILS)) ?? [];
 
-
 let currentPage = 1;
 let coctailsPerPage = 6;
 
-
-renderFavCocktails(favCokctArr, cardList);
+if (
+  window.location.pathname === '/Drinkify/favorite-cocktails.html' ||
+  window.location.pathname === '/favorite-cocktails.html'
+) {
+  renderFavCocktails(favCokctArr, cardList);
+}
 
 function renderFavCocktails(arr, container) {
   if (
@@ -33,17 +36,15 @@ function renderFavCocktails(arr, container) {
 
   if (arr.length <= coctailsPerPage) {
     container.innerHTML = arr
-    .map(card => {
-      return createMarkup(card);
-    })
+      .map(card => {
+        return createMarkup(card, iconFavMarkup);
+      })
       .join('');
   } else {
-    showPaginatedList(favCokctArr, cardList, coctailsPerPage, currentPage);
-    SetupPagination(favCokctArr, paginationContainer, coctailsPerPage);
+    showPaginatedList(arr, container, coctailsPerPage, currentPage);
+    SetupPagination(arr, paginationContainer, coctailsPerPage);
   }
-
 }
-
 
 function showPaginatedList(arr, container, per_page, page) {
   container.innerHTML = '';
@@ -54,7 +55,6 @@ function showPaginatedList(arr, container, per_page, page) {
   let markup = arr.slice(start, end);
 
   return renderFavCocktails(markup, cardList);
-
 }
 
 function SetupPagination(items, wrapper, per_page) {
@@ -91,9 +91,13 @@ function SetupPagination(items, wrapper, per_page) {
 
   pagination.on('beforeMove', evt => {
     const { page } = evt;
-    const result = showPaginatedList(favCokctArr, cardList, coctailsPerPage, page);
+    const result = showPaginatedList(
+      favCokctArr,
+      cardList,
+      coctailsPerPage,
+      page
+    );
   });
 }
-
 
 export { renderFavCocktails, cardList, favCokctArr };

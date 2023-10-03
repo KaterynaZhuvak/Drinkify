@@ -132,6 +132,7 @@ body.dark .cardlist-learn {
 
 .cardlist-svg {
   stroke: var(--cards-color);
+  fill: var(--cards-color);
   width: 18px;
 }
 
