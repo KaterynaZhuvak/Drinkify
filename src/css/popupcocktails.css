@@ -70,8 +70,11 @@
   }
   .item-card {
     color: rgba(36, 36, 36, 0.8);
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .item-card:hover {
+    transform: scale(1.1);
     color: var(--main-color);
   }
   .desc-card {
@@ -96,15 +99,21 @@
     color: var(--cards-color);
     background-color: var(--main-color);
     margin-top: 40px;
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .favorite:hover {
+    transform: scale(1.1);
     background-color: #6e7fcf;
   }
   .back {
     background-color: rgba(36, 36, 36, 0.1);
     margin-top: 14px;
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .back:hover {
+    transform: scale(1.1);
     background-color: rgba(36, 36, 36, 0.2);
   }
   .is-hidden {
@@ -180,9 +189,22 @@
     display: inline-block;
     font-size: 18px;
     line-height: 1.33;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    width: auto;
   }
+
+  .favorite {
+    padding: 16px 44px;
+    margin-right: 18px;
+  }
+
+  .back {
+    padding: 16px 60px;
+  }
+
+  .remove-from-fav-cockt {
+    padding: 16px 32px;
+  }
+
   .favorite-theme-light {
     width: 291px;
     margin-right: 18px;
