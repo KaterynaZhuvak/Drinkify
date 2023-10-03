@@ -21,7 +21,7 @@ body .element-dark {
   body.dark .elements-img-hero-dark {
     position: absolute;
     z-index: 0;
-    width: 342px;
+    max-width: 342px;
     height: 481px;
     bottom: -85px;
     left: 0px;
@@ -34,14 +34,15 @@ body .element-dark {
   }
   .hero-btn {
     display: flex;
-    width: 335px;
+    max-width: 335px;
     flex-direction: column;
     align-items: flex-start;
     gap: 36px;
+    margin-bottom: 27px;
   }
   .hero-title-btn {
     display: flex;
-    width: 335px;
+    max-width: 335px;
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
@@ -83,8 +84,16 @@ body .element-dark {
     line-height: 20px; /* 142.857% */
     letter-spacing: 0.28px;
     text-transform: uppercase;
-    margin-bottom: 27px;
+
+    transition: all 250ms cubic-bezier(.5, -.75, .7, 2);
   }
+
+    .btn-hero-scroll:hover,
+    .btn-hero-scroll:focus {
+      transform: scale(1.1);
+      background: #6e7fcf;
+    }
+
   .hero-img {
     margin-bottom: 40px;
   }
@@ -195,12 +204,15 @@ body .element-dark {
     letter-spacing: 0.36px;
     text-transform: uppercase;
     border: none;
-  }
-  .btn-hero-scroll:hover,
-  .btn-hero-scroll:focus {
-    border-radius: 12px;
-    background: #6e7fcf;
-  }
+
+    transition: all 250ms cubic-bezier(.5, -.75, .7, 2);
+    }
+    
+    .btn-hero-scroll:hover,
+    .btn-hero-scroll:focus {
+      transform: scale(1.1);
+      background: #6e7fcf;
+    }
 
   .container-img {
     position: relative;

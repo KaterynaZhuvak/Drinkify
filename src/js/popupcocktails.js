@@ -1,32 +1,38 @@
 import { fetchCocktails } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
 import { onIngrListClickHandler } from './popupingredients';
+import spriteURL from '/img/sprite.svg';
+import { renderFavCocktails, cardList } from './favorite_coctails';
 
-// const scrollController = {
-//   disabledScroll() {
-//     document.body.style.cssText = `
-//     overflow: hidden;
-//     `;
-//   },
-//   enabledScroll() {
-//     document.body.style.cssText = '';
-//   }
-// }
-
+const KEY_FAVORITE_COCKTAILS = 'favoriteCocktails';
 const cardsGallery = document.querySelector('.cardlist');
 const SEARCH_BY_ID_LINK = 'cocktails/lookup/';
 const SEARCH_BY_ID_PARAM = 'id';
+const favCokctArr =
+  JSON.parse(localStorage.getItem(KEY_FAVORITE_COCKTAILS)) ?? [];
+let cocktailObj;
+let currentCocktail;
 
 cardsGallery.addEventListener('click', onLearnMoreClickHandler);
+cardsGallery.addEventListener('click', onAddOrRemoveButtonHandler);
 
-function onLearnMoreClickHandler(e) {
+async function onLearnMoreClickHandler(e) {
   if (!e.target.classList.contains('cardlist-learn')) {
     return;
   }
 
+  currentCocktail = e.target.closest('.cardlist-item');
   const id = e.target.closest('.cardlist-item').dataset.id;
-  fetchCocktails(SEARCH_BY_ID_LINK, SEARCH_BY_ID_PARAM, id).then(resp => {
-    const { drinkThumb, instructions, drink, ingredients } = resp[0];
+  await fetchCocktails(SEARCH_BY_ID_LINK, SEARCH_BY_ID_PARAM, id).then(resp => {
+    const { _id, drinkThumb, instructions, drink, ingredients, description } =
+      resp[0];
+
+    cocktailObj = {
+      _id,
+      drinkThumb,
+      description,
+      drink,
+    };
 
     let ingredientsRaw = ingredients
       .map(ingredient => {
@@ -38,16 +44,16 @@ function onLearnMoreClickHandler(e) {
       })
       .join('');
 
-    showModalWindow(ingredientsRaw, drink, instructions, drinkThumb);
+    showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb);
   });
 }
 
-function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
+function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
   const instance = basicLightbox.create(
-    `<div class="container-popup">
+    `<div class="container-popup id-for-del" data-id="${id}">
   <button class="popup-close-btn close-cocktail-modal-x">
     <svg class="popup-close-btn-icon">
-      <use href="./img/sprite.svg#cross"></use>
+      <use href="${spriteURL}#cross"></use>
     </svg>
   </button>
   <div class="box">
@@ -63,8 +69,11 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
   <p class="text desc-card">
    ${instructions}
   </p>
-  <button type="button" class="button-card favorite">
+  <button type="button" class="button-card favorite add-to-fav-cockt" data-id="${id}">
     add to favorite
+  </button>
+   <button type="button" class="visually-hidden button-card favorite remove-from-fav-cockt" data-id="${id}">
+    Remove from favorite
   </button>
    <button type="button" class="button-card back close-cocktail-modal-back">Back</button>
 </div>`,
@@ -74,7 +83,27 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
           instance.close;
         instance.element().querySelector('.close-cocktail-modal-x').onclick =
           instance.close;
+        instance
+          .element()
+          .querySelector('.add-to-fav-cockt')
+          .addEventListener('click', onClickFavAddHandler);
+        instance
+          .element()
+          .querySelector('.remove-from-fav-cockt')
+          .addEventListener('click', onClickFavRemoveHandler);
         // scrollController.enabledScroll();
+
+        checkIfInFavStorage(instance);
+      },
+      onClose: instance => {
+        instance
+          .element()
+          .querySelector('.add-to-fav-cockt')
+          .removeEventListener('click', onClickFavAddHandler);
+        instance
+          .element()
+          .querySelector('.remove-from-fav-cockt')
+          .removeEventListener('click', onClickFavRemoveHandler);
       },
     }
   );
@@ -85,10 +114,114 @@ function showModalWindow(ingredientsRaw, drink, instructions, drinkThumb) {
     .addEventListener('click', onIngrListClickHandler);
 }
 
-export {
-  // scrollController,
-  onLearnMoreClickHandler,
-  showModalWindow,
-  SEARCH_BY_ID_LINK,
-  SEARCH_BY_ID_PARAM,
-};
+function checkIfInFavStorage(instance) {
+  const inStorageIn = favCokctArr.find(
+    ({ _id }) =>
+      _id === instance.element().querySelector('.container-popup').dataset.id
+  );
+
+  if (inStorageIn) {
+    instance
+      .element()
+      .querySelector('.add-to-fav-cockt')
+      .classList.add('visually-hidden');
+    instance
+      .element()
+      .querySelector('.remove-from-fav-cockt')
+      .classList.remove('visually-hidden');
+  }
+}
+
+async function onAddOrRemoveButtonHandler(e) {
+  e.preventDefault();
+
+  if (
+    e.target.classList.contains('add-to-fav-cockt-headt') ||
+    e.target.closest('.add-to-fav-cockt-headt')
+  ) {
+    currentCocktail = e.target.closest('.cardlist-item');
+    const currentId = e.target.closest('.cardlist-item').dataset.id;
+
+    await fetchCocktails(SEARCH_BY_ID_LINK, SEARCH_BY_ID_PARAM, currentId).then(
+      resp => {
+        const { _id, drinkThumb, drink, description } = resp[0];
+
+        cocktailObj = {
+          _id,
+          drinkThumb,
+          description,
+          drink,
+        };
+      }
+    );
+
+    addCocktail();
+  } else if (
+    e.target.classList.contains('remove-from-fav-cockt-bin') ||
+    e.target.closest('.remove-from-fav-cockt-bin')
+  ) {
+    currentCocktail = e.target.closest('.cardlist-item');
+    RemoveCockt(e);
+  } else return;
+}
+
+function onClickFavAddHandler(e) {
+  e.preventDefault();
+
+  document.querySelector('.add-to-fav-cockt').classList.add('visually-hidden');
+  document
+    .querySelector('.remove-from-fav-cockt')
+    .classList.remove('visually-hidden');
+
+  addCocktail();
+}
+
+function addCocktail() {
+  currentCocktail
+    .querySelector('.add-to-fav-cockt-headt')
+    .classList.add('visually-hidden');
+  currentCocktail
+    .querySelector('.remove-from-fav-cockt-bin')
+    .classList.remove('visually-hidden');
+
+  favCokctArr.push(cocktailObj);
+  localStorage.setItem(KEY_FAVORITE_COCKTAILS, JSON.stringify(favCokctArr));
+}
+
+function onClickFavRemoveHandler(e) {
+  e.preventDefault();
+
+  document
+    .querySelector('.add-to-fav-cockt')
+    .classList.remove('visually-hidden');
+  document
+    .querySelector('.remove-from-fav-cockt')
+    .classList.add('visually-hidden');
+
+  RemoveCockt(e);
+}
+
+function RemoveCockt(e) {
+  currentCocktail
+    .querySelector('.add-to-fav-cockt-headt')
+    .classList.remove('visually-hidden');
+  currentCocktail
+    .querySelector('.remove-from-fav-cockt-bin')
+    .classList.add('visually-hidden');
+
+  const itemToRemove = favCokctArr.findIndex(
+    ({ _id }) => _id === e.target.closest('.id-for-del').dataset.id
+  );
+
+  favCokctArr.splice(itemToRemove, 1);
+  localStorage.setItem(KEY_FAVORITE_COCKTAILS, JSON.stringify(favCokctArr));
+
+  if (
+    window.location.pathname === '/Drinkify/favorite-cocktails.html' ||
+    window.location.pathname === '/favorite-cocktails.html'
+  ) {
+    renderFavCocktails(favCokctArr, cardList);
+  }
+}
+
+export { onLearnMoreClickHandler, showModalWindow, onClickFavRemoveHandler };
