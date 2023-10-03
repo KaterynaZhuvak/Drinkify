@@ -57,7 +57,7 @@ body.dark .sorry {
 }
 
 .in-card {
-  width: 335px;
+  max-width: 335px;
   height: 222px;
   padding: 20px;
   border-radius: 20px;

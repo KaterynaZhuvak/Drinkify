@@ -13,11 +13,13 @@ function onClickFavorite(e) {
   favoriteIcon.style.transform = `rotate(${currentRotation}deg)`;
 
 if (displayStyle === "none" || displayStyle === "") {
-    displayStyle = "flex";
+  displayStyle = "flex";
   } else {
     displayStyle = "none";
   }
+  setTimeout(() => {
   favoriteList.style.display = displayStyle;
+}, 250);
 }
 
 /// toggle theme
