@@ -28,6 +28,34 @@
   --dark-cards-color: #232330;
 }
 
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 500;
+  src: url('../fonts/poppins-medium-webfont.woff') format('woff'),
+    url('../fonts/poppins-medium-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 600;
+  src: url('../fonts/poppins-semibold-webfont.woff') format('woff'),
+  url('../fonts/poppins-semibold-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 400;
+  src: url('../fonts/poppins-italic-webfont.woff') format('woff'),
+    url('../fonts/poppins-italic-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 400;
+  src: url('../fonts/poppins-regular-webfont.woff') format('woff'),
+    url('../fonts/poppins-regular-webfont.woff2') format('woff2');
+}
+
 body {
   font-family: Poppins;
   color: var(--text-color);
