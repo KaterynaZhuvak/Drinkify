@@ -11,13 +11,9 @@ const paginationContainer = document.querySelector('.pagination-main');
 const favorite =
   JSON.parse(localStorage.getItem('KEY_FAVORITE_INGREDIENTS')) ?? [];
 
-console.log(favorite);
-
 let currentPage = 1;
-let ingredientsPerPage = 8;
-if (screen.width >= 1280) {
-  ingredientsPerPage = 9;
-}
+let ingredientsPerPage = 6;
+
 
 sorryImage.classList.add('hidden');
 renderMarkup(favorite, list);
@@ -166,7 +162,11 @@ function onClick(e) {
             .addEventListener('click', onRemoveClick);
           instance.element().querySelector('.remove-btn').onclick =
             instance.close;
-        },
+          },
+          onClose: instance => {
+              instance
+                  .element().querySelector('.remove-btn').removeEventListener('click', onRemoveClick);
+          }
       }
     );
     instance.show();

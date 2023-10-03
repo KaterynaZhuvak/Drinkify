@@ -55,6 +55,7 @@ body.dark .icon-in-close {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.4;
+  text-transform: uppercase;
   border: 1px solid #7e8fdd;
   border-radius: 12px;
   cursor: pointer;
