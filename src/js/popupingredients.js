@@ -31,6 +31,7 @@ function onIngrListClickHandler(e) {
       country,
     };
     showModalWindow(ingredientObj);
+    hiddenPopupCocktails();
   });
 }
 
@@ -84,12 +85,14 @@ function showModalWindow(ingredientObj) {
           .addEventListener('click', onRemoveClickIn);
         inStorageCheck();
       },
-      onClose: instance => {
+       onClose: instance => {
               instance
           .element()
           .querySelector('.js-btningr').removeEventListener('click', onClickIn);
         instance.element().querySelector('.remove-btn')
           .removeEventListener('click', onRemoveClickIn);
+      },onClose: () => {
+        showPopupCocktails();
       }
     }
   );
@@ -129,6 +132,16 @@ document.querySelector(".js-btningr").classList.remove("hidden");
   );
 }
 
+
+function hiddenPopupCocktails() {
+  const containerPopup = document.querySelector('.container-popup');
+  containerPopup.classList.add('popup-cocktails-hidden');
+}
+
+function showPopupCocktails() {
+  const containerPopup = document.querySelector('.container-popup');
+  containerPopup.classList.remove('popup-cocktails-hidden');
+}
 async function inStorageCheck() {
   const inStorageIn = await favoriteArrIn.find(({ id }) => id === ingredientObj.id);
     if (inStorageIn) {
