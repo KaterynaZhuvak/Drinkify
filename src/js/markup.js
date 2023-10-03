@@ -2,7 +2,10 @@ import spriteURL from '/img/sprite.svg';
 import picUrl from '/img/rafiki.jpg';
 import { favCokctArr } from './favorite_coctails';
 
-export function createMarkup({ drinkThumb, drink, description, _id: id }) {
+const iconMainMarkup = `${spriteURL}#fullheart`;
+const iconFavMarkup = `${spriteURL}#trash`;
+
+function createMarkup({ drinkThumb, drink, description, _id: id }, iconMarkup) {
   let classAd;
   let classRemove;
 
@@ -28,10 +31,12 @@ export function createMarkup({ drinkThumb, drink, description, _id: id }) {
         </button>
         <button class="cardlist-fav remove-from-fav-cockt-bin ${classRemove}">
         <svg class="cardlist-svg" weight="18" height="18">
-         <use href="${spriteURL}#trash"></use>
+         <use href="${iconMarkup}"></use>
         </svg>
         </button>
         </div>
         </li>`;
   return markup;
 }
+
+export { createMarkup, iconMainMarkup, iconFavMarkup };
