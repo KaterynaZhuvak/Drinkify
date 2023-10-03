@@ -85,14 +85,14 @@ function showModalWindow(ingredientObj) {
           .addEventListener('click', onRemoveClickIn);
         inStorageCheck();
       },
-      onClose: () => {
-        showPopupCocktails();
-      onClose: instance => {
+       onClose: instance => {
               instance
           .element()
           .querySelector('.js-btningr').removeEventListener('click', onClickIn);
         instance.element().querySelector('.remove-btn')
           .removeEventListener('click', onRemoveClickIn);
+      },onClose: () => {
+        showPopupCocktails();
       }
     }
   );
