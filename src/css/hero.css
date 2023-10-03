@@ -144,7 +144,6 @@ body .element-dark {
   /* Dark */
   body.dark .elements-img-hero-dark {
     position: absolute;
-    z-index: 0;
     max-width: max-content;
     width: 400px;
     height: 593px;
@@ -224,7 +223,6 @@ body .element-dark {
     position: absolute;
     right: 0px;
     bottom: 0px;
-    z-index: 1;
     width: 317px;
     height: 416.463px;
     border-radius: 80px 0px;
@@ -233,7 +231,6 @@ body .element-dark {
   }
   .elements-img-hero {
     position: absolute;
-    z-index: 0;
     max-width: max-content;
     width: 400px;
     height: 593px;
@@ -243,9 +240,7 @@ body .element-dark {
   .girl-img-hero {
     position: relative;
     width: 100%;
-    max-width: 100%;
     height: auto;
-    z-index: 2;
   }
 
   .img-text {
