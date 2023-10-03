@@ -24,7 +24,7 @@ let cardsPerPage = 8;
 if (screen.width >= 1280) {
   cardsPerPage = 9;
 }
-let page_count;
+// let page_count;
 let cards;
 
 cocktailsTitle.textContent = 'Loading Data...';
