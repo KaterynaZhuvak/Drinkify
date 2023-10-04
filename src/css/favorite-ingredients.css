@@ -177,7 +177,7 @@ body.dark .btn-learn-more {
   .favorite-ingredients-list {
     flex-direction: row;
     flex-wrap: wrap;
-    row-gap: 32px;
+    justify-content: space-between;
     column-gap: 16px;
   }
   .ingredients-container {
@@ -235,7 +235,6 @@ body.dark .btn-learn-more {
 
 @media screen and (min-width: 1280px) {
   .favorite-ingredients-list {
-    row-gap: 44px;
     column-gap: 24px;
   }
   .ingredients-section-title {

@@ -43,6 +43,8 @@ body.dark .cardlist-item {
 }
 
 .cardlist-drink {
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-top: 20px;
   margin-left: 6px;
   margin-bottom: 14px;
@@ -50,6 +52,11 @@ body.dark .cardlist-item {
   font-size: 18px;
   font-weight: 600;
   line-height: 1.33;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  white-space: pre-wrap;
+
 }
 
 body.dark .cardlist-drink {
@@ -148,9 +155,9 @@ body.dark .cardlist-learn {
   .cardlist {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 32px 16px;
+    row-gap: 32px;
+    justify-content: space-between;
     display: flex;
-    justify-content: left;
   }
 
   .cardlist-item {
@@ -198,7 +205,7 @@ body.dark .cardlist-learn {
     margin-bottom: 44px;
   }
   .cardlist {
-    gap: 44px 24px;
+    row-gap: 44px;
   }
   .cardlist:last-child {
     display: block;

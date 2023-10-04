@@ -30,7 +30,6 @@ body .element-dark {
   /* Normal */
   .hero-title-img {
     padding-top: 48px;
-    margin-bottom: 40px;
   }
   .hero-btn {
     display: flex;
@@ -92,10 +91,6 @@ body .element-dark {
   .btn-hero-scroll:focus {
     transform: scale(1.1);
     background: #6e7fcf;
-  }
-
-  .hero-img {
-    margin-bottom: 40px;
   }
 
   .container-img {
