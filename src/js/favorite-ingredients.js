@@ -1,25 +1,21 @@
+import spriteURL from '/img/sprite.svg';
 import * as basicLightbox from 'basiclightbox';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
 import { onClickIn } from './popupingredients';
+
 const list = document.querySelector('.favorite-ingredients-list');
 const sorryImage = document.querySelector('.sorry-ingredients');
 const paginationContainer = document.querySelector('.tui-pagination');
 const favorite =
   JSON.parse(localStorage.getItem('KEY_FAVORITE_INGREDIENTS')) ?? [];
 
-console.log(favorite);
-
 let currentPage = 1;
 let ingredientsPerPage = 6;
-// if (screen.width >= 1280) {
-//   ingredientsPerPage = 9;
-// }
 
 sorryImage.classList.add('hidden');
 renderMarkup(favorite, list);
-
 
 if (!favorite.length) {
   sorryImage.classList.remove('hidden');
@@ -32,27 +28,26 @@ function renderMarkup(arr, container) {
   paginationContainer.innerHTML = '';
   if (arr.length <= ingredientsPerPage) {
     container.innerHTML = arr
-    .map(card => {
-      let isAcloholic = 'Alcoholic';
-      if (card.abv === '0') {
-        isAcloholic = 'Non-alcoholic';
-      }
-      return `<li class="in-card" data-id=${card.id}>
+      .map(card => {
+        let isAcloholic = 'Alcoholic';
+        if (card.abv === '0') {
+          isAcloholic = 'Non-alcoholic';
+        }
+        return `<li class="in-card" data-id=${card.id}>
         <h3 class="in-card-title">${card.title}</h3>
         <p class="in-card-alco">${isAcloholic}</p>
-        <p class="in-card-descr">${card.description || 'No data'}</p>
+        <p class="in-card-descr">${card.description || '-'}</p>
         <div class="in-card-btns"><button class="btn-learn-more">learn more</button><button class="btn-remove"><svg class="remove-icon">
-                        <use href="./img/sprite.svg#trash"></use>
+                        <use href="${spriteURL}#trash"></use>
                     </svg></button></div>
 </li>`;
-    })
-    .join('');
-
+      })
+      .join('');
   } else {
     showPaginatedList(favorite, list, ingredientsPerPage, currentPage);
     SetupPagination(favorite, paginationContainer, ingredientsPerPage);
   }
-  
+
   // container.innerHTML = markup;
 }
 
@@ -64,8 +59,8 @@ function showPaginatedList(arr, container, per_page, page) {
   let end = start + per_page;
   let markup = arr.slice(start, end);
 
-      return renderMarkup(markup, list);
-   
+  return renderMarkup(markup, list);
+
   // container.innerHTML = markup;
 }
 
@@ -74,43 +69,41 @@ function SetupPagination(items, wrapper, per_page) {
 
   // let page_count = Math.ceil(items.length / per_page);
 
-    const options = {
-  totalItems: items.length,
-  itemsPerPage: per_page,
-//   visiblePages: 10,
-  page: 1,
-  centerAlign: false,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
-    currentPage: '<strong class="tui-page-btn tui-is-selected btnStyleActive">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
+  const options = {
+    totalItems: items.length,
+    itemsPerPage: per_page,
+    //   visiblePages: 10,
+    page: 1,
+    centerAlign: false,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+    template: {
+      page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
+      currentPage:
+        '<strong class="tui-page-btn tui-is-selected btnStyleActive">{{page}}</strong>',
+      moveButton:
+        '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnStyle">' +
+        '</a>',
+      disabledMoveButton:
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '</span>',
+      moreButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
         '<span class="tui-ico-ellip">...</span>' +
-      '</a>'
-        }
-  
-    };
-    // console.log(options);
+        '</a>',
+    },
+  };
+  // console.log(options);
 
-    const pagination = new Pagination(paginationContainer, options);
+  const pagination = new Pagination(paginationContainer, options);
 
-    pagination.on('beforeMove', evt => {
-        const { page } = evt;
-  const result = showPaginatedList(favorite, list, ingredientsPerPage, page);
-});
- }
-
-
+  pagination.on('beforeMove', evt => {
+    const { page } = evt;
+    const result = showPaginatedList(favorite, list, ingredientsPerPage, page);
+  });
+}
 
 function onClick(e) {
   if (e.target.classList.contains('btn-learn-more')) {
@@ -132,20 +125,20 @@ function onClick(e) {
         </div>
         <div class="ingredients-information">
           <p class="main-description-in">${
-            ingredient.description || 'No data'
+            ingredient.description || '-'
           }</p>
           <ul class="ingredients-spec">
             <li class="ingredients-description">Type: ${
-              ingredient.type || 'No data'
+              ingredient.type || '-'
             }</li>
             <li class="ingredients-description">Country of origin: ${
-              ingredient.country || 'No data'
+              ingredient.country || '-'
             }</li>
             <li class="ingredients-description">Alcohol by volume: ${
-              ingredient.abv || 'No data'
+              ingredient.abv || '-'
             }</li>
             <li class="ingredients-description">Flavour: ${
-              ingredient.flavour || 'No data'
+              ingredient.flavour || '-'
             }</li>
           </ul>
         </div>
@@ -168,7 +161,11 @@ function onClick(e) {
             .addEventListener('click', onRemoveClick);
           instance.element().querySelector('.remove-btn').onclick =
             instance.close;
-        },
+          },
+          onClose: instance => {
+              instance
+                  .element().querySelector('.remove-btn').removeEventListener('click', onRemoveClick);
+          }
       }
     );
     instance.show();

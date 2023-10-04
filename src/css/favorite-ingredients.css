@@ -57,16 +57,12 @@ body.dark .sorry {
 }
 
 .in-card {
-  width: 335px;
+  max-width: 335px;
   height: 222px;
   padding: 20px;
   border-radius: 20px;
   background-color: var(--cards-color);
   transition: transform 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
-}
-
-.in-card:hover {
-  transform: scale(105%);
 }
 
 body.dark .in-card {
@@ -128,6 +124,8 @@ body.dark .in-card-alco {
   border-radius: 12px;
   border: 1px solid var(--main-color);
   background-color: transparent;
+
+  transition: all 250ms linear;
 }
 
 body.dark .btn-learn-more {
@@ -138,7 +136,7 @@ body.dark .btn-learn-more {
 .btn-learn-more:hover {
   color: var(--cards-color);
   background-color: var(--main-color);
-  transition: all 250ms;
+  transform: scale(1.05);
 }
 
 .btn-remove {
@@ -151,6 +149,13 @@ body.dark .btn-learn-more {
   background: var(--main-color);
   border-color: transparent;
   text-transform: uppercase;
+
+  transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
+}
+
+.btn-remove:hover,
+.btn-remove:focus {
+  transform: scale(1.1);
 }
 
 .in-card-btns {
