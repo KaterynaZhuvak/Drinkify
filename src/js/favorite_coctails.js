@@ -5,7 +5,7 @@ import 'tui-pagination/dist/tui-pagination.css';
 
 const cardList = document.querySelector('.cardlist'); // list
 const plugEl = document.querySelector('.plug'); //sorry
-const paginationContainer = document.querySelector('.pagination-main');
+const paginationContainer = document.querySelector('.tui-pagination');
 
 const KEY_FAVORITE_COCKTAILS = 'favoriteCocktails';
 const favCokctArr =
