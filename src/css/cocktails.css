@@ -24,9 +24,11 @@ body.dark .cardlist-header {
 .cardlist-item {
   background-color: var(--cards-color);
   border-radius: 20px;
-  width: 335px;
+  max-width: 335px;
   height: 471px;
   padding: 14px;
+
+  transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
 }
 
 body.dark .cardlist-item {
@@ -41,6 +43,8 @@ body.dark .cardlist-item {
 }
 
 .cardlist-drink {
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-top: 20px;
   margin-left: 6px;
   margin-bottom: 14px;
@@ -48,6 +52,11 @@ body.dark .cardlist-item {
   font-size: 18px;
   font-weight: 600;
   line-height: 1.33;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  white-space: pre-wrap;
+
 }
 
 body.dark .cardlist-drink {
@@ -88,6 +97,8 @@ body.dark .cardlist-descr {
   border-radius: 12px;
   border: 1px solid var(--main-color);
   background-color: transparent;
+
+  transition: all 250ms linear;
 }
 
 body.dark .cardlist-learn {
@@ -98,7 +109,7 @@ body.dark .cardlist-learn {
 .cardlist-learn:hover {
   color: var(--cards-color);
   background-color: var(--main-color);
-  transition: all 250ms;
+  transform: scale(1.05);
 }
 
 .cardlist-fav {
@@ -112,9 +123,18 @@ body.dark .cardlist-learn {
   border-radius: 12px;
   background: var(--main-color);
   border-color: transparent;
+
+  transition: all 250ms linear;
 }
+
+.cardlist-fav:hover,
+.cardlist-fav:focus {
+  transform: scale(1.05);
+}
+
 .cardlist-svg {
   stroke: var(--cards-color);
+  fill: var(--cards-color);
   width: 18px;
 }
 
@@ -135,9 +155,9 @@ body.dark .cardlist-learn {
   .cardlist {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 32px 16px;
+    row-gap: 32px;
+    justify-content: space-between;
     display: flex;
-    justify-content: center;
   }
 
   .cardlist-item {
@@ -185,7 +205,7 @@ body.dark .cardlist-learn {
     margin-bottom: 44px;
   }
   .cardlist {
-    gap: 44px 24px;
+    row-gap: 44px;
   }
   .cardlist:last-child {
     display: block;

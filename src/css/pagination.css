@@ -1,30 +1,119 @@
 .btnStyle {
-  width: 40px;
   height: 40px;
-
+  min-width: 40px;
+  padding: 10px 10px;
   border-radius: 4px;
   border: 1px solid #7e8fdd;
-  background-color: transparent;
-
-  transition: 0.4s;
-
+  background: transparent;
   color: #7e8fdd;
+  text-align: center;
+  font-family: Poppins;
   font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.125;
+
+  transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
+}
+
+.btnStyle:hover,
+.btnStyle:focus {
+  background: #9cdfdf;
+  transform: scale(1.2);
+}
+
+.btnStyleActive {
+  height: 40px;
+  min-width: 40px;
+  padding: 10px 14px 10px 15px;
+  border-color: transparent;
+  border-radius: 4px;
+  background: #9cdfdf;
+  color: #fdfdff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.125;
+
+  transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
+}
+
+.pagination-main {
   margin-top: 40px;
+  justify-content: center;
+  gap: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .pagination-main {
+    margin: 40px auto 0;
+    max-width: 260px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .btnStyle {
-    margin-top: 64px;
+  .pagination-main {
+    gap: 14px;
   }
 }
 
-@media screen and (min-width: 1280px) {
-  .btnStyle {
-    margin-top: 44px;
-  }
+.tui-is-disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
-/* .btnStyle1{
-    margin-bottom: 20px;
-} */
+/* .btnStyle {
+    position: relative;
+        flex-direction: column;
+        display: inline-flex;
+        height: 40px;
+        padding: 8px 14px 8px 15px;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 34px;
+        border: none;
+        border-radius: 8px;
+        background: rgba(126, 143, 221, 0.40);
+        ;
+        color: #fdfdff;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 18px;
+    
+        transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
+}
+
+         .btnStyle:hover,
+         .btnStyle:focus
+         {
+             background: #9cdfdf;
+             transform: scale(1.2);
+         }
+
+        .btnStyleActive {
+            position: relative;
+                flex-direction: column;
+                display: inline-flex;
+                height: 40px;
+                padding: 8px 14px 8px 15px;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 34px;
+                border: none;
+                border-radius: 8px;
+                background: #9cdfdf;
+                color: #fdfdff;
+                text-align: center;
+                font-family: Poppins;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 18px;
+            
+                transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
+            } */

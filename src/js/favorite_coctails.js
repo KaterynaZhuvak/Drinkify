@@ -1,71 +1,107 @@
-import Notiflix from 'notiflix';
-import { fetchCocktails } from './drinkifyapi';
-import { showModalWindow } from './popupcocktails.js';
+import { onLearnMoreClickHandler } from './popupcocktails';
+import { createMarkup, iconFavMarkup } from './markup';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 
-const cardList = document.querySelector(".cardlist");
-const plugEl = document.querySelector(".plug");
-const containerSection = document.querySelector(".container-section");
-const sectionTitle = document.querySelector(".section-tittle");
+const cardList = document.querySelector('.cardlist'); // list
+const plugEl = document.querySelector('.plug'); //sorry
+const paginationContainer = document.querySelector('.pagination-main');
 
+const KEY_FAVORITE_COCKTAILS = 'favoriteCocktails';
+const favCokctArr =
+  JSON.parse(localStorage.getItem(KEY_FAVORITE_COCKTAILS)) ?? [];
 
-const RANDOM_PARAM = 'r';
-const RANDOM_LINK = 'cocktails/';
-let cardsAmount = 6;
-
-
-  fetchCocktails(RANDOM_LINK, RANDOM_PARAM, cardsAmount)
-    .then(resp => {
-      const cards = resp
-        .map(item => {
-          return createMarkup(item);
-        })
-        .join('');
-      
-        plugEl.classList.add("display");
-      containerSection.classList.add("container-section-with-cards");
-      sectionTitle.classList.add("section-tittle-with-cards");
-      cardList.innerHTML = cards;
-      
-    })
-    .catch(error => {
-      Notiflix.Notify.failure('Server error');
-      console.log(error);
-    });
-
-
-function createMarkup({ drinkThumb, drink, description, _id }) {
-  let markup = `<li class="cardlist-item" data-id=${_id}>
-        <img src="${drinkThumb}" class="cardlist-img" alt="${drink}" onerror="this.onerror=null;this.src='img/rafiki.jpg';" width=300>
-        <h3 class="cardlist-drink">${drink}</h3>
-        <p class="cardlist-descr">${description}</p>
-        <div class="cartlist-btns"><button class="cardlist-learn">learn more</button><button class="cardlist-fav"><svg
-                class="cardlist-svg" weight="18" height="18">
-                <use href="img/sprite.svg#trash"></use>
-            </svg></button></div>
-        </li>`;
-  return markup;
-  
+let currentPage = 1;
+let coctailsPerPage = 6;
+let visibleNumbers = 4;
+if (screen.width >= 1280) {
+  visibleNumbers = 7;
 }
 
+if (
+  window.location.pathname === '/Drinkify/favorite-cocktails.html' ||
+  window.location.pathname === '/favorite-cocktails.html'
+) {
+  renderFavCocktails(favCokctArr, cardList);
+}
 
+function renderFavCocktails(arr, container) {
+  if (
+    window.location.pathname === '/Drinkify/favorite-cocktails.html' ||
+    window.location.pathname === '/favorite-cocktails.html'
+  ) {
+    if (!arr.length) {
+      plugEl.classList.remove('visually-hidden');
+    } else plugEl.classList.add('visually-hidden');
+  }
 
+  container.innerHTML = '';
+  paginationContainer.innerHTML = '';
 
+  if (arr.length <= coctailsPerPage) {
+    container.innerHTML = arr
+      .map(card => {
+        return createMarkup(card, iconFavMarkup);
+      })
+      .join('');
+  } else {
+    showPaginatedList(arr, container, coctailsPerPage, currentPage);
+    SetupPagination(arr, paginationContainer, coctailsPerPage);
+  }
+}
 
+function showPaginatedList(arr, container, per_page, page) {
+  container.innerHTML = '';
+  page--;
 
+  let start = per_page * page;
+  let end = start + per_page;
+  let markup = arr.slice(start, end);
 
+  return renderFavCocktails(markup, cardList);
+}
 
+function SetupPagination(items, wrapper, per_page) {
+  wrapper.innerHTML = '';
 
+  const options = {
+    totalItems: items.length,
+    itemsPerPage: per_page,
+    visiblePages: visibleNumbers,
+    page: 1,
+    centerAlign: false,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+    template: {
+      page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
+      currentPage:
+        '<strong class="tui-page-btn tui-is-selected btnStyleActive">{{page}}</strong>',
+      moveButton:
+        '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
+        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '</a>',
+      disabledMoveButton:
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnStyle">' +
+        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '</span>',
+      moreButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<span class="tui-ico-ellip">...</span>' +
+        '</a>',
+    },
+  };
 
+  const pagination = new Pagination(paginationContainer, options);
 
+  pagination.on('beforeMove', evt => {
+    const { page } = evt;
+    const result = showPaginatedList(
+      favCokctArr,
+      cardList,
+      coctailsPerPage,
+      page
+    );
+  });
+}
 
-
-
-
-
-
-
-
-
-
-
-
+export { renderFavCocktails, cardList, favCokctArr };

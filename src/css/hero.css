@@ -20,28 +20,28 @@ body .element-dark {
   /* Dark */
   body.dark .elements-img-hero-dark {
     position: absolute;
-    z-index: 0;
-    width: 342px;
-    height: 481px;
-    bottom: -85px;
-    left: 0px;
+    z-index: -1;
+    max-width: 105%;
+    height: auto;
+    bottom: -20%;
+    left: 0%;
   }
 
   /* Normal */
   .hero-title-img {
     padding-top: 48px;
-    margin-bottom: 40px;
   }
   .hero-btn {
     display: flex;
-    width: 335px;
+    max-width: 335px;
     flex-direction: column;
     align-items: flex-start;
     gap: 36px;
+    margin-bottom: 27px;
   }
   .hero-title-btn {
     display: flex;
-    width: 335px;
+    max-width: 335px;
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
@@ -83,10 +83,14 @@ body .element-dark {
     line-height: 20px; /* 142.857% */
     letter-spacing: 0.28px;
     text-transform: uppercase;
-    margin-bottom: 27px;
+
+    transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
   }
-  .hero-img {
-    margin-bottom: 40px;
+
+  .btn-hero-scroll:hover,
+  .btn-hero-scroll:focus {
+    transform: scale(1.1);
+    background: #6e7fcf;
   }
 
   .container-img {
@@ -97,26 +101,27 @@ body .element-dark {
     position: absolute;
     right: 50px;
     bottom: 0px;
-    z-index: 1;
-    width: 256px;
-    height: 337px;
-    border-radius: 80px 0px;
+    z-index: 0;
+    width: 66%;
+    max-width: 66%;
+    height: 90%;
+    border-radius: 60px 0;
     background: var(--main-color);
     box-shadow: 0px 28px 75px 0px rgba(88, 109, 204, 0.5);
   }
   .girl-img-hero {
     position: relative;
-    z-index: 2;
-    max-width: 354px;
-    height: 387px;
+    z-index: 1;
+    max-width: 100%;
+    height: auto;
   }
   .elements-img-hero {
     position: absolute;
-    z-index: 0;
-    width: 342px;
-    height: 481px;
-    bottom: -85px;
-    left: 0px;
+    z-index: -1;
+    max-width: 105%;
+    height: auto;
+    bottom: -20%;
+    left: 0%;
   }
   .img-text {
     margin: auto;
@@ -134,10 +139,10 @@ body .element-dark {
   /* Dark */
   body.dark .elements-img-hero-dark {
     position: absolute;
-    z-index: 0;
+    max-width: max-content;
     width: 400px;
     height: 593px;
-    bottom: -90px;
+    bottom: -100px;
     left: -45px;
   }
   /* Normal */
@@ -195,10 +200,13 @@ body .element-dark {
     letter-spacing: 0.36px;
     text-transform: uppercase;
     border: none;
+
+    transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
   }
+
   .btn-hero-scroll:hover,
   .btn-hero-scroll:focus {
-    border-radius: 12px;
+    transform: scale(1.1);
     background: #6e7fcf;
   }
 
@@ -210,7 +218,6 @@ body .element-dark {
     position: absolute;
     right: 0px;
     bottom: 0px;
-    z-index: 1;
     width: 317px;
     height: 416.463px;
     border-radius: 80px 0px;
@@ -219,15 +226,16 @@ body .element-dark {
   }
   .elements-img-hero {
     position: absolute;
-    z-index: 0;
+    max-width: max-content;
     width: 400px;
     height: 593px;
-    bottom: -90px;
+    bottom: -100px;
     left: -45px;
   }
   .girl-img-hero {
     position: relative;
-    z-index: 2;
+    width: 100%;
+    height: auto;
   }
 
   .img-text {
@@ -245,9 +253,10 @@ body .element-dark {
 @media screen and (min-width: 1280px) {
   /* Dark */
   body.dark .elements-img-hero-dark {
-    width: 552px;
-    height: 672px;
-    left: -70px;
+    width: 135%;
+    max-width: 135%;
+    height: auto;
+    left: -14%;
     z-index: 1;
   }
   /* normal */
@@ -280,9 +289,10 @@ body .element-dark {
   }
 
   .elements-img-hero {
-    width: 552px;
-    height: 672px;
-    left: -70px;
+    width: 135%;
+    max-width: 135%;
+    height: auto;
+    left: -14%;
     z-index: 1;
   }
   .title-img {
@@ -291,6 +301,7 @@ body .element-dark {
   .rectangle {
     width: 380px;
     height: 476px;
+    z-index: 0;
   }
   .img-text {
     width: 219px;
