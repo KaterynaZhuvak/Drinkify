@@ -1,7 +1,8 @@
 .basicLightbox {
   background: rgba(21, 21, 21, 0.6);
   overflow-y: auto;
-  /* height: 100%;
   padding: 20px;
-  display: block; */
+  display: grid;
+  place-items: center start;
+  margin-top: auto;
 }
