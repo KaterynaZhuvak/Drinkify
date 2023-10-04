@@ -14,7 +14,7 @@ const SEARCH_LINK = 'cocktails/search/';
 
 const cocktWrapper = document.querySelector('.no-cocktails-wrapper');
 const cardsGallery = document.querySelector('.cardlist');
-const paginationContainer = document.querySelector('.pagination-main');
+const paginationContainer = document.querySelector('.tui-pagination');
 const inputForm = document.querySelector('#search-form');
 const cocktailsTitle = document.querySelector('.cardlist-header');
 const cocktailsSection = document.querySelector('#cocktails-section');
@@ -127,24 +127,28 @@ function SetupPagination(items, wrapper, per_page) {
 
   // let page_count = Math.ceil(items.length / per_page);
 
+
   const options = {
     totalItems: items.length,
     itemsPerPage: per_page,
+
     visiblePages: visibleNumbers,
+
     page: 1,
     centerAlign: false,
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
     template: {
-      page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
+      page: '<a href="#" class="tui-page-btn">{{page}}</a>',
       currentPage:
-        '<strong class="tui-page-btn tui-is-selected btnStyleActive">{{page}}</strong>',
+        '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
       moveButton:
-        '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
+        '<a href="#" class="tui-page-btn tui-{{type}}">' +
+
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</a>',
       disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnStyle">' +
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</span>',
       moreButton:
