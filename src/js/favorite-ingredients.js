@@ -2,6 +2,7 @@ import spriteURL from '/img/sprite.svg';
 import * as basicLightbox from 'basiclightbox';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import Notiflix from 'notiflix';
 
 import { onClickIn } from './popupingredients';
 
@@ -13,7 +14,10 @@ const favorite =
 
 let currentPage = 1;
 let ingredientsPerPage = 6;
-
+let visibleNumbers = 4;
+if (screen.width >= 1280) {
+  visibleNumbers = 7;
+}
 
 sorryImage.classList.add('hidden');
 renderMarkup(favorite, list);
@@ -73,7 +77,7 @@ function SetupPagination(items, wrapper, per_page) {
   const options = {
     totalItems: items.length,
     itemsPerPage: per_page,
-    //   visiblePages: 10,
+    visiblePages: visibleNumbers,
     page: 1,
     centerAlign: false,
     firstItemClassName: 'tui-first-child',
@@ -125,9 +129,7 @@ function onClick(e) {
           <p class="kind-in">${ingredient.type}</p>
         </div>
         <div class="ingredients-information">
-          <p class="main-description-in">${
-            ingredient.description || '-'
-          }</p>
+          <p class="main-description-in">${ingredient.description || '-'}</p>
           <ul class="ingredients-spec">
             <li class="ingredients-description">Type: ${
               ingredient.type || '-'
@@ -162,11 +164,13 @@ function onClick(e) {
             .addEventListener('click', onRemoveClick);
           instance.element().querySelector('.remove-btn').onclick =
             instance.close;
-          },
-          onClose: instance => {
-              instance
-                  .element().querySelector('.remove-btn').removeEventListener('click', onRemoveClick);
-          }
+        },
+        onClose: instance => {
+          instance
+            .element()
+            .querySelector('.remove-btn')
+            .removeEventListener('click', onRemoveClick);
+        },
       }
     );
     instance.show();
@@ -187,7 +191,13 @@ function findIngredient(elem) {
 function removeIngredient(e) {
   const ingredient = findIngredient(e.target);
   const itemToRemove = favorite.findIndex(({ id }) => id === ingredient.id);
+
+  Notiflix.Notify.info(
+    `Ingredient ${favorite[itemToRemove].title} removed from favorites`
+  );
+
   favorite.splice(itemToRemove, 1);
+
   localStorage.setItem('KEY_FAVORITE_INGREDIENTS', JSON.stringify(favorite));
   renderMarkup(favorite, list);
 }
