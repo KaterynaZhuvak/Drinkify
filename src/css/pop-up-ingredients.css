@@ -154,14 +154,10 @@ body.dark .icon-in-close {
 }
 
 .main-description-in span {
-  color: #232330;
-}
-
-.ingredients-information::first-letter {
   color: #242424;
 }
 
-body.dark .ingredients-information::first-letter {
+body.dark .main-description-in span {
   color: #fdfdff;
 }
 
