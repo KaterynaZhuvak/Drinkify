@@ -20,7 +20,7 @@ function createMarkup({ drinkThumb, drink, description, _id: id }, iconMarkup) {
   }
 
   let markup = `<li class="cardlist-item id-for-del" data-id=${id}>
-        <img src="${drinkThumb}" class="cardlist-img" alt="${drink}" onerror="this.onerror=null;this.src='${picUrl}';" width=300 loading='lazy'>
+        <img src="${drinkThumb}" loading="lazy" class="cardlist-img" alt="${drink}" onerror="this.onerror=null;this.src='${picUrl}';" width=300>
         <h3 class="cardlist-drink">${drink}</h3>
         <p class="cardlist-descr">${description}</p>
         <div class="cartlist-btns"><button class="cardlist-learn">learn more</button>
