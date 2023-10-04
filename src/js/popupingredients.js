@@ -1,5 +1,6 @@
 import { fetchIngredients } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
+import Notiflix from 'notiflix';
 import spriteURL from '/img/sprite.svg';
 // const KEY_FAVORITE_INGREDIENTS = 'FavIngrArr';
 
@@ -50,14 +51,20 @@ function showModalWindow(ingredientObj) {
           <p class="kind-in theme-dark">${type || '-'}</p>
         </div>
         <div class="ingredients-information">
-          <p class="main-description-in theme-dark">${
-            description || '-'
-          }</p>
+          <p class="main-description-in theme-dark">${description || '-'}</p>
           <ul class="ingredients-spec">
-            <li class="ingredients-description theme-dark">Type: ${type || '-'}</li>
-            <li class="ingredients-description theme-dark">Country of origin: ${country || '-'}</li>
-            <li class="ingredients-description theme-dark">Alcohol by volume: ${abv || '-'}</li>
-            <li class="ingredients-description theme-dark">Flavour: ${flavour || '-'}</li>
+            <li class="ingredients-description theme-dark">Type: ${
+              type || '-'
+            }</li>
+            <li class="ingredients-description theme-dark">Country of origin: ${
+              country || '-'
+            }</li>
+            <li class="ingredients-description theme-dark">Alcohol by volume: ${
+              abv || '-'
+            }</li>
+            <li class="ingredients-description theme-dark">Flavour: ${
+              flavour || '-'
+            }</li>
           </ul>
         </div>
         <div class="buttons-in">
@@ -80,20 +87,27 @@ function showModalWindow(ingredientObj) {
           instance.close;
         instance
           .element()
-          .querySelector('.js-btningr').addEventListener('click', onClickIn);
-        instance.element().querySelector('.remove-btn')
+          .querySelector('.js-btningr')
+          .addEventListener('click', onClickIn);
+        instance
+          .element()
+          .querySelector('.remove-btn')
           .addEventListener('click', onRemoveClickIn);
         inStorageCheck();
       },
-       onClose: instance => {
-              instance
+      onClose: instance => {
+        instance
           .element()
-          .querySelector('.js-btningr').removeEventListener('click', onClickIn);
-        instance.element().querySelector('.remove-btn')
+          .querySelector('.js-btningr')
+          .removeEventListener('click', onClickIn);
+        instance
+          .element()
+          .querySelector('.remove-btn')
           .removeEventListener('click', onRemoveClickIn);
-      },onClose: () => {
+      },
+      onClose: () => {
         showPopupCocktails();
-      }
+      },
     }
   );
   instance.show();
@@ -102,19 +116,17 @@ function showModalWindow(ingredientObj) {
 function onClickIn(event) {
   inStorageCheck();
   if (event.target.classList.contains('js-btningr')) {
-    
-      document.querySelector(".js-btningr").classList.add("hidden");
-      document.querySelector(".remove-btn").classList.remove("hidden");
-    
-    };
-    favoriteArrIn.push(ingredientObj);
-    localStorage.setItem(
-      'KEY_FAVORITE_INGREDIENTS',
-      JSON.stringify(favoriteArrIn)
-    );
-  inStorageCheck();
+    document.querySelector('.js-btningr').classList.add('hidden');
+    document.querySelector('.remove-btn').classList.remove('hidden');
   }
-
+  favoriteArrIn.push(ingredientObj);
+  Notiflix.Notify.info(`Ingredient ${ingredientObj.title} added to favorites`);
+  localStorage.setItem(
+    'KEY_FAVORITE_INGREDIENTS',
+    JSON.stringify(favoriteArrIn)
+  );
+  inStorageCheck();
+}
 
 function onRemoveClickIn(e) {
   const ingredientIn = e.target.closest('.descripe-ingredients').dataset.id;
@@ -122,8 +134,12 @@ function onRemoveClickIn(e) {
   const itemToRemoveIn = favoriteArrIn.findIndex(
     ({ id }) => id === ingredientEl.id
   );
-document.querySelector(".js-btningr").classList.remove("hidden");
-      document.querySelector(".remove-btn").classList.add("hidden");
+  document.querySelector('.js-btningr').classList.remove('hidden');
+  document.querySelector('.remove-btn').classList.add('hidden');
+
+  Notiflix.Notify.info(
+    `Ingredient ${favoriteArrIn[itemToRemoveIn].title} removed from favorites`
+  );
 
   favoriteArrIn.splice(itemToRemoveIn, 1);
   localStorage.setItem(
@@ -131,7 +147,6 @@ document.querySelector(".js-btningr").classList.remove("hidden");
     JSON.stringify(favoriteArrIn)
   );
 }
-
 
 function hiddenPopupCocktails() {
   const containerPopup = document.querySelector('.container-popup');
@@ -143,15 +158,16 @@ function showPopupCocktails() {
   containerPopup.classList.remove('popup-cocktails-hidden');
 }
 async function inStorageCheck() {
-  const inStorageIn = await favoriteArrIn.find(({ id }) => id === ingredientObj.id);
-    if (inStorageIn) {
-      document.querySelector(".js-btningr").classList.add("hidden");
-      document.querySelector(".remove-btn").classList.remove("hidden");
-    } else {
-       document.querySelector(".js-btningr").classList.remove("hidden");
-      document.querySelector(".remove-btn").classList.add("hidden");
+  const inStorageIn = await favoriteArrIn.find(
+    ({ id }) => id === ingredientObj.id
+  );
+  if (inStorageIn) {
+    document.querySelector('.js-btningr').classList.add('hidden');
+    document.querySelector('.remove-btn').classList.remove('hidden');
+  } else {
+    document.querySelector('.js-btningr').classList.remove('hidden');
+    document.querySelector('.remove-btn').classList.add('hidden');
   }
-  
 }
 
 export { onIngrListClickHandler };

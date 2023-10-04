@@ -1,4 +1,5 @@
 import { fetchCocktails } from './drinkifyapi';
+import Notiflix from 'notiflix';
 import * as basicLightbox from 'basiclightbox';
 import { onIngrListClickHandler } from './popupingredients';
 import spriteURL from '/img/sprite.svg';
@@ -198,6 +199,8 @@ function addCocktail() {
     .querySelector('.remove-from-fav-cockt-bin')
     .classList.remove('visually-hidden');
 
+  Notiflix.Notify.info(`Cocktail ${cocktailObj.drink} added to favorites`);
+
   favCokctArr.push(cocktailObj);
   localStorage.setItem(KEY_FAVORITE_COCKTAILS, JSON.stringify(favCokctArr));
 }
@@ -225,6 +228,10 @@ function RemoveCockt(e) {
 
   const itemToRemove = favCokctArr.findIndex(
     ({ _id }) => _id === e.target.closest('.id-for-del').dataset.id
+  );
+
+  Notiflix.Notify.info(
+    `Cocktail ${favCokctArr[itemToRemove].drink} removed from favorites`
   );
 
   favCokctArr.splice(itemToRemove, 1);

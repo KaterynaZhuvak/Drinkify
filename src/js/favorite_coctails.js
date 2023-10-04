@@ -13,6 +13,10 @@ const favCokctArr =
 
 let currentPage = 1;
 let coctailsPerPage = 6;
+let visibleNumbers = 4;
+if (screen.width >= 1280) {
+  visibleNumbers = 7;
+}
 
 if (
   window.location.pathname === '/Drinkify/favorite-cocktails.html' ||
@@ -63,7 +67,7 @@ function SetupPagination(items, wrapper, per_page) {
   const options = {
     totalItems: items.length,
     itemsPerPage: per_page,
-    //   visiblePages: 10,
+    visiblePages: visibleNumbers,
     page: 1,
     centerAlign: false,
     firstItemClassName: 'tui-first-child',
