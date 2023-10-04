@@ -170,5 +170,9 @@ async function inStorageCheck() {
   }
 }
 
+$('.main-description-in').each(function () {
+  this.innerHTML = this.innerHTML.replace(/^(.+?)s/, '<span>$1</span> ');
+});
+
 export { onIngrListClickHandler };
 export { onClickIn };
