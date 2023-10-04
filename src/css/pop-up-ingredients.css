@@ -153,6 +153,10 @@ body.dark .icon-in-close {
   overflow-x: hidden;
 }
 
+.main-description-in span {
+  color: #232330;
+}
+
 .ingredients-information::first-letter {
   color: #242424;
 }
