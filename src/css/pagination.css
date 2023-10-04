@@ -1,19 +1,9 @@
 
 .btnStyle {
-    position: relative;
-        flex-direction: column;
-        display: inline-flex;
-        height: 40px;
-        /* width: 90px; */
-        padding: 8px 14px 8px 15px;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 34px;
-        /* flex-shrink: 0; */
+    
         border: 1px;
         border: 1px solid #7e8fdd;
         border-radius: 8px;
-        /* background: rgba(126, 143, 221, 0.40); */
         background-color: transparent;
         color: #7E8FDD;
         text-align: center;
@@ -37,7 +27,7 @@
             position: relative;
                 flex-direction: column;
                 display: inline-flex;
-                height: 40px;
+                /* height: 40px; */
                 /* width: 90px; */
                 padding: 8px 14px 8px 15px;
                 justify-content: center;

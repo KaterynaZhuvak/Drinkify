@@ -14,6 +14,8 @@ const favorite =
 let currentPage = 1;
 let ingredientsPerPage = 6;
 
+
+  
 sorryImage.classList.add('hidden');
 renderMarkup(favorite, list);
 
@@ -94,11 +96,15 @@ function SetupPagination(items, wrapper, per_page) {
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },
+    
   };
+  
   // console.log(options);
 
   const pagination = new Pagination(paginationContainer, options);
 
+
+  
   pagination.on('beforeMove', evt => {
     const { page } = evt;
     const result = showPaginatedList(favorite, list, ingredientsPerPage, page);
