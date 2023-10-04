@@ -10,11 +10,12 @@
         align-items: flex-start;
         gap: 34px;
         /* flex-shrink: 0; */
-        border: none;
+        border: 1px;
+        border: 1px solid #7e8fdd;
         border-radius: 8px;
-        background: rgba(126, 143, 221, 0.40);
-        ;
-        color: #fdfdff;
+        /* background: rgba(126, 143, 221, 0.40); */
+        background-color: transparent;
+        color: #7E8FDD;
         text-align: center;
         font-family: Poppins;
         font-size: 16px;

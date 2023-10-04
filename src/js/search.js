@@ -14,7 +14,7 @@ const SEARCH_LINK = 'cocktails/search/';
 
 const cocktWrapper = document.querySelector('.no-cocktails-wrapper');
 const cardsGallery = document.querySelector('.cardlist');
-const paginationContainer = document.querySelector('.pagination-main');
+const paginationContainer = document.querySelector('.tui-pagination');
 const inputForm = document.querySelector('#search-form');
 const cocktailsTitle = document.querySelector('.cardlist-header');
 const cocktailsSection = document.querySelector('#cocktails-section');
@@ -128,7 +128,7 @@ function SetupPagination(items, wrapper, per_page) {
     const options = {
   totalItems: items.length,
   itemsPerPage: per_page,
-//   visiblePages: 10,
+      visiblePages: 8      ,
   page: 1,
   centerAlign: false,
   firstItemClassName: 'tui-first-child',

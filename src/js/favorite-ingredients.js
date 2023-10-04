@@ -5,17 +5,17 @@ import 'tui-pagination/dist/tui-pagination.css';
 import { onClickIn } from './popupingredients';
 const list = document.querySelector('.favorite-ingredients-list');
 const sorryImage = document.querySelector('.sorry-ingredients');
-const paginationContainer = document.querySelector('.pagination-main');
+const paginationContainer = document.querySelector('.tui-pagination');
 const favorite =
   JSON.parse(localStorage.getItem('KEY_FAVORITE_INGREDIENTS')) ?? [];
 
 console.log(favorite);
 
 let currentPage = 1;
-let ingredientsPerPage = 8;
-if (screen.width >= 1280) {
-  ingredientsPerPage = 9;
-}
+let ingredientsPerPage = 6;
+// if (screen.width >= 1280) {
+//   ingredientsPerPage = 9;
+// }
 
 sorryImage.classList.add('hidden');
 renderMarkup(favorite, list);
