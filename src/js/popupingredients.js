@@ -170,9 +170,17 @@ async function inStorageCheck() {
   }
 }
 
-$('.main-description-in').each(function () {
-  this.innerHTML = this.innerHTML.replace(/^(.+?)s/, '<span>$1</span> ');
-});
+//$('.main-description-in').each(function () {
+// this.innerHTML = this.innerHTML.replace(/^(.+?)s/, '<span>$1</span> ');
+//});
+
+//.main-description-in span {
+// color: #242424;
+//}
+
+//body.dark .main-description-in span {
+//color: #fdfdff;
+//}
 
 export { onIngrListClickHandler };
 export { onClickIn };
