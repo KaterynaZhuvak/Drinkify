@@ -86,27 +86,25 @@ function SetupPagination(items, wrapper, per_page) {
     template: {
       page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
       currentPage:
-        '<strong class="tui-page-btn tui-is-selected btnStyleActive">{{page}}</strong>',
+        '<strong class="tui-page-btn tui-is-selected btnStyleActive btnMargL btnMargR">{{page}}</strong>',
       moveButton:
-        '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
+        '<a href="#" class="tui-page-btn tui-{{type}} btnMargL btnMargR btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</a>',
       disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnStyle">' +
-        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnMargL btnMargR btnStyle">' +
+        '<span class="tui-ico-{{type}} ,">{{type}}</span>' +
         '</span>',
       moreButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip btnStyle">' +
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },
     
   };
   
-  // console.log(options);
 
   const pagination = new Pagination(paginationContainer, options);
-
 
   
   pagination.on('beforeMove', evt => {

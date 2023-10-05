@@ -139,25 +139,24 @@ function SetupPagination(items, wrapper, per_page) {
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
     template: {
-      page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+      page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
       currentPage:
-        '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+        '<strong class="tui-page-btn tui-is-selected btnStyleActive btnMargL btnMargR">{{page}}</strong>',
       moveButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}">' +
+        '<a href="#" class="tui-page-btn tui-{{type}} btnMargL btnMargR btnStyle">' +
 
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</a>',
       disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnMargL btnMargR btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</span>',
       moreButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip btnStyle">' +
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },
   };
-  // console.log(options);
 
   const pagination = new Pagination(paginationContainer, options);
 
