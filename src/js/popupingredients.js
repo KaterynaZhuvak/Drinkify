@@ -74,7 +74,7 @@ function showModalWindow(ingredientObj) {
           
           <button type="button" id="btn-in" class="btn-in remove-btn">remove from favorite</button>
           <button type="button" id="btn-back" class="btn-in btn-back  theme-dark close-cocktail-modal-back">
-            back
+            BACK
           </button>
           </div>
           </div>
