@@ -37,7 +37,7 @@ body.dark .search-form-submit-icon {
 
 .pagination-main {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-around;
   align-items: center;
   margin-top: 100px;
