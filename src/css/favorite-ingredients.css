@@ -177,7 +177,7 @@ body.dark .btn-learn-more {
   .favorite-ingredients-list {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+
     column-gap: 16px;
   }
   .ingredients-container {
