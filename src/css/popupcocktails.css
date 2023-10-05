@@ -98,17 +98,14 @@
     margin-top: 40px;
   }
   .button-card {
-    display: block;
     font-weight: 600;
     font-size: 14px;
     line-height: 1.43;
     letter-spacing: 0.02em;
     width: 100%;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    height: 48px;
     border-radius: 12px;
     border: none;
-    text-align: center;
     text-transform: uppercase;
   }
   .favorite {
@@ -241,8 +238,7 @@
   .button-card {
     font-size: 18px;
     line-height: 1.33;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    height: 56px;
   }
   .favorite {
     width: 291px;
