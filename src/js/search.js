@@ -141,14 +141,14 @@ function SetupPagination(items, wrapper, per_page) {
     template: {
       page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
       currentPage:
-        '<strong class="tui-page-btn tui-is-selected btnStyleActive btnMarg">{{page}}</strong>',
+        '<strong class="tui-page-btn tui-is-selected btnStyleActive btnMargL btnMargR">{{page}}</strong>',
       moveButton:
-        '<a href="#" class="tui-page-btn tui-{{type}} btnMarg btnStyle">' +
+        '<a href="#" class="tui-page-btn tui-{{type}} btnMargL btnMargR btnStyle">' +
 
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</a>',
       disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnMarg btnStyle">' +
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnMargL btnMargR btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</span>',
       moreButton:
