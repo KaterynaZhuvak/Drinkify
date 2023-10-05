@@ -57,7 +57,6 @@ body.dark .sorry {
 }
 
 .in-card {
-  max-width: 335px;
   height: 222px;
   padding: 20px;
   border-radius: 20px;
@@ -175,10 +174,11 @@ body.dark .btn-learn-more {
 
 @media screen and (min-width: 768px) {
   .favorite-ingredients-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    column-gap: 16px;
+      flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 32px;
+        column-gap: 16px;
+        justify-content: flex-start;
   }
   .ingredients-container {
     padding-bottom: 100px;
@@ -204,7 +204,7 @@ body.dark .btn-learn-more {
     line-height: 1.2;
   }
   .in-card {
-    width: 344px;
+    width: calc((100% - 16px) / 2);
     height: 242px;
     padding: 24px;
   }
@@ -235,8 +235,14 @@ body.dark .btn-learn-more {
 
 @media screen and (min-width: 1280px) {
   .favorite-ingredients-list {
-    column-gap: 24px;
+    row-gap: 44px;
+      column-gap: 24px;
   }
+
+  .in-card {
+    width: calc((100% - 48px) / 3);
+  }
+  
   .ingredients-section-title {
     margin-top: 105px;
     margin-bottom: 44px;
