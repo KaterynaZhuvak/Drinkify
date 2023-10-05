@@ -184,12 +184,12 @@ function onClick(e) {
       sorryImage.classList.remove('hidden');
     }
   }
-}
+};
 
 function findIngredient(elem) {
   const ingredientId = elem.closest('.in-card').dataset.id;
   return favorite.find(({ id }) => id === ingredientId);
-}
+};
 
 function removeIngredient(e) {
   const ingredient = findIngredient(e.target);
@@ -203,7 +203,7 @@ function removeIngredient(e) {
 
   localStorage.setItem('KEY_FAVORITE_INGREDIENTS', JSON.stringify(favorite));
   renderMarkup(favorite, list);
-}
+};
 
 function onRemoveClick(e) {
   const ingredientId = e.target.closest('.descripe-ingredients').dataset.id;
@@ -211,5 +211,8 @@ function onRemoveClick(e) {
   const itemToRemove = favorite.findIndex(({ id }) => id === ingredient.id);
   favorite.splice(itemToRemove, 1);
   localStorage.setItem('KEY_FAVORITE_INGREDIENTS', JSON.stringify(favorite));
-  renderMarkup(favorite, list);
-}
+    renderMarkup(favorite, list);
+    if (!favorite.length) {
+      sorryImage.classList.remove('hidden');  
+    };
+};

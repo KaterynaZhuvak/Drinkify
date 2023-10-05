@@ -74,7 +74,7 @@ function showModalWindow(ingredientObj) {
           
           <button type="button" id="btn-in" class="btn-in remove-btn">remove from favorite</button>
           <button type="button" id="btn-back" class="btn-in btn-back  theme-dark close-cocktail-modal-back">
-            back
+            BACK
           </button>
           </div>
           </div>
@@ -169,6 +169,18 @@ async function inStorageCheck() {
     document.querySelector('.remove-btn').classList.add('hidden');
   }
 }
+
+//$('.main-description-in').each(function () {
+// this.innerHTML = this.innerHTML.replace(/^(.+?)s/, '<span>$1</span> ');
+//});
+
+//.main-description-in span {
+// color: #242424;
+//}
+
+//body.dark .main-description-in span {
+//color: #fdfdff;
+//}
 
 export { onIngrListClickHandler };
 export { onClickIn };

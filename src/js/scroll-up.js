@@ -4,7 +4,7 @@ function scrollToTop() {
 
         window.addEventListener('scroll', function () {
             const scrollUpButton = document.getElementById('scrollUpButton');
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
                 scrollUpButton.style.display = 'block';
             } else {
                 scrollUpButton.style.display = 'none';

@@ -4,6 +4,7 @@
   | default @import url()
   |============================
 */
+@import url('../modern-normalize/modern-normalize.min.css');
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./header_backdrop.css');
@@ -40,7 +41,7 @@
   font-family: 'Poppins';
   font-weight: 600;
   src: url('../fonts/poppins-semibold-webfont.woff') format('woff'),
-  url('../fonts/poppins-semibold-webfont.woff2') format('woff2');
+    url('../fonts/poppins-semibold-webfont.woff2') format('woff2');
 }
 
 @font-face {
@@ -74,7 +75,7 @@ body.dark {
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   body {
-    background-image: url('../img/background2x.jpg');
+    background-image: url('../img/background@2x.jpg');
   }
 
   body.dark {
@@ -86,21 +87,18 @@ body.dark {
   body {
     background-image: url('../img/background-tablet.jpg');
   }
-
   body.dark {
     background-image: url('../img/background-tablet-dark.jpg');
   }
-}
-
-@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  body {
-    background-image: url('../img/background-tablet@2x.jpg');
-  }
-
-  body.dark {
-    background-image: url('../img/background-tablet-dark@2x.jpg');
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    body {
+      background-image: url('../img/background-tablet@2x.jpg');
+    }
+    body.dark {
+      background-image: url('../img/background-tablet-dark@2x.jpg');
+    }
   }
 }
 
@@ -108,21 +106,18 @@ body.dark {
   body {
     background-image: url('../img/background-desktop.jpg');
   }
-
   body.dark {
     background-image: url('../img/background-desktop-dark.jpg');
   }
-}
-
-@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  body {
-    background-image: url('../img/background-desktop@2x.jpg');
-  }
-
-  body.dark {
-    background-image: url('../img/background-desktop-dark@2x.jpg');
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    body {
+      background-image: url('../img/background-desktop@2x.jpg');
+    }
+    body.dark {
+      background-image: url('../img/background-desktop-dark@2x.jpg');
+    }
   }
 }
 
