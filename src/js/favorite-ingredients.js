@@ -8,7 +8,7 @@ import { onClickIn } from './popupingredients';
 
 const list = document.querySelector('.favorite-ingredients-list');
 const sorryImage = document.querySelector('.sorry-ingredients');
-const paginationContainer = document.querySelector('.pagination-main');
+const paginationContainer = document.querySelector('.tui-pagination');
 const favorite =
   JSON.parse(localStorage.getItem('KEY_FAVORITE_INGREDIENTS')) ?? [];
 
@@ -19,6 +19,7 @@ if (screen.width >= 1280) {
   visibleNumbers = 7;
 }
 
+  
 sorryImage.classList.add('hidden');
 renderMarkup(favorite, list);
 
@@ -99,11 +100,15 @@ function SetupPagination(items, wrapper, per_page) {
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },
+    
   };
+  
   // console.log(options);
 
   const pagination = new Pagination(paginationContainer, options);
 
+
+  
   pagination.on('beforeMove', evt => {
     const { page } = evt;
     const result = showPaginatedList(favorite, list, ingredientsPerPage, page);
