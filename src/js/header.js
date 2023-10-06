@@ -62,7 +62,6 @@ function windowLoad() {
       bodyBlock.classList.add(userTheme);
     }
 
-    loader.hidden = true;
   }
   setThemeClass();
 
@@ -80,3 +79,7 @@ function windowLoad() {
     saveTheme ? localStorage.setItem('user-theme', newTheme) : null;
   }
 }
+
+window.addEventListener('load', function () {
+    loader.hidden = true;
+});
