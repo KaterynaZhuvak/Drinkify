@@ -25,19 +25,19 @@ const scrollController = {
   },
 };
 
-function addPaddingUpScroll() {
-  const element = document.querySelector('.go-top-btn');
-   if( window.innerWidth >= 1280 ){
-    element.style.right = '40px';
- } else {
-     return;
- } 
+// function addPaddingUpScroll() {
+//   const element = document.querySelector('.go-top-btn');
+//    if( window.innerWidth >= 1280 ){
+//     element.style.right = '40px';
+//  } else {
+//      return;
+//  } 
 
-};
-function removePaddingUpScroll() {
-  const element = document.querySelector('.go-top-btn');
-  element.style.right = '30px';
-};
+// };
+// function removePaddingUpScroll() {
+//   const element = document.querySelector('.go-top-btn');
+//   element.style.right = '30px';
+// };
 
 cardsGallery.addEventListener('click', onLearnMoreClickHandler);
 cardsGallery.addEventListener('click', onAddOrRemoveButtonHandler);
@@ -72,7 +72,7 @@ async function onLearnMoreClickHandler(e) {
 
     showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb);
     scrollController.disabledScroll();
-    addPaddingUpScroll();
+    // addPaddingUpScroll();
   });
 }
 
@@ -135,7 +135,7 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
       },
       onClose: () => {
         scrollController.enabledScroll();
-        removePaddingUpScroll();
+        // removePaddingUpScroll();
       },
     }
   );

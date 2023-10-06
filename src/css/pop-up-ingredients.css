@@ -5,7 +5,7 @@
 .modal-in {
   position: relative;
   width: 335px;
-  height: 616px;
+  max-height: 616px;
 
   padding: 40px 20px;
   margin-right: auto;
@@ -225,9 +225,9 @@ body.dark .ingredients-spec::-webkit-scrollbar-track {
 }
 
 .buttons-in {
-  position: absolute;
+  /* position: absolute;
   top: 75%;
-  left: 6%;
+  left: 6%; */
   justify-content: flex-start;
   gap: 14px 20px;
   flex-wrap: wrap;
@@ -268,7 +268,7 @@ body.dark .btn-back {
 @media screen and (min-width: 768px) {
   .modal-in {
     width: 600px;
-    height: 520px;
+    max-height: 506px;
 
     height: 100%;
     padding: 40px 40px;
@@ -309,11 +309,12 @@ body.dark .btn-back {
   }
 
   .main-description-in {
-    width: 520px;
+    width: 518px;
     -webkit-line-clamp: 5;
   }
 
   .ingredients-spec {
+    max-height: 96px;
     padding-left: 10px;
     list-style: initial;
     list-style-position: inside;
