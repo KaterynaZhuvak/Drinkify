@@ -2,6 +2,7 @@
 const favoriteSwitch = document.querySelector(".js-header-link");
 const favoriteIcon = document.querySelector(".js-header-link-icon");
 const favoriteList = document.querySelector(".js-favorite-list");
+const loader = document.querySelector('.loader-container');
 let currentRotation = 0;
 
 favoriteSwitch.addEventListener("click", onClickFavorite);
@@ -23,12 +24,14 @@ if (displayStyle === "none" || displayStyle === "") {
 }
 
 /// toggle theme
-window.addEventListener("load", windowLoad);
+window.addEventListener("DOMContentLoaded", windowLoad);
 
 function windowLoad() {
   const bodyBlock = document.body;
   const saveUserTheme = localStorage.getItem('user-theme');
   let userTheme;
+  loader.hidden = false;
+
   if (window.matchMedia) {
     userTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
@@ -53,12 +56,13 @@ function windowLoad() {
 
   function setThemeClass() {
     if (saveUserTheme) {
-
       bodyBlock.classList.add(saveUserTheme)
       resetButton.classList.add('active');
     } else {
       bodyBlock.classList.add(userTheme);
     }
+
+    loader.hidden = true;
   }
   setThemeClass();
 
