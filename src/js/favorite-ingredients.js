@@ -1,23 +1,25 @@
+import spriteURL from '/img/sprite.svg';
 import * as basicLightbox from 'basiclightbox';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import Notiflix from 'notiflix';
 
 import { onClickIn } from './popupingredients';
 
 const list = document.querySelector('.favorite-ingredients-list');
 const sorryImage = document.querySelector('.sorry-ingredients');
-const paginationContainer = document.querySelector('.pagination-main');
+const paginationContainer = document.querySelector('.tui-pagination');
 const favorite =
   JSON.parse(localStorage.getItem('KEY_FAVORITE_INGREDIENTS')) ?? [];
 
-console.log(favorite);
-
 let currentPage = 1;
-let ingredientsPerPage = 8;
+let ingredientsPerPage = 6;
+let visibleNumbers = 4;
 if (screen.width >= 1280) {
-  ingredientsPerPage = 9;
+  visibleNumbers = 7;
 }
 
+  
 sorryImage.classList.add('hidden');
 renderMarkup(favorite, list);
 
@@ -40,10 +42,10 @@ function renderMarkup(arr, container) {
         return `<li class="in-card" data-id=${card.id}>
         <h3 class="in-card-title">${card.title}</h3>
         <p class="in-card-alco">${isAcloholic}</p>
-        <p class="in-card-descr">${card.description || 'No data'}</p>
+        <p class="in-card-descr">${card.description || '-'}</p>
         <div class="in-card-btns"><button class="btn-learn-more">learn more</button><button class="btn-remove"><svg class="remove-icon">
-        <use href="./img/sprite.svg#trash"></use>
-        </svg></button></div>
+                        <use href="${spriteURL}#trash"></use>
+                    </svg></button></div>
 </li>`;
       })
       .join('');
@@ -76,7 +78,7 @@ function SetupPagination(items, wrapper, per_page) {
   const options = {
     totalItems: items.length,
     itemsPerPage: per_page,
-    //   visiblePages: 10,
+    visiblePages: visibleNumbers,
     page: 1,
     centerAlign: false,
     firstItemClassName: 'tui-first-child',
@@ -84,25 +86,27 @@ function SetupPagination(items, wrapper, per_page) {
     template: {
       page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
       currentPage:
-        '<strong class="tui-page-btn tui-is-selected btnStyleActive">{{page}}</strong>',
+        '<strong class="tui-page-btn tui-is-selected btnStyleActive btnMargL btnMargR">{{page}}</strong>',
       moveButton:
-        '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
+        '<a href="#" class="tui-page-btn tui-{{type}} btnMargL btnMargR btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</a>',
       disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnStyle">' +
-        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnMargL btnMargR btnStyle">' +
+        '<span class="tui-ico-{{type}} ,">{{type}}</span>' +
         '</span>',
       moreButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip btnStyle">' +
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },
+    
   };
-  // console.log(options);
+  
 
   const pagination = new Pagination(paginationContainer, options);
 
+  
   pagination.on('beforeMove', evt => {
     const { page } = evt;
     const result = showPaginatedList(favorite, list, ingredientsPerPage, page);
@@ -128,21 +132,19 @@ function onClick(e) {
           <p class="kind-in">${ingredient.type}</p>
         </div>
         <div class="ingredients-information">
-          <p class="main-description-in">${
-            ingredient.description || 'No data'
-          }</p>
+          <p class="main-description-in">${ingredient.description || '-'}</p>
           <ul class="ingredients-spec">
             <li class="ingredients-description">Type: ${
-              ingredient.type || 'No data'
+              ingredient.type || '-'
             }</li>
             <li class="ingredients-description">Country of origin: ${
-              ingredient.country || 'No data'
+              ingredient.country || '-'
             }</li>
             <li class="ingredients-description">Alcohol by volume: ${
-              ingredient.abv || 'No data'
+              ingredient.abv || '-'
             }</li>
             <li class="ingredients-description">Flavour: ${
-              ingredient.flavour || 'No data'
+              ingredient.flavour || '-'
             }</li>
           </ul>
         </div>
@@ -166,6 +168,12 @@ function onClick(e) {
           instance.element().querySelector('.remove-btn').onclick =
             instance.close;
         },
+        onClose: instance => {
+          instance
+            .element()
+            .querySelector('.remove-btn')
+            .removeEventListener('click', onRemoveClick);
+        },
       }
     );
     instance.show();
@@ -176,20 +184,26 @@ function onClick(e) {
       sorryImage.classList.remove('hidden');
     }
   }
-}
+};
 
 function findIngredient(elem) {
   const ingredientId = elem.closest('.in-card').dataset.id;
   return favorite.find(({ id }) => id === ingredientId);
-}
+};
 
 function removeIngredient(e) {
   const ingredient = findIngredient(e.target);
   const itemToRemove = favorite.findIndex(({ id }) => id === ingredient.id);
+
+  Notiflix.Notify.info(
+    `Ingredient ${favorite[itemToRemove].title} removed from favorites`
+  );
+
   favorite.splice(itemToRemove, 1);
+
   localStorage.setItem('KEY_FAVORITE_INGREDIENTS', JSON.stringify(favorite));
   renderMarkup(favorite, list);
-}
+};
 
 function onRemoveClick(e) {
   const ingredientId = e.target.closest('.descripe-ingredients').dataset.id;
@@ -197,5 +211,8 @@ function onRemoveClick(e) {
   const itemToRemove = favorite.findIndex(({ id }) => id === ingredient.id);
   favorite.splice(itemToRemove, 1);
   localStorage.setItem('KEY_FAVORITE_INGREDIENTS', JSON.stringify(favorite));
-  renderMarkup(favorite, list);
-}
+    renderMarkup(favorite, list);
+    if (!favorite.length) {
+      sorryImage.classList.remove('hidden');  
+    };
+};

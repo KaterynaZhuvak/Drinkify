@@ -1,5 +1,6 @@
 import { fetchIngredients } from './drinkifyapi';
 import * as basicLightbox from 'basiclightbox';
+import Notiflix from 'notiflix';
 import spriteURL from '/img/sprite.svg';
 // const KEY_FAVORITE_INGREDIENTS = 'FavIngrArr';
 
@@ -31,6 +32,7 @@ function onIngrListClickHandler(e) {
       country,
     };
     showModalWindow(ingredientObj);
+    hiddenPopupCocktails();
   });
 }
 
@@ -46,25 +48,31 @@ function showModalWindow(ingredientObj) {
       </button>
     <div class="descripe-ingredients" data-id="${id}"><div class="header-in">
           <h2 id="ingredients-title" class="ingredients-title theme-dark">${title}</h2>
-          <p class="kind-in theme-dark">${type}</p>
+          <p class="kind-in theme-dark">${type || '-'}</p>
         </div>
         <div class="ingredients-information">
-          <p class="main-description-in theme-dark">${
-            description || 'На жаль дані тимчасово відсутні'
-          }</p>
+          <p class="main-description-in theme-dark">${description || '-'}</p>
           <ul class="ingredients-spec">
-            <li class="ingredients-description theme-dark">Type: ${type}</li>
-            <li class="ingredients-description theme-dark">Country of origin: ${country}</li>
-            <li class="ingredients-description theme-dark">Alcohol by volume: ${abv}</li>
-            <li class="ingredients-description theme-dark">Flavour: ${flavour}</li>
+            <li class="ingredients-description theme-dark">Type: ${
+              type || '-'
+            }</li>
+            <li class="ingredients-description theme-dark">Country of origin: ${
+              country || '-'
+            }</li>
+            <li class="ingredients-description theme-dark">Alcohol by volume: ${
+              abv || '-'
+            }</li>
+            <li class="ingredients-description theme-dark">Flavour: ${
+              flavour || '-'
+            }</li>
           </ul>
         </div>
         <div class="buttons-in">
           <button type="button" id="btn-in" class="btn-in js-btningr">
-            ADD TO FAVORITE
+            add to favorite
           </button>
           
-          <button type="button" id="btn-in" class="btn-in remove-btn js-btningr">REMOVE FROM FAVORITE</button>
+          <button type="button" id="btn-in" class="btn-in remove-btn">remove from favorite</button>
           <button type="button" id="btn-back" class="btn-in btn-back  theme-dark close-cocktail-modal-back">
             BACK
           </button>
@@ -85,9 +93,20 @@ function showModalWindow(ingredientObj) {
           .element()
           .querySelector('.remove-btn')
           .addEventListener('click', onRemoveClickIn);
-
-        instance.element().querySelector('.remove-btn').onclick =
-          instance.close;
+        inStorageCheck();
+      },
+      onClose: instance => {
+        instance
+          .element()
+          .querySelector('.js-btningr')
+          .removeEventListener('click', onClickIn);
+        instance
+          .element()
+          .querySelector('.remove-btn')
+          .removeEventListener('click', onRemoveClickIn);
+      },
+      onClose: () => {
+        showPopupCocktails();
       },
     }
   );
@@ -95,18 +114,18 @@ function showModalWindow(ingredientObj) {
 }
 
 function onClickIn(event) {
-  event.preventDefault();
+  inStorageCheck();
   if (event.target.classList.contains('js-btningr')) {
-    const inStorageIn = favoriteArrIn.find(({ id }) => id === ingredientObj.id);
-    if (inStorageIn) {
-      return;
-    }
-    favoriteArrIn.push(ingredientObj);
-    localStorage.setItem(
-      'KEY_FAVORITE_INGREDIENTS',
-      JSON.stringify(favoriteArrIn)
-    );
+    document.querySelector('.js-btningr').classList.add('hidden');
+    document.querySelector('.remove-btn').classList.remove('hidden');
   }
+  favoriteArrIn.push(ingredientObj);
+  Notiflix.Notify.info(`Ingredient ${ingredientObj.title} added to favorites`);
+  localStorage.setItem(
+    'KEY_FAVORITE_INGREDIENTS',
+    JSON.stringify(favoriteArrIn)
+  );
+  inStorageCheck();
 }
 
 function onRemoveClickIn(e) {
@@ -115,12 +134,53 @@ function onRemoveClickIn(e) {
   const itemToRemoveIn = favoriteArrIn.findIndex(
     ({ id }) => id === ingredientEl.id
   );
+  document.querySelector('.js-btningr').classList.remove('hidden');
+  document.querySelector('.remove-btn').classList.add('hidden');
+
+  Notiflix.Notify.info(
+    `Ingredient ${favoriteArrIn[itemToRemoveIn].title} removed from favorites`
+  );
+
   favoriteArrIn.splice(itemToRemoveIn, 1);
   localStorage.setItem(
     'KEY_FAVORITE_INGREDIENTS',
     JSON.stringify(favoriteArrIn)
   );
 }
+
+function hiddenPopupCocktails() {
+  const containerPopup = document.querySelector('.container-popup');
+  containerPopup.classList.add('popup-cocktails-hidden');
+}
+
+function showPopupCocktails() {
+  const containerPopup = document.querySelector('.container-popup');
+  containerPopup.classList.remove('popup-cocktails-hidden');
+}
+async function inStorageCheck() {
+  const inStorageIn = await favoriteArrIn.find(
+    ({ id }) => id === ingredientObj.id
+  );
+  if (inStorageIn) {
+    document.querySelector('.js-btningr').classList.add('hidden');
+    document.querySelector('.remove-btn').classList.remove('hidden');
+  } else {
+    document.querySelector('.js-btningr').classList.remove('hidden');
+    document.querySelector('.remove-btn').classList.add('hidden');
+  }
+}
+
+//$('.main-description-in').each(function () {
+// this.innerHTML = this.innerHTML.replace(/^(.+?)s/, '<span>$1</span> ');
+//});
+
+//.main-description-in span {
+// color: #242424;
+//}
+
+//body.dark .main-description-in span {
+//color: #fdfdff;
+//}
 
 export { onIngrListClickHandler };
 export { onClickIn };

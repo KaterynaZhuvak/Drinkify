@@ -1,4 +1,5 @@
 import { fetchCocktails } from './drinkifyapi';
+import Notiflix from 'notiflix';
 import * as basicLightbox from 'basiclightbox';
 import { onIngrListClickHandler } from './popupingredients';
 import spriteURL from '/img/sprite.svg';
@@ -12,6 +13,31 @@ const favCokctArr =
   JSON.parse(localStorage.getItem(KEY_FAVORITE_COCKTAILS)) ?? [];
 let cocktailObj;
 let currentCocktail;
+
+const scrollController = {
+  disabledScroll() {
+    document.body.style.cssText = `
+    overflow: hidden;
+    padding-right: ${window.innerWidth - document.body.offsetWidth}px;`;
+  },
+  enabledScroll() {
+    document.body.style.cssText = '';
+  },
+};
+
+function addPaddingUpScroll() {
+  const element = document.querySelector('.go-top-btn');
+   if( window.innerWidth >= 1280 ){
+    element.style.right = '40px';
+ } else {
+     return;
+ } 
+
+};
+function removePaddingUpScroll() {
+  const element = document.querySelector('.go-top-btn');
+  element.style.right = '30px';
+};
 
 cardsGallery.addEventListener('click', onLearnMoreClickHandler);
 cardsGallery.addEventListener('click', onAddOrRemoveButtonHandler);
@@ -45,6 +71,8 @@ async function onLearnMoreClickHandler(e) {
       .join('');
 
     showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb);
+    scrollController.disabledScroll();
+    addPaddingUpScroll();
   });
 }
 
@@ -57,25 +85,26 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
     </svg>
   </button>
   <div class="box">
-    <div class="picture"><img src="${drinkThumb}" alt="${drink}" onerror="this.onerror=null;this.src='img/rafiki.jpg';"/></div>
+    <div class="picture"><img src="${drinkThumb}" alt="${drink}" loading='lazy' onerror="this.onerror=null;this.src='img/rafiki.jpg';"/></div>
     <div>
       <h2 class="name">${drink}</h2>
       <p class="caption-card">Ingredients:</p>
       <p class="text text-card">Per cocktail</p>
-      <ul class="list-card ingredients-list">${ingredientsRaw}</ul>
+      <ul class="list-card ingredients-list custom-scrollbar">${ingredientsRaw}</ul>
     </div>
   </div>
   <p class="caption-card">Instructions:</p>
-  <p class="text desc-card">
+  <p class="text desc-card custom-scrollbar">
    ${instructions}
   </p>
+  <div class="container-button">
   <button type="button" class="button-card favorite add-to-fav-cockt" data-id="${id}">
     add to favorite
   </button>
    <button type="button" class="visually-hidden button-card favorite remove-from-fav-cockt" data-id="${id}">
     Remove from favorite
   </button>
-   <button type="button" class="button-card back close-cocktail-modal-back">Back</button>
+   <button type="button" class="button-card back close-cocktail-modal-back">Back</button></div>
 </div>`,
     {
       onShow: instance => {
@@ -91,7 +120,6 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
           .element()
           .querySelector('.remove-from-fav-cockt')
           .addEventListener('click', onClickFavRemoveHandler);
-        // scrollController.enabledScroll();
 
         checkIfInFavStorage(instance);
       },
@@ -105,10 +133,13 @@ function showModalWindow(id, ingredientsRaw, drink, instructions, drinkThumb) {
           .querySelector('.remove-from-fav-cockt')
           .removeEventListener('click', onClickFavRemoveHandler);
       },
+      onClose: () => {
+        scrollController.enabledScroll();
+        removePaddingUpScroll();
+      },
     }
   );
   instance.show();
-  // scrollController.disabledScroll();
   document
     .querySelector('.ingredients-list')
     .addEventListener('click', onIngrListClickHandler);
@@ -184,6 +215,8 @@ function addCocktail() {
     .querySelector('.remove-from-fav-cockt-bin')
     .classList.remove('visually-hidden');
 
+  Notiflix.Notify.info(`Cocktail ${cocktailObj.drink} added to favorites`);
+
   favCokctArr.push(cocktailObj);
   localStorage.setItem(KEY_FAVORITE_COCKTAILS, JSON.stringify(favCokctArr));
 }
@@ -211,6 +244,10 @@ function RemoveCockt(e) {
 
   const itemToRemove = favCokctArr.findIndex(
     ({ _id }) => _id === e.target.closest('.id-for-del').dataset.id
+  );
+
+  Notiflix.Notify.info(
+    `Cocktail ${favCokctArr[itemToRemove].drink} removed from favorites`
   );
 
   favCokctArr.splice(itemToRemove, 1);

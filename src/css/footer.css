@@ -15,7 +15,13 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-logo:hover,
+.footer-logo:focus {
+  color: var(--accent-color);
+  scale: 1.05;
 }
 
 .footer-logo-text {
@@ -92,12 +98,6 @@
   .footer-logo-icon {
     width: 29px;
     height: 25px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .footer-container {
-    max-width: 1080px;
   }
 }
 

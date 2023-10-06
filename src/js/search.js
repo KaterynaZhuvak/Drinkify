@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-import { createMarkup } from './markup';
+import { createMarkup, iconMainMarkup } from './markup';
 import { fetchCocktails } from './drinkifyapi';
 import Notiflix from 'notiflix';
 
@@ -14,16 +14,19 @@ const SEARCH_LINK = 'cocktails/search/';
 
 const cocktWrapper = document.querySelector('.no-cocktails-wrapper');
 const cardsGallery = document.querySelector('.cardlist');
-const paginationContainer = document.querySelector('.pagination-main');
+const paginationContainer = document.querySelector('.tui-pagination');
 const inputForm = document.querySelector('#search-form');
 const cocktailsTitle = document.querySelector('.cardlist-header');
 const cocktailsSection = document.querySelector('#cocktails-section');
 
 let currentPage = 1;
 let cardsPerPage = 8;
+let visibleNumbers = 4;
 if (screen.width >= 1280) {
   cardsPerPage = 9;
+  visibleNumbers = 7;
 }
+
 // let page_count;
 let cards;
 
@@ -41,7 +44,7 @@ function createRandomCards() {
     .then(resp => {
       const randomCards = resp
         .map(item => {
-          return createMarkup(item);
+          return createMarkup(item, iconMainMarkup);
         })
         .join('');
 
@@ -84,7 +87,7 @@ async function searchCocktails(input, link, param) {
     if (cards.length <= cardsPerPage) {
       cardsGallery.innerHTML = cards
         .map(item => {
-          return createMarkup(item);
+          return createMarkup(item, iconMainMarkup);
         })
         .join('');
     } else {
@@ -114,7 +117,7 @@ function DisplayPaginatedList(items, wrapper, per_page, page) {
 
   wrapper.innerHTML = paginatedItems
     .map(item => {
-      return createMarkup(item);
+      return createMarkup(item, iconMainMarkup);
     })
     .join('');
 }
@@ -124,10 +127,13 @@ function SetupPagination(items, wrapper, per_page) {
 
   // let page_count = Math.ceil(items.length / per_page);
 
+
   const options = {
     totalItems: items.length,
     itemsPerPage: per_page,
-    //   visiblePages: 10,
+
+    visiblePages: visibleNumbers,
+
     page: 1,
     centerAlign: false,
     firstItemClassName: 'tui-first-child',
@@ -135,22 +141,22 @@ function SetupPagination(items, wrapper, per_page) {
     template: {
       page: '<a href="#" class="tui-page-btn btnStyle">{{page}}</a>',
       currentPage:
-        '<strong class="tui-page-btn tui-is-selected btnStyleActive">{{page}}</strong>',
+        '<strong class="tui-page-btn tui-is-selected btnStyleActive btnMargL btnMargR">{{page}}</strong>',
       moveButton:
-        '<a href="#" class="tui-page-btn tui-{{type}} btnStyle">' +
+        '<a href="#" class="tui-page-btn tui-{{type}} btnMargL btnMargR btnStyle">' +
+
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</a>',
       disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnStyle">' +
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnMargL btnMargR btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</span>',
       moreButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip btnStyle">' +
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },
   };
-  // console.log(options);
 
   const pagination = new Pagination(paginationContainer, options);
 

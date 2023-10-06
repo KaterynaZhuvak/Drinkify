@@ -57,16 +57,11 @@ body.dark .sorry {
 }
 
 .in-card {
-  width: 335px;
   height: 222px;
   padding: 20px;
   border-radius: 20px;
   background-color: var(--cards-color);
   transition: transform 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
-}
-
-.in-card:hover {
-  transform: scale(105%);
 }
 
 body.dark .in-card {
@@ -129,7 +124,7 @@ body.dark .in-card-alco {
   border: 1px solid var(--main-color);
   background-color: transparent;
 
-  transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
+  transition: all 250ms linear;
 }
 
 body.dark .btn-learn-more {
@@ -140,7 +135,7 @@ body.dark .btn-learn-more {
 .btn-learn-more:hover {
   color: var(--cards-color);
   background-color: var(--main-color);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .btn-remove {
@@ -179,10 +174,11 @@ body.dark .btn-learn-more {
 
 @media screen and (min-width: 768px) {
   .favorite-ingredients-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    row-gap: 32px;
-    column-gap: 16px;
+      flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 32px;
+        column-gap: 16px;
+        justify-content: flex-start;
   }
   .ingredients-container {
     padding-bottom: 100px;
@@ -208,7 +204,7 @@ body.dark .btn-learn-more {
     line-height: 1.2;
   }
   .in-card {
-    width: 344px;
+    width: calc((100% - 16px) / 2);
     height: 242px;
     padding: 24px;
   }
@@ -240,8 +236,13 @@ body.dark .btn-learn-more {
 @media screen and (min-width: 1280px) {
   .favorite-ingredients-list {
     row-gap: 44px;
-    column-gap: 24px;
+      column-gap: 24px;
   }
+
+  .in-card {
+    width: calc((100% - 48px) / 3);
+  }
+  
   .ingredients-section-title {
     margin-top: 105px;
     margin-bottom: 44px;

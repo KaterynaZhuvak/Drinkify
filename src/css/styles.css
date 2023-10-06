@@ -4,6 +4,7 @@
   | default @import url()
   |============================
 */
+@import url('../modern-normalize/modern-normalize.min.css');
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./header_backdrop.css');
@@ -18,6 +19,7 @@
 @import url('./scroll-up.css');
 @import url('./pop-up-ingredients.css');
 @import url('./pagination.css');
+@import url('./favorite_coctails.css');
 
 :root {
   --main-color: #7e8fdd;
@@ -28,74 +30,56 @@
   --dark-cards-color: #232330;
 }
 
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 500;
+  src: url('../fonts/poppins-medium-webfont.woff') format('woff'),
+    url('../fonts/poppins-medium-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 600;
+  src: url('../fonts/poppins-semibold-webfont.woff') format('woff'),
+    url('../fonts/poppins-semibold-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 400;
+  src: url('../fonts/poppins-italic-webfont.woff') format('woff'),
+    url('../fonts/poppins-italic-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 400;
+  src: url('../fonts/poppins-regular-webfont.woff') format('woff'),
+    url('../fonts/poppins-regular-webfont.woff2') format('woff2');
+}
+
 body {
   font-family: Poppins;
   color: var(--text-color);
-  background-image: url(../img/background.jpg);
+  background-image: url('../img/background.jpg');
   transition: background-image 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 body.dark {
-  background-image: url(../img/background-dark.jpg);
+  background-image: url('../img/background-dark.jpg');
 }
 
 @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   body {
-    background-image: url(../img/background2x.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('../img/background@2x.jpg');
   }
 
   body.dark {
-    background-image: url(../img/background-dark@2x.jpg);
-  }
-}
-
-@media screen and (min-width: 768px) {
-  body {
-    background-image: url(../img/background-tablet.jpg);
-  }
-
-  body.dark {
-    background-image: url(../img/background-tablet-dark.jpg);
-  }
-}
-
-@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  body {
-    background-image: url(../img/background-tablet@2x.jpg);
-  }
-
-  body.dark {
-    background-image: url(../img/background-tablet-dark@2x.jpg);
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  body {
-    background-image: url(../img/background-desktop.jpg);
-  }
-
-  body.dark {
-    background-image: url(../img/background-desktop-dark.jpg);
-  }
-}
-
-@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  body {
-    background-image: url(../img/background-desktop@2x.jpg);
-  }
-
-  body.dark {
-    background-image: url(../img/background-desktop-dark@2x.jpg);
+    background-image: url('../img/background-dark@2x.jpg');
   }
 }
 
@@ -146,6 +130,26 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 @media screen and (min-width: 768px) {
+  body {
+    background-image: url('../img/background-tablet.jpg');
+  }
+
+  body.dark {
+    background-image: url('../img/background-tablet-dark.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    body {
+      background-image: url('../img/background-tablet@2x.jpg');
+    }
+
+    body.dark {
+      background-image: url('../img/background-tablet-dark@2x.jpg');
+    }
+  }
+
   .container {
     width: 768px;
     padding-right: 32px;
@@ -157,6 +161,26 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 @media screen and (min-width: 1280px) {
+  body {
+    background-image: url('../img/background-desktop.jpg');
+  }
+
+  body.dark {
+    background-image: url('../img/background-desktop-dark.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    body {
+      background-image: url('../img/background-desktop@2x.jpg');
+    }
+
+    body.dark {
+      background-image: url('../img/background-desktop-dark@2x.jpg');
+    }
+  }
+
   .container {
     width: 1280px;
     padding-right: 100px;

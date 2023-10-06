@@ -19,21 +19,16 @@ body.dark .cardlist-header {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  flex-basis: 100%;
 }
 
 .cardlist-item {
   background-color: var(--cards-color);
   border-radius: 20px;
-  max-width: 335px;
   height: 471px;
   padding: 14px;
 
   transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
-}
-
-.cardlist-item:hover,
-.cardlist-item:focus {
-  transform: scale(1.1);
 }
 
 body.dark .cardlist-item {
@@ -48,6 +43,8 @@ body.dark .cardlist-item {
 }
 
 .cardlist-drink {
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-top: 20px;
   margin-left: 6px;
   margin-bottom: 14px;
@@ -55,6 +52,10 @@ body.dark .cardlist-item {
   font-size: 18px;
   font-weight: 600;
   line-height: 1.33;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  white-space: pre-wrap;
 }
 
 body.dark .cardlist-drink {
@@ -96,7 +97,7 @@ body.dark .cardlist-descr {
   border: 1px solid var(--main-color);
   background-color: transparent;
 
-  transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
+  transition: all 250ms linear;
 }
 
 body.dark .cardlist-learn {
@@ -107,7 +108,7 @@ body.dark .cardlist-learn {
 .cardlist-learn:hover {
   color: var(--cards-color);
   background-color: var(--main-color);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .cardlist-fav {
@@ -122,16 +123,17 @@ body.dark .cardlist-learn {
   background: var(--main-color);
   border-color: transparent;
 
-  transition: all 250ms cubic-bezier(0.5, -0.75, 0.7, 2);
+  transition: all 250ms linear;
 }
 
 .cardlist-fav:hover,
 .cardlist-fav:focus {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .cardlist-svg {
   stroke: var(--cards-color);
+  fill: var(--cards-color);
   width: 18px;
 }
 
@@ -152,13 +154,13 @@ body.dark .cardlist-learn {
   .cardlist {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 32px 16px;
-    display: flex;
-    justify-content: left;
+    row-gap: 32px;
+    justify-content: flex-start;
+
   }
 
   .cardlist-item {
-    width: 344px;
+    width: calc((100% - 16px) / 2);
     height: 523px;
     padding-bottom: 24px;
   }
@@ -202,9 +204,17 @@ body.dark .cardlist-learn {
     margin-bottom: 44px;
   }
   .cardlist {
-    gap: 44px 24px;
+    row-gap: 44px;
+    column-gap: 24px;
+  }
+
+  .cardlist-item {
+   width: calc((100% - 48px) / 3);
   }
   .cardlist:last-child {
     display: block;
+  }
+  .cardlist-item {
+    width: calc((100% - 48px) / 3);
   }
 }
