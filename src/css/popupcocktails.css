@@ -9,7 +9,7 @@
   .container-popup {
     position: relative;
     width: 335px;
-    max-height: 905px;
+    min-height: 905px;
     padding: 40px 20px;
     margin-right: auto;
     margin-left: auto;
@@ -194,7 +194,7 @@
 @media screen and (min-width: 768px) {
   .container-popup {
     width: 600px;
-    max-height: 569px;
+    min-height: 569px;
     padding: 40px;
   }
   .box {
