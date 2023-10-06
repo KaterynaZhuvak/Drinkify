@@ -40,7 +40,7 @@ function showModalWindow(ingredientObj) {
   const { id, title, description, type, abv, flavour, country } = ingredientObj;
   const instance = basicLightbox.create(
     `
-    <div id="modal-ingredients" class="modal-in theme-dark container-popup">
+    <div id="modal-ingredients" class="modal-in theme-dark">
       <button type="button" class="modal-in-close-button close-cocktail-modal-x">
         <svg class="icon-in-close" width="11" height="11">
           <use href="${spriteURL}#cross"></use>

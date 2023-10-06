@@ -20,7 +20,7 @@ if (displayStyle === "none" || displayStyle === "") {
 }
 
 /// toggle theme
-window.addEventListener("load", modalWindowLoad);
+window.addEventListener("DOMContentLoaded", modalWindowLoad);
 
 function modalWindowLoad() {
   const bodyBlock = document.body;

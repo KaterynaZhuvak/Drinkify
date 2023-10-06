@@ -19,6 +19,7 @@ body.dark .cardlist-header {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  flex-basis: 100%;
 }
 
 .cardlist-item {
@@ -155,7 +156,7 @@ body.dark .cardlist-learn {
     flex-wrap: wrap;
     row-gap: 32px;
     justify-content: flex-start;
-    display: flex;
+
   }
 
   .cardlist-item {
@@ -204,6 +205,11 @@ body.dark .cardlist-learn {
   }
   .cardlist {
     row-gap: 44px;
+    column-gap: 24px;
+  }
+
+  .cardlist-item {
+   width: calc((100% - 48px) / 3);
   }
   .cardlist:last-child {
     display: block;
