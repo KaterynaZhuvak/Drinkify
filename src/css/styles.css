@@ -83,44 +83,6 @@ body.dark {
   }
 }
 
-@media screen and (min-width: 768px) {
-  body {
-    background-image: url('../img/background-tablet.jpg');
-  }
-  body.dark {
-    background-image: url('../img/background-tablet-dark.jpg');
-  }
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    body {
-      background-image: url('../img/background-tablet@2x.jpg');
-    }
-    body.dark {
-      background-image: url('../img/background-tablet-dark@2x.jpg');
-    }
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  body {
-    background-image: url('../img/background-desktop.jpg');
-  }
-  body.dark {
-    background-image: url('../img/background-desktop-dark.jpg');
-  }
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    body {
-      background-image: url('../img/background-desktop@2x.jpg');
-    }
-    body.dark {
-      background-image: url('../img/background-desktop-dark@2x.jpg');
-    }
-  }
-}
-
 /* Breakpoints:
 375px
 768px
@@ -168,6 +130,26 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 @media screen and (min-width: 768px) {
+  body {
+    background-image: url('../img/background-tablet.jpg');
+  }
+
+  body.dark {
+    background-image: url('../img/background-tablet-dark.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    body {
+      background-image: url('../img/background-tablet@2x.jpg');
+    }
+
+    body.dark {
+      background-image: url('../img/background-tablet-dark@2x.jpg');
+    }
+  }
+
   .container {
     width: 768px;
     padding-right: 32px;
@@ -179,6 +161,26 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 @media screen and (min-width: 1280px) {
+  body {
+    background-image: url('../img/background-desktop.jpg');
+  }
+
+  body.dark {
+    background-image: url('../img/background-desktop-dark.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    body {
+      background-image: url('../img/background-desktop@2x.jpg');
+    }
+
+    body.dark {
+      background-image: url('../img/background-desktop-dark@2x.jpg');
+    }
+  }
+
   .container {
     width: 1280px;
     padding-right: 100px;
