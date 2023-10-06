@@ -148,7 +148,7 @@ function SetupPagination(items, wrapper, per_page) {
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</a>',
       disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}} btnMargL btnMargR btnStyle">' +
+        '<span class="tui-page-btn tui-{{type}} btnMargL btnMargR btnStyle">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</span>',
       moreButton:
