@@ -2,6 +2,10 @@
   --transition-duration-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -398,6 +402,21 @@ body.dark .header-logo,
       0px 4px 10px rgba(36, 36, 36, 0.2);
   }
 
+  .sun-svg,
+  .moon-svg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    fill: var(--text-color);
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -50%);
+  }
+
+  .moon-svg {
+    transform: translate(0%, -50%);
+  }
+
   .themetoggle_reset {
     position: absolute;
     top: -8px;
@@ -422,6 +441,7 @@ body.dark .header-logo,
     top: 50%;
     left: 50%;
     transform: translate(-100%, -50%);
+    z-index: 1;
 
     transition: transform var(--transition-duration-and-func),
       background-color var(--transition-duration-and-func);
